@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<div class="container" style="width: 1000px; background-color:rgb(165, 198, 255)">
+    <header>
+        <div class="row">
+           <div class="col-12 m-1" style="border-style: solid; height: 90px;">
+            <div class="p-3">
+                <app-headerbox></app-headerbox>
+            </div>
+           </div>
+           <div class="col-12 m-1" style="border-style: solid; height: 60px;">
+            <div class="p-3">
+                <app-navi></app-navi>
+            </div>
+           </div>
+           <div class="col-12 m-1" style="border-style: solid; height: 60px;">
+            <div class="p-3">
+                <app-selectbox></app-selectbox>
+            </div>
+           </div>
+        </div>
+    </header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    <footer style="border-style: solid; min-height: 200px;">A</footer>
+</div>
