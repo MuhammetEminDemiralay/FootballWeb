@@ -1,25 +1,21 @@
-<div class="container" style="width: 1000px; background-color:rgb(165, 198, 255)">
-    <header>
+<div class="container-lg" style="background-color:rgb(233, 233, 255); width: 1034px;">
         <div class="row">
-           <div class="col-12 m-1" style="border-style: solid; height: 90px;">
-            <div class="p-3">
+           <div class="col-12 mt-2" style="border-style: solid; height: 90px;">
                 <app-headerbox></app-headerbox>
-            </div>
            </div>
-           <div class="col-12 m-1" style="border-style: solid; height: 60px;">
-            <div class="p-3">
+           <div class="col-12 mt-2" style="border-style: solid; height : 60px; background-color: rgb(26, 49, 81);">
                 <app-navi></app-navi>
-            </div>
            </div>
-           <div class="col-12 m-1" style="border-style: solid; height: 60px;">
-            <div class="p-3">
-                <app-selectbox></app-selectbox>
-            </div>
+           <div class="col-12 mt-2" style="border-style: solid; height: 60px;">
+            <app-selectbox></app-selectbox>
            </div>
+
+           <main class="mb-2">
+            <router-outlet></router-outlet>
+           </main>
+
+           <footer class="mb-2" style="border-style: solid; min-height: 80px;">
+                A
+           </footer>
         </div>
-    </header>
-    <main>
-        <router-outlet></router-outlet>
-    </main>
-    <footer style="border-style: solid; min-height: 200px;">A</footer>
 </div>

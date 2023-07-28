@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderboxComponent } from './Header/headerbox/headerbox.component';
 import { NaviComponent } from './Header/navi/navi.component';
 import { SelectboxComponent } from './Header/selectbox/selectbox.component';
+import { FootballerComponent } from './Main/footballer/footballer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderboxComponent,
     NaviComponent,
-    SelectboxComponent
+    SelectboxComponent,
+    FootballerComponent
   ],
   imports: [
     BrowserModule,
