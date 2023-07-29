@@ -1,0 +1,31 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col-1">
+            START
+        </div>
+        <div class="col-2">
+            <Select>
+                <option *ngFor="let country of countrys">{{country.countryName}}</option>
+            </Select>
+        </div>
+        <div class="col-2">
+            <Select>
+                <option *ngFor="let league of leagues">{{league.leagueName}}</option>
+            </Select>
+        </div>
+        <div class="col-2">
+            <Select>
+                <option *ngFor="let club of clubs">{{club.clubName}}</option>
+            </Select>
+        </div>
+        <div class="col-2">
+            <Select>
+                <option *ngFor="let footballer of footballers">{{footballer.name}}</option>
+            </Select>
+        </div>
+        <div class="col-3">
+            A
+        </div>
+    </div>
+</div>
+
