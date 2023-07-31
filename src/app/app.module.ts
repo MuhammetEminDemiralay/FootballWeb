@@ -20,6 +20,8 @@ import { ClubComponent } from './Components/Main/Club/club.component';
 import { ClubaddComponent } from './Components/Main/Club/ClubAdd/clubadd.component';
 import { ClubupdateComponent } from './Components/Main/Club/ClubUpdate/clubupdate.component';
 import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { HomeComponent } from './Components/Main/home/home.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { FootballerComponent } from './Components/Main/Footballer/footballer.com
     ClubComponent,
     ClubaddComponent,
     ClubupdateComponent,
+    FooterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

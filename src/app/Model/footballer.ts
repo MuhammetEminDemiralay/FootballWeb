@@ -1,5 +1,6 @@
 export interface Footballer{
     id : number,
+    clubId : number,
     countryId : number,
     cityId : number,
     transferHistoryId : number,

@@ -16,4 +16,9 @@ export class ClubService {
   getAll() : Observable<ListResponseModel<Club>>{
     return this.httpClient.get<ListResponseModel<Club>>(this.apiUrl + "Club/getall")
   }
+
+  getClubsByLeagueId(leagueId : number = 0) : Observable<ListResponseModel<Club>>{
+    return this.httpClient.get<ListResponseModel<Club>>(this.apiUrl + "Club/getClubsByLeagueId?leagueId=" + leagueId)
+  }
+
 }
