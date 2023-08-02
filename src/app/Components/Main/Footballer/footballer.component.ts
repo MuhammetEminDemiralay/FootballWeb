@@ -9,34 +9,23 @@ import { FootballerService } from 'src/app/Service/footballer.service';
   styleUrls: ['./footballer.component.css']
 })
 export class FootballerComponent implements OnInit{
-
-  constructor(private activatedRoute : ActivatedRoute,
-              private footballerService : FootballerService){}
-
-
+  
+  constructor(private activatedRoute : ActivatedRoute, private footballerService : FootballerService){}
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.footballerId = params["ıd"];
-      this.getFootballerByFootballersId();
-    })
+      this.activatedRoute.params.subscribe(params =>{
+        this.ıd = params["ıd"]
+        this.getFootballer();
+      })
   }
 
-  footballerId : number;
+  ıd : number;
   footballer : Footballer;
-  message : string;
 
-
-  getFootballerByFootballersId(){
-    this.footballerService.getFootballer(this.footballerId).subscribe(response => {
+  getFootballer(){
+    this.footballerService.getFootballer(this.ıd).subscribe(response => {
       this.footballer = response.data;
-      this.message = response.message;
-      console.log(this.footballer);
-      console.log(response.message);
-      
-            
     })
   }
-
 
 
 }

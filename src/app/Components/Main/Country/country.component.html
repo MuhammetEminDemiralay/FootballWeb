@@ -1,5 +1,33 @@
-<ul *ngFor="let league of leagues">
-    <li>
-        {{league.leagueName}}
-    </li>
-</ul>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-8">
+            <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>EUROPEAN LEAGUES AND CUP COMPETITIONS
+            </b></div>
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>level</th>
+                        <th>Müsabaka</th>
+                        <th>Kulüpler</th>
+                        <th>Oyuncu</th>
+                        <th>Forum</th>
+                        <th>Toplam Değer</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let league of leagues;">
+                        <td [style]="leagueLevel(league.leagueLevel)"></td>
+                        <td>{{league.leagueName}}</td>
+                        <td>{{league.numberOfTeams}}</td>
+                        <td>{{league.players}}</td>
+                        <td>Forum</td>
+                        <td>{{league.totalMarketValue}} milyar€</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-6 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white; height: 35px;"><b></b></div>
+            <div class="col-6"></div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

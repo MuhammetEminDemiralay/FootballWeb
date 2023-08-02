@@ -25,10 +25,7 @@ export class SelectboxComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllCountry();
-    this.getLeaguesByCountryId();
-    this.getClubsByLeagueId();
-    this.getFootballerByClubId();
-    this.getFootballerByFootballersId();
+
   }
 
   countrys : Country[] = [];
@@ -37,9 +34,9 @@ export class SelectboxComponent implements OnInit{
   footballers : Footballer[] = [];
   footballer : Footballer;
   countryId : number;
-  leagueId : number = 0;
-  clubId : number = 0;
-  footballerId : number = 0;
+  leagueId : number;
+  clubId : number;
+  footballerId : number;
 
   getAllCountry(){
     this.countryService.getAll().subscribe(response => {
@@ -58,9 +55,6 @@ export class SelectboxComponent implements OnInit{
   }  
 
   selectCountry(e : any){
-    if(this.leagueId){
-      window.location.reload();
-    }
     this.countryId = e.target.value;
     this.getLeaguesByCountryId();
   }
@@ -107,16 +101,8 @@ export class SelectboxComponent implements OnInit{
   //
 
 
-
-  getFootballerByFootballersId(){
-    this.footballerService.getFootballer(this.footballerId).subscribe(response => {
-      this.footballer = response.data;      
-    })
-  }
-
   selectFootbaler(e : any){
     this.footballerId = e.target.value;
-    this.getFootballerByFootballersId();
   }
 
   footballerRoute(){

@@ -18,7 +18,7 @@ export class LeagueService {
     return this.httpClient.get<ListResponseModel<League>>(this.apiUrl + "League/getall")
   }
 
-  getLeaguesbyCountryId(countryId : number = 0) : Observable<ListResponseModel<League>>{  
+  getLeaguesbyCountryId(countryId : number) : Observable<ListResponseModel<League>>{  
     return this.httpClient.get<ListResponseModel<League>>(this.apiUrl + "League/getLeaguesbyCountryId?countryId=" + countryId);
   }                                                                      
 }

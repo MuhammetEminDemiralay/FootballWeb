@@ -27,9 +27,23 @@ export class CountryComponent implements OnInit{
 
   getLeaguesByCountryId(){
     this.leagueService.getLeaguesbyCountryId(this.countryId).subscribe(response => {
-      this.leagues = response.data.filter(p => p.countryId == this.countryId);
+      this.leagues = response.data;     
     })
   }
+
+  leagueLevel(leagueLevel : number){
+    if(leagueLevel == 1){
+      return "background-color :#000080;"
+    }else if(leagueLevel == 2){
+      return "background-color: #1E90FF"
+    }else if(leagueLevel == 3){
+      return "background-color: #87CEFA"
+    }
+    return "background-color: yellow"
+  }
+
+
+  
 
   
 }

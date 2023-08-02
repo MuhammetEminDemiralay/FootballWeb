@@ -19,7 +19,6 @@ import { LeagueupdateComponent } from './Components/Main/League/LeagueUpdate/lea
 import { ClubComponent } from './Components/Main/Club/club.component';
 import { ClubaddComponent } from './Components/Main/Club/ClubAdd/clubadd.component';
 import { ClubupdateComponent } from './Components/Main/Club/ClubUpdate/clubupdate.component';
-import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Main/home/home.component';
 
@@ -30,7 +29,6 @@ import { HomeComponent } from './Components/Main/home/home.component';
     HeaderboxComponent,
     NaviComponent,
     SelectboxComponent,
-    FootballerComponent,
     FootballeraddComponent,
     FootballerupdateComponent,
     CountryComponent,
