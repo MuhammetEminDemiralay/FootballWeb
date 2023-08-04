@@ -22,6 +22,7 @@ import { ClubupdateComponent } from './Components/Main/Club/ClubUpdate/clubupdat
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Main/home/home.component';
 import { NationalteamComponent } from './Components/Main/nationalteam/nationalteam.component';
+import { AdminComponent } from './Components/Header/admin/admin/admin.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { NationalteamComponent } from './Components/Main/nationalteam/nationalte
     FooterComponent,
     HomeComponent,
     NationalteamComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

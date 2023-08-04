@@ -1,6 +1,6 @@
-<div class="container mt-2">
+<div class="container mt-2" style="padding-left: 0px;">
     <div class="row">
-        <div class="col-8">
+        <div class="col-8 pl-0">
             <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>EUROPEAN LEAGUES AND CUP COMPETITIONS</b></div>
             <table class="table mb-0">
                 <thead>
@@ -11,6 +11,7 @@
                         <th>Oyuncu</th>
                         <th>Forum</th>
                         <th>Toplam Değer</th>
+                        <th *ngIf="1">Editör</th>
                    </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,11 @@
                         <td>{{league.players}}</td>
                         <td>Forum</td>
                         <td>{{league.totalMarketValue}} milyar€</td>
+                        <td *ngIf="1">
+                            <button id="add" data-bs-toggle="modal" data-bs-target="#leagueAdd">+</button>
+                            <button id="remove" (click)="leagueDelete(league)">-</button>
+                            <button id="update">?</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -41,3 +47,22 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+<div class="modal" tabindex="-1" id="leagueAdd">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">League Add</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-countryadd [countryId]="countryId"></app-countryadd>
+        </div>
+      </div>
+    </div>
+  </div>

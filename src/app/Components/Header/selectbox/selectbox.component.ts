@@ -60,6 +60,7 @@ export class SelectboxComponent implements OnInit{
   }
  
   countryRoute(){
+
     this.router.navigate(["/country", this.countryId])
   }
 

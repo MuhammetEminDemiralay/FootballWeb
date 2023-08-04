@@ -4,6 +4,8 @@ import { environment } from 'src/Environment/environment';
 import { ListResponseModel } from '../Model/listResponseModel';
 import { NationalTeam } from '../Model/nationalTeam';
 import { Observable } from 'rxjs';
+import { League } from '../Model/league';
+import { ResponseModel } from '../Model/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,8 @@ export class NationalteamService {
   getNationalTeamByCountryId(countryId : number) : Observable<ListResponseModel<NationalTeam>>{
     return this.httpClient.get<ListResponseModel<NationalTeam>>(this.apiUrl + "NationaTeam/getnationalteamsbycountryıd?countryId=" + countryId);
   }
+
+
 
 
 }

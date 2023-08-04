@@ -56,6 +56,13 @@ export class CountryComponent implements OnInit{
     })
   }
 
+  leagueDelete(league : League){
+    this.leagueService.deleteLeague(league).subscribe(response => {
+      console.log(response.message);
+      window.location.reload();
+    })
+  }
+
   
 
   

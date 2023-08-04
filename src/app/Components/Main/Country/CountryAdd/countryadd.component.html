@@ -1,1 +1,34 @@
-<p>countryadd works!</p>
+<form [formGroup]="leagueAddForm">
+    <div>
+        <label>League Name</label><br>
+        <input type="text" formControlName="leagueName">
+    </div>  
+    <div>
+        <label>Number of Teams</label><br>
+        <input type="number" formControlName="numberOfTeams">
+    </div>
+    <div>
+        <label>Total Market Value</label><br>
+        <input type="number" formControlName="totalMarketValue">
+    </div>
+    <div>
+        <label>Players</label><br>
+        <input type="number" formControlName="players">
+    </div>
+    <div>
+        <label>Leage Level</label><br>
+        <input type="number" formControlName="leagueLevel">
+    </div>
+    <div>
+        <label>Reigning Champion</label><br>
+        <input type="number" formControlName="reigningChampion">
+    </div><br>
+    <div>
+        <button (click)="leagueAdd()">League add</button>
+    </div>
+</form>
+
+
+
+
+
