@@ -5,6 +5,7 @@ import { environment } from 'src/Environment/environment';
 import { ListResponseModel } from '../Model/listResponseModel';
 import { League } from '../Model/league';
 import { ResponseModel } from '../Model/responseModel';
+import { SingleResponseModel } from '../Model/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,14 @@ export class LeagueService {
 
   deleteLeague(league : League) : Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "League/delete", league);
+  }
+
+  getLeague(leagueId : number) : Observable<SingleResponseModel<League>>{
+    return this.httpClient.get<SingleResponseModel<League>>(this.apiUrl + "League/get?id=" + leagueId)
+  }
+
+  leagueUpdate(league : League) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "League/update", league)
   }
   
 }

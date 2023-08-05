@@ -22,10 +22,10 @@
                         <td>{{league.players}}</td>
                         <td>Forum</td>
                         <td>{{league.totalMarketValue}} milyar€</td>
-                        <td *ngIf="1">
+                        <td>
                             <button id="add" data-bs-toggle="modal" data-bs-target="#leagueAdd">+</button>
                             <button id="remove" (click)="leagueDelete(league)">-</button>
-                            <button id="update">?</button>
+                            <button id="update" (click)="getLeague(league.id)" data-bs-toggle="modal" data-bs-target="#leagueUpdate">?</button>
                         </td>
                     </tr>
                 </tbody>
@@ -52,6 +52,9 @@
 
 
 
+<!-- MODAL -->
+
+<!-- League Add -->
 
 <div class="modal" tabindex="-1" id="leagueAdd">
     <div class="modal-dialog">
@@ -66,3 +69,22 @@
       </div>
     </div>
   </div>
+
+
+ <!-- League Update --> 
+
+ 
+<div class="modal" tabindex="-1" id="leagueUpdate">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">League Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-countryupdate [leagueId]="leagueId"></app-countryupdate>
+        </div>
+      </div>
+    </div>
+  </div>
+

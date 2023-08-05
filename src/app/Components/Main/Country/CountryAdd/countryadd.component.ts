@@ -17,8 +17,8 @@ export class CountryaddComponent implements OnInit{
   ngOnInit(): void {
   this.createLeagueAddForm()
   }
-  @Input() countryId;
-  leagueAddForm: FormGroup;
+  @Input() countryId : number;
+  leagueAddForm : FormGroup;
 
   createLeagueAddForm(){
     this.leagueAddForm = this.formBuilder.group({

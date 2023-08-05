@@ -6,6 +6,7 @@ import { HomeComponent } from './Components/Main/home/home.component';
 import { LeagueComponent } from './Components/Main/League/league.component';
 import { ClubComponent } from './Components/Main/Club/club.component';
 import { NationalteamComponent } from './Components/Main/nationalteam/nationalteam.component';
+import { CountryupdateComponent } from './Components/Main/Country/CountryUpdate/countryupdate.component';
 
 const routes: Routes = [
   {path : "", redirectTo:"/home", pathMatch:"full"},
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path : "league/:ıd", component : LeagueComponent},
   {path : "club/:ıd", component : ClubComponent},
   {path : "footballer/:ıd", component : FootballerComponent},
-  {path : "nationalTeam/:ıd", component : NationalteamComponent}
+  {path : "nationalTeam/:ıd", component : NationalteamComponent},
 
 
 ];

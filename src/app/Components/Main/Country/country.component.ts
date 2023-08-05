@@ -15,7 +15,8 @@ export class CountryComponent implements OnInit{
 
   constructor(private activatedRoute : ActivatedRoute,
               private leagueService : LeagueService,
-              private nationalTeamService: NationalteamService
+              private nationalTeamService: NationalteamService,
+              private router : Router
               ){}
 
   ngOnInit(): void {
@@ -27,8 +28,10 @@ export class CountryComponent implements OnInit{
   }
 
   countryId : number;
+  league : League;
   leagues : League[] = [];
   nationalTeams : NationalTeam[] = [];
+  
 
   getLeaguesByCountryId(){
     this.leagueService.getLeaguesbyCountryId(this.countryId).subscribe(response => {
@@ -63,7 +66,11 @@ export class CountryComponent implements OnInit{
     })
   }
 
-  
+  leagueId : number;
+  getLeague(leagueId : number){
+    this.leagueId = leagueId    
+  }
 
+ 
   
 }
