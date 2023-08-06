@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Model/country';
@@ -30,7 +31,10 @@ export class CountryComponent implements OnInit{
   countryId : number;
   league : League;
   leagues : League[] = [];
+  leagueId : number;
+
   nationalTeams : NationalTeam[] = [];
+  nationalTeamId : number;
   
 
   getLeaguesByCountryId(){
@@ -61,16 +65,25 @@ export class CountryComponent implements OnInit{
 
   leagueDelete(league : League){
     this.leagueService.deleteLeague(league).subscribe(response => {
-      console.log(response.message);
       window.location.reload();
     })
   }
 
-  leagueId : number;
-  getLeague(leagueId : number){
+  getLeagueId(leagueId : number){
     this.leagueId = leagueId    
   }
+  
+  getNationalTeam(nationalTeamId){
+    this.nationalTeamId = nationalTeamId;  
+  }
 
+  removeNationalTeam(nationalTeam : NationalTeam){
+    this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
+      window.location.reload();
+    })
+  }
+
+  
  
   
 }

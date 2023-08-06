@@ -1,0 +1,31 @@
+<form [formGroup]="nationalTeamAddForm">
+    <div>
+        <label>National Team Level</label><br>
+        <input type="number" formControlName="nationalTeamLevel">
+    </div>
+    <div>
+        <label>National Team Name</label><br>
+        <input type="text" formControlName="nationalTeamName">
+    </div>
+    <div>
+        <label>National Team Picture</label><br>
+        <input type="text" formControlName="nationalTeamPicture">
+    </div>
+    <div>
+        <label>Squad Size</label><br>
+        <input type="number" formControlName="squadSize">
+    </div>
+    <div>
+        <label>Average Age</label><br>
+        <input type="number" formControlName="averageAge">
+    </div>
+    <div>
+        <label>Market Value</label><br>
+        <input type="number" formControlName="marketValue">
+    </div>
+    <br>
+    <div>
+        <button (click)="nationalTeamAdd()">National Team Add</button>
+    </div>
+</form>
+

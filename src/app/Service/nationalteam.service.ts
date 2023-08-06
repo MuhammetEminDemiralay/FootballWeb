@@ -17,10 +17,20 @@ export class NationalteamService {
   apiUrl = environment.apiUrl;
 
   getNationalTeamByCountryId(countryId : number) : Observable<ListResponseModel<NationalTeam>>{
-    return this.httpClient.get<ListResponseModel<NationalTeam>>(this.apiUrl + "NationaTeam/getnationalteamsbycountryıd?countryId=" + countryId);
+    return this.httpClient.get<ListResponseModel<NationalTeam>>(this.apiUrl + "NationalTeam/getnationalteamsbycountryıd?countryId=" + countryId);
   }
 
+  addNationalTeam(nationalTeam : NationalTeam) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "NationalTeam/add", nationalTeam)
+  }
 
+  deleteNationalTeam(nationalTeam : NationalTeam) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "NationalTeam/delete", nationalTeam)
+  }
+
+  updateNationalTeam(nationalTeam : NationalTeam) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "NationalTeam/update", nationalTeam)
+  }
 
 
 }

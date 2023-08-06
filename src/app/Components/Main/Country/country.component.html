@@ -25,7 +25,7 @@
                         <td>
                             <button id="add" data-bs-toggle="modal" data-bs-target="#leagueAdd">+</button>
                             <button id="remove" (click)="leagueDelete(league)">-</button>
-                            <button id="update" (click)="getLeague(league.id)" data-bs-toggle="modal" data-bs-target="#leagueUpdate">?</button>
+                            <button id="update" (click)="getLeagueId(league.id)" data-bs-toggle="modal" data-bs-target="#leagueUpdate">?</button>
                         </td>
                     </tr>
                 </tbody>
@@ -41,8 +41,13 @@
         </div>
         <div class="col-4 px-0">
             <div class="col-12 py-1 px-0" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>NATİONAL TEAM</b></div>
-            <ul class="list-group" style="border-radius: 0px;" *ngFor="let nationalTeams of nationalTeams">
-                <li class="list-group-item list-group-item-action" style="height: 50px;"><a routerLink="/nationalTeam/{{nationalTeams.id}}" style="text-decoration: none;">{{nationalTeams.nationalTeamName}}</a></li>
+            <ul class="list-group" style="border-radius: 0px;" *ngFor="let nationalTeam of nationalTeams">
+                <li class="list-group-item list-group-item-action" style="height: 50px;">
+                  <a routerLink="/nationalTeam/{{nationalTeam.id}}" style="text-decoration: none;">{{nationalTeam.nationalTeamName}}</a>
+                  <button id="add" data-bs-toggle="modal" data-bs-target="#nationalTeamAdd">+</button>
+                  <button id="remove" (click)="removeNationalTeam(nationalTeam)">-</button>
+                  <button id="update" (click)="getNationalTeam(nationalTeam.id)" data-bs-toggle="modal" data-bs-target="#nationalTeamUpdate">?</button>
+                </li>
             </ul>
         </div>
     </div>
@@ -75,7 +80,7 @@
 
  
 <div class="modal" tabindex="-1" id="leagueUpdate">
-    <div class="modal-dialog">
+    <div  class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">League Update</h5>
@@ -87,4 +92,42 @@
       </div>
     </div>
   </div>
+
+
+
+  <!-- National team add-->
+
+  <div class="modal" tabindex="-1" id="nationalTeamAdd">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">National Team Add</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-nationalteamadd [countryId]="countryId"></app-nationalteamadd>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- National Team Update -->
+
+   
+<div class="modal" tabindex="-1" id="nationalTeamUpdate">
+  <div  class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">National Team Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <app-nationalteamupdate [nationalTeamId]="nationalTeamId"></app-nationalteamupdate>
+      </div>
+    </div>
+  </div>
+</div>
 

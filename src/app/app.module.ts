@@ -11,8 +11,8 @@ import { SelectboxComponent } from './Components/Header/selectbox/selectbox.comp
 import { FootballeraddComponent } from './Components/Main/Footballer/FootballerAdd/footballeradd.component';
 import { FootballerupdateComponent } from './Components/Main/Footballer/FootballerUpdate/footballerupdate.component';
 import { CountryComponent } from './Components/Main/Country/country.component';
-import { CountryaddComponent } from './Components/Main/Country/CountryAdd/countryadd.component';
-import { CountryupdateComponent } from './Components/Main/Country/CountryUpdate/countryupdate.component';
+import { CountryaddComponent } from './Components/Main/Country/LeagueAdd/countryadd.component';
+import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/countryupdate.component';
 import { LeagueComponent } from './Components/Main/League/league.component';
 import { LeagueaddComponent } from './Components/Main/League/LeagueAdd/leagueadd.component';
 import { LeagueupdateComponent } from './Components/Main/League/LeagueUpdate/leagueupdate.component';
@@ -23,6 +23,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Main/home/home.component';
 import { NationalteamComponent } from './Components/Main/nationalteam/nationalteam.component';
 import { AdminComponent } from './Components/Header/admin/admin/admin.component';
+import { NationalteamupdateComponent } from './Components/Main/Country/NationalTeamUpdate/nationalteamupdate.component';
+import { NationalteamaddComponent } from './Components/Main/Country/NationalTeamAdd/nationalteamadd.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { AdminComponent } from './Components/Header/admin/admin/admin.component'
     HomeComponent,
     NationalteamComponent,
     AdminComponent,
+    NationalteamupdateComponent,
+    NationalteamaddComponent
   ],
   imports: [
     BrowserModule,
