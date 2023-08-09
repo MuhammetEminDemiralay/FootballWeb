@@ -29,4 +29,10 @@ export class LeagueComponent implements OnInit{
     })
   }
 
+  filechange(event : any){
+    let file = event.target.value;
+    console.log(event);
+    
+  }
+
 }

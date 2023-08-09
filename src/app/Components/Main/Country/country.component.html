@@ -14,18 +14,19 @@
                         <th *ngIf="1">Editör</th>
                    </tr>
                 </thead>
+                
                 <tbody>
                     <tr *ngFor="let league of leagues;"  style="border:1px solid grey">
-                        <td [style]="leagueLevel(league.leagueLevel)"></td>
+                        <td [style]="leagueLevel(league.leagueLevel)"><img style="width: 40px;" [src]="imageUrl + league.leagueImagePath"></td>
                         <td><a routerLink="/league/{{league.id}}">{{league.leagueName}}</a></td>
                         <td>{{league.numberOfTeams}}</td>
                         <td>{{league.players}}</td>
                         <td>Forum</td>
                         <td>{{league.totalMarketValue}} milyar€</td>
                         <td>
-                            <button id="add" data-bs-toggle="modal" data-bs-target="#leagueAdd">+</button>
-                            <button id="remove" (click)="leagueDelete(league)">-</button>
-                            <button id="update" (click)="getLeagueId(league.id)" data-bs-toggle="modal" data-bs-target="#leagueUpdate">?</button>
+                            <button class="add" data-bs-toggle="modal" data-bs-target="#leagueAdd">+</button>
+                            <button class="remove" (click)="leagueDelete(league)">-</button>
+                            <button class="update" (click)="getLeagueId(league.id)" data-bs-toggle="modal" data-bs-target="#leagueUpdate">?</button>
                         </td>
                     </tr>
                 </tbody>
@@ -41,12 +42,15 @@
         </div>
         <div class="col-4 px-0">
             <div class="col-12 py-1 px-0" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>NATİONAL TEAM</b></div>
-            <ul class="list-group" style="border-radius: 0px;" *ngFor="let nationalTeam of nationalTeams">
+            <ul class="list-group" style="border-radius: 0px;" *ngFor="let nationalTeamDetail of nationalTeams">
                 <li class="list-group-item list-group-item-action" style="height: 50px;">
-                  <a routerLink="/nationalTeam/{{nationalTeam.id}}" style="text-decoration: none;">{{nationalTeam.nationalTeamName}}</a>
-                  <button id="add" data-bs-toggle="modal" data-bs-target="#nationalTeamAdd">+</button>
-                  <button id="remove" (click)="removeNationalTeam(nationalTeam)">-</button>
-                  <button id="update" (click)="getNationalTeam(nationalTeam.id)" data-bs-toggle="modal" data-bs-target="#nationalTeamUpdate">?</button>
+                  <div>
+                    <img style="width: 40px;" [src]="imageUrl + nationalTeamDetail.countryImagePath">
+                    <a routerLink="/nationalTeam/{{nationalTeamDetail.id}}" style="text-decoration: none;">{{nationalTeamDetail.nationalTeamName}}</a>
+                    <button class="add" data-bs-toggle="modal" data-bs-target="#nationalTeamAdd">+</button>
+                    <!-- <button class="remove" (click)="removeNationalTeam(nationalTeam)">-</button> -->
+                    <button class="update" (click)="getNationalTeam(nationalTeamDetail.id)" data-bs-toggle="modal" data-bs-target="#nationalTeamUpdate">?</button>
+                  </div>
                 </li>
             </ul>
         </div>

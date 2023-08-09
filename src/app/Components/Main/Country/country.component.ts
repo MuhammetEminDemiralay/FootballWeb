@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Model/country';
 import { League } from 'src/app/Model/league';
+import { LeagueDetail } from 'src/app/Model/leagueDetail';
 import { NationalTeam } from 'src/app/Model/nationalTeam';
+import { NationalTeamDetail } from 'src/app/Model/nationalTeamDetail';
 import { LeagueService } from 'src/app/Service/league.service';
 import { NationalteamService } from 'src/app/Service/nationalteam.service';
 
@@ -29,17 +31,20 @@ export class CountryComponent implements OnInit{
   }
 
   countryId : number;
-  league : League;
-  leagues : League[] = [];
   leagueId : number;
 
-  nationalTeams : NationalTeam[] = [];
+  league : League;
+  leagues : LeagueDetail[] = [];
+
+  imageUrl = "https://localhost:44319/"
+
+  nationalTeams : NationalTeamDetail[] = [];
   nationalTeamId : number;
   
 
   getLeaguesByCountryId(){
     this.leagueService.getLeaguesbyCountryId(this.countryId).subscribe(response => {
-      this.leagues = response.data;     
+      this.leagues = response.data;  
     })
   }
 
@@ -77,11 +82,11 @@ export class CountryComponent implements OnInit{
     this.nationalTeamId = nationalTeamId;  
   }
 
-  removeNationalTeam(nationalTeam : NationalTeam){
-    this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
-      window.location.reload();
-    })
-  }
+  // removeNationalTeam(nationalTeam : NationalTeam){
+  //   this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
+  //     window.location.reload();
+  //   })
+  // }
 
   
  

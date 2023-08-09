@@ -6,6 +6,7 @@ import { ListResponseModel } from '../Model/listResponseModel';
 import { League } from '../Model/league';
 import { ResponseModel } from '../Model/responseModel';
 import { SingleResponseModel } from '../Model/singleResponseModel';
+import { LeagueDetail } from '../Model/leagueDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class LeagueService {
     return this.httpClient.get<ListResponseModel<League>>(this.apiUrl + "League/getall")
   }
 
-  getLeaguesbyCountryId(countryId : number) : Observable<ListResponseModel<League>>{  
-    return this.httpClient.get<ListResponseModel<League>>(this.apiUrl + "League/getLeaguesbyCountryId?countryId=" + countryId);
+  getLeaguesbyCountryId(countryId : number) : Observable<ListResponseModel<LeagueDetail>>{  
+    return this.httpClient.get<ListResponseModel<LeagueDetail>>(this.apiUrl + "League/getLeaguesDetailbyCountryId?countryId=" + countryId);
   }     
   
   addLeague(league : League) : Observable<ResponseModel>{

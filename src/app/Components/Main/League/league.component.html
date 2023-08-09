@@ -1,5 +1,53 @@
-<ul *ngFor="let club of clubs">
-    <li>
-        {{club.clubName}}
-    </li>
-</ul>
+<div class="container mt-2"  style="padding-left: 0px;">
+    <div class="row mt-2" style="border-style: solid; height: 260px;">
+        <div class="col-8">
+             <div class="row">
+                  <div class="col-12" style="height: 57px; border-style: solid;"><h1>SÜPER LİG</h1></div>
+             </div>
+             <div class="row">
+                  <div class="col-3" style="height: 198px; border-style: solid;">lİG LOGO RESİM</div>
+                  <div class="col-9" style="height: 198px; border-style: solid">
+                       <div class="col" style="height: 120px;"></div>
+                       <div class="col" style="height: 68px; border-style: solid">Oyuncu Özellikleri</div>
+                  </div>
+             </div>
+        </div>
+        <div class="col-4">
+             <div class="row">
+                  <div class="col-12" style="height:170.6px; border-style: solid">
+                       
+                  </div>
+                  <div class="col-12" style="height:85.3px; border-style: solid;">
+                       a
+                  </div>
+             </div>
+        </div>
+  </div>
+    <div class="row">
+        <div class="col-8 pl-0">
+            <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>CLUB-SUPER LİG 23/24</b></div>
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>Klüp</th>
+                        <th>Kadro</th>
+                        <th>Yaş</th>
+                        <th>Lejyonerler</th>
+                        <th>Kadro Değeri</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let club of clubs">
+                    <tr>
+                        <td><a routerLink="/club/{{club.id}}">{{club.clubName}}</a></td>
+                        <td>{{club.squadSize}}</td>
+                        <td>{{club.averageAge}}</td>
+                        <td>{{club.foreigners}}</td>
+                        <td>{{club.clubMarketValue}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<br>
