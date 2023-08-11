@@ -17,7 +17,7 @@ export class NationalteamService {
   constructor(private httpClient : HttpClient) { }
   apiUrl = environment.apiUrl;
 
-  getNationalTeamByCountryId(countryId : number) : Observable<ListResponseModel<NationalTeamDetail>>{
+  getNationalTeamDetailByCountryId(countryId : number) : Observable<ListResponseModel<NationalTeamDetail>>{
     return this.httpClient.get<ListResponseModel<NationalTeamDetail>>(this.apiUrl + "NationalTeam/getnationalteamDetailbycountryıd?countryId=" + countryId);
   }
 

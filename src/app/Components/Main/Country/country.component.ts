@@ -43,7 +43,7 @@ export class CountryComponent implements OnInit{
   
 
   getLeaguesByCountryId(){
-    this.leagueService.getLeaguesbyCountryId(this.countryId).subscribe(response => {
+    this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
       this.leagues = response.data;  
     })
   }
@@ -63,7 +63,7 @@ export class CountryComponent implements OnInit{
 
 
   getNationalTeamsByCountryId(){
-    this.nationalTeamService.getNationalTeamByCountryId(this.countryId).subscribe(response => {
+    this.nationalTeamService.getNationalTeamDetailByCountryId(this.countryId).subscribe(response => {
       this.nationalTeams = response.data;
     })
   }

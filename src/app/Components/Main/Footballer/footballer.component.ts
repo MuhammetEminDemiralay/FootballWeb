@@ -14,8 +14,9 @@ export class FootballerComponent implements OnInit{
   ngOnInit(): void {
       this.activatedRoute.params.subscribe(params =>{
         this.ıd = params["ıd"]
-        this.getFootballer();
       })
+      this.getFootballer();
+
   }
 
   ıd : number;

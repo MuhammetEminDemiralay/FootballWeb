@@ -21,10 +21,6 @@ export class LeagueService {
     return this.httpClient.get<ListResponseModel<League>>(this.apiUrl + "League/getall")
   }
 
-  getLeaguesbyCountryId(countryId : number) : Observable<ListResponseModel<LeagueDetail>>{  
-    return this.httpClient.get<ListResponseModel<LeagueDetail>>(this.apiUrl + "League/getLeaguesDetailbyCountryId?countryId=" + countryId);
-  }     
-  
   addLeague(league : League) : Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "League/add", league)
   }
@@ -33,8 +29,12 @@ export class LeagueService {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "League/delete", league);
   }
 
-  getLeague(leagueId : number) : Observable<SingleResponseModel<League>>{
-    return this.httpClient.get<SingleResponseModel<League>>(this.apiUrl + "League/get?id=" + leagueId)
+  getLeaguesDetailByCountryId(countryId : number) : Observable<ListResponseModel<LeagueDetail>>{  
+    return this.httpClient.get<ListResponseModel<LeagueDetail>>(this.apiUrl + "League/getLeaguesDetailbyCountryId?countryId=" + countryId);
+  }     // Selectbox ve country component
+  
+  getLeagueDetailByLeagueId(leagueId : number) : Observable<SingleResponseModel<LeagueDetail>>{
+    return this.httpClient.get<SingleResponseModel<LeagueDetail>>(this.apiUrl + "League/getLeagueDetailByLeagueId?leagueId=" + leagueId)
   }
 
   leagueUpdate(league : League) : Observable<ResponseModel>{

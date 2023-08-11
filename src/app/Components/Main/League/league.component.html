@@ -1,14 +1,17 @@
 <div class="container mt-2"  style="padding-left: 0px;">
     <div class="row mt-2" style="border-style: solid; height: 260px;">
-        <div class="col-8">
+        <div class="col-8"  *ngIf="leagueDetail">
              <div class="row">
-                  <div class="col-12" style="height: 57px; border-style: solid;"><h1>SÜPER LİG</h1></div>
+                  <div class="col-12" style="height: 57px; color: #1a3151;"><h1><b>{{leagueDetail.leagueName}}</b></h1></div>
              </div>
              <div class="row">
-                  <div class="col-3" style="height: 198px; border-style: solid;">lİG LOGO RESİM</div>
-                  <div class="col-9" style="height: 198px; border-style: solid">
+                  <div class="col-3" style="height: 198px; background-color: white;"><img style="width: 150px;" [src]="imageUrl + leagueDetail.leagueImagePath"></div>
+                  <div class="col-9" style="height: 198px; padding: 0px;">
                        <div class="col" style="height: 120px;"></div>
-                       <div class="col" style="height: 68px; border-style: solid">Oyuncu Özellikleri</div>
+                       <div class="col p-1" style="height: 78px; background-color:white;">
+                            <div class="col-6">Number of teams : <b>{{leagueDetail.numberOfTeams}}</b></div>
+                            <div class="col-6">Players : <b>{{leagueDetail.players}}</b></div>
+                       </div>
                   </div>
              </div>
         </div>
@@ -23,12 +26,13 @@
              </div>
         </div>
   </div>
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-8 pl-0">
             <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>CLUB-SUPER LİG 23/24</b></div>
             <table class="table mb-0">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Klüp</th>
                         <th>Kadro</th>
                         <th>Yaş</th>
@@ -38,6 +42,7 @@
                 </thead>
                 <tbody *ngFor="let club of clubs">
                     <tr>
+                        <td><img style="width: 50px;" [src]="imageUrl + club.clubImagePath"></td>
                         <td><a routerLink="/club/{{club.id}}">{{club.clubName}}</a></td>
                         <td>{{club.squadSize}}</td>
                         <td>{{club.averageAge}}</td>

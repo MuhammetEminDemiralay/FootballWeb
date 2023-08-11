@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Club } from 'src/app/Model/club';
+import { ClubDetail } from 'src/app/Model/clubDetail';
 import { Country } from 'src/app/Model/country';
 import { Footballer } from 'src/app/Model/footballer';
 import { League } from 'src/app/Model/league';
+import { LeagueDetail } from 'src/app/Model/leagueDetail';
 import { ClubService } from 'src/app/Service/club.service';
 import { CountryService } from 'src/app/Service/country.service';
 import { FootballerService } from 'src/app/Service/footballer.service';
@@ -28,8 +30,8 @@ export class SelectboxComponent implements OnInit{
   }
 
   countrys : Country[] = [];
-  leagues : League[] = [];
-  clubs : Club[] = [];
+  leagues : LeagueDetail[] = [];
+  clubs : ClubDetail[] = [];
   footballers : Footballer[] = [];
   footballer : Footballer;
   countryId : number;
@@ -47,15 +49,15 @@ export class SelectboxComponent implements OnInit{
 
 
 
-  getLeaguesByCountryId(){
-    this.leagueService.getLeaguesbyCountryId(this.countryId).subscribe(response => {
+  getLeaguesDetailByCountryId(){
+    this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
       this.leagues = response.data;
     })
   }  
 
   selectCountry(e : any){
     this.countryId = e.target.value;
-    this.getLeaguesByCountryId();
+    this.getLeaguesDetailByCountryId();
   }
  
   countryRoute(){
@@ -64,15 +66,15 @@ export class SelectboxComponent implements OnInit{
 
   //
 
-  getClubsByLeagueId(){
-    this.clubService.getClubsByLeagueId(this.leagueId).subscribe(response => {
+  getClubsDetailByLeagueId(){
+    this.clubService.getClubsDetailByLeagueId(this.leagueId).subscribe(response => {
       this.clubs = response.data;
     })
   }
 
   selectLeague(e : any){
     this.leagueId = e.target.value;
-    this.getClubsByLeagueId();
+    this.getClubsDetailByLeagueId();
   }
 
   leagueRoute(){
