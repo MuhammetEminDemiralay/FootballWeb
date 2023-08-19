@@ -17,7 +17,9 @@
                 
                 <tbody>
                     <tr *ngFor="let league of leagues;"  style="border:1px solid grey">
-                        <td [style]="leagueLevel(league.leagueLevel)"><img style="width: 40px;" [src]="imageUrl + league.leagueImagePath"></td>
+                        <td [style]="leagueLevel(league.leagueLevel)">
+                          <img style="width: 40px;" [src]="imageUrl + league.leagueImagePath">
+                        </td>
                         <td><a routerLink="/league/{{league.id}}">{{league.leagueName}}</a></td>
                         <td>{{league.numberOfTeams}}</td>
                         <td>{{league.players}}</td>

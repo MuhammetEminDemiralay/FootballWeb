@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/Environment/environment';
 import { ListResponseModel } from '../Model/listResponseModel';
 import { Country } from '../Model/country';
+import { SingleResponseModel } from '../Model/singleResponseModel';
+import { CountryImage } from '../Model/countryImage';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,10 @@ export class CountryService {
 
   getAll() : Observable<ListResponseModel<Country>>{
     return this.httpClient.get<ListResponseModel<Country>>(this.apiUrl + "Country/getall");
+  }
+
+  getImageByCountryId(countryId : number) : Observable<SingleResponseModel<CountryImage>>{
+    return this.httpClient.get<SingleResponseModel<CountryImage>>(this.apiUrl + "CountryImage/getImageByCountryId?countryId=" + countryId)
   }
 
 }
