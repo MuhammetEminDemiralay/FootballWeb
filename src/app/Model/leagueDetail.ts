@@ -1,6 +1,5 @@
 export interface LeagueDetail{
     id : number,
-    leagueId : number,
     countryId : number,
     leagueImageId : number,
     leagueImagePath : string,

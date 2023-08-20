@@ -1,8 +1,8 @@
 export interface Club{
     id : number,
-    clubId : number,
+    leagueId : number,
+    countryId : number,
     clubName : string,
-    clubImage : string,
     squadSize : number,
     averageAge : number,
     nationalTeamPlayers : number,

@@ -1,7 +1,7 @@
 export interface ClubDetail{
     id: number,
     leagueId : number,
-    clubId : number,
+    countryId : number,
     clubImageId : number,
     clubImagePath : string,
     date : Date,

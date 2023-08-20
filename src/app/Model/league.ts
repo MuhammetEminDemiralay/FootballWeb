@@ -1,8 +1,8 @@
 export interface League{
     id : number,
+    countryId : number,
     leagueName : string,
     numberOfTeams : number,
-    countryId : number,
     totalMarketValue : number,
     players : number,
     leagueLevel : number,

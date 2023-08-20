@@ -27,7 +27,6 @@ export class LeagueComponent implements OnInit{
       this.getClubsDetailByLeagueId()
       this.getLeagueDetailByLeagueId();
     })
-
   }
 
   clubs : ClubDetail[] = [];
