@@ -1,14 +1,22 @@
 <div class="container">
     <div class="row mt-2" style="border-style: solid; height: 260px;">
-        <div class="col-8">
+        <div class="col-8" *ngIf="clubDetail">
              <div class="row">
-                  <div class="col-12" style="height: 57px; border-style: solid;"><h1>Club</h1></div>
+                  <div class="col-12" style="height: 57px; border-style: solid;"><h1>{{clubDetail.clubName}}</h1></div>
              </div>
              <div class="row">
-                  <div class="col-3" style="height: 198px; border-style: solid;">lİG LOGO RESİM</div>
+                  <div class="col-3" style="height: 198px; border-style: solid;">
+                       <img style="width: 150px;" [src]="imageUrl + clubDetail.clubImagePath" alt="lig logo">   
+                  </div>
                   <div class="col-9" style="height: 198px; border-style: solid">
                        <div class="col" style="height: 120px;"></div>
-                       <div class="col" style="height: 68px; border-style: solid">Oyuncu Özellikleri</div>
+                       <div class="col" style="height: 68px; border-style: solid">
+                              <label>Kadro genişliği : <b>{{clubDetail.squadSize}}</b></label> ---
+                              <label>Güncel Milli oyuncular : <b>{{clubDetail.nationalTeamPlayers}}</b></label><br>
+                              <label>Yaş ortalaması : <b>{{clubDetail.averageAge}}</b></label> --- 
+                              <label>Stat : <b>{{clubDetail.stadiumName}}</b> ({{clubDetail.stadiumCapacity}}) kapasite</label>
+                              <label>Lejyonerler : <b>{{clubDetail.foreigners}}</b></label>
+                       </div>
                   </div>
              </div>
         </div>
@@ -24,8 +32,9 @@
         </div>
   </div>
 </div>
-<ul *ngFor="let footballer of footballers">
+<ul *ngFor="let footballerDetail of footballersDetail">
     <li>
-        <a href="/footballer/{{footballer.id}}">{{footballer.name}}</a>
+          <img [src]="imageUrl + footballerDetail.footballerImagePath">
+          <a href="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
     </li>
 </ul>

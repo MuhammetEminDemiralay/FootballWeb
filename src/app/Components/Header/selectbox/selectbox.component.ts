@@ -4,6 +4,7 @@ import { Club } from 'src/app/Model/club';
 import { ClubDetail } from 'src/app/Model/clubDetail';
 import { Country } from 'src/app/Model/country';
 import { Footballer } from 'src/app/Model/footballer';
+import { FootballerDetail } from 'src/app/Model/footballerDetail';
 import { League } from 'src/app/Model/league';
 import { LeagueDetail } from 'src/app/Model/leagueDetail';
 import { ClubService } from 'src/app/Service/club.service';
@@ -32,7 +33,7 @@ export class SelectboxComponent implements OnInit{
   countrys : Country[] = [];
   leagues : LeagueDetail[] = [];
   clubs : ClubDetail[] = [];
-  footballers : Footballer[] = [];
+  footballers : FootballerDetail[] = [];
   footballer : Footballer;
   countryId : number;
   leagueId : number;
@@ -84,7 +85,7 @@ export class SelectboxComponent implements OnInit{
   //
 
   getFootballerByClubId(){
-    this.footballerService.getFootballersByClubId(this.clubId).subscribe(response => {
+    this.footballerService.getFootballersDetailByClubId(this.clubId).subscribe(response => {
       this.footballers = response.data;      
     })
   }
