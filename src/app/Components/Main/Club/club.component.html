@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row mt-2" style="border-style: solid; height: 260px;">
-        <div class="col-8" *ngIf="clubDetail">
+    <div class="row mt-2" style="border-style: solid; height: 260px;" *ngIf="clubDetail">
+        <div class="col-8" >
              <div class="row">
                   <div class="col-12" style="height: 57px; border-style: solid;"><h1>{{clubDetail.clubName}}</h1></div>
              </div>
@@ -25,16 +25,44 @@
                   <div class="col-12" style="height:170.6px; border-style: solid">
                        
                   </div>
-                  <div class="col-12" style="height:85.3px; border-style: solid;">
-                       a
+                  <div class="col-12" style="text-align: center; padding-top: 20px; height:85.3px; border-style: solid; background-color: #089fdb; color: white;">
+                       <h2>{{clubDetail.clubMarketValue}} milyar $</h2>
                   </div>
              </div>
-        </div>
+        </div> 
   </div>
+  <div class="row mt-2" *ngIf="clubDetail">
+          <div class="col-8 pl-0">
+               <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b style="text-transform: uppercase;">KADRO {{clubDetail.clubName}}</b></div>
+               <table>
+                    <thead>
+                         <tr>
+                              <th></th>
+                              <th>Oyuncu</th>
+                              <th>Doğum Tarihi/Yaş</th>
+                              <th>Uyruk</th>
+                              <th>Boy</th>
+                              <th>Ayak</th>
+                              <th>Piyasa Değeri</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let footballerDetail of footballersDetail">
+                              <td>{{footballerDetail.playerNumber}}</td>
+                              <td style="width: 200px;">
+                                   <img style="width: 50px;" [src]="imageUrl + footballerDetail.footballerImagePath">
+                                  <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
+                                   {{footballerDetail.positionName}}
+                              </td>
+                              <td>{{footballerDetail.dateOfBirth}} ({{footballerDetail.age}})</td>
+                              <td><img style="width: 40px;" [src]="imageUrl + footballerDetail.countryImagePath"></td>
+                              <td>{{footballerDetail.height}}</td>
+                              <td>{{footballerDetail.footName}}</td>
+                              <td>{{footballerDetail.footballerValue}}</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+     <div class="col-4"></div>
+ </div>
 </div>
-<ul *ngFor="let footballerDetail of footballersDetail">
-    <li>
-          <img [src]="imageUrl + footballerDetail.footballerImagePath">
-          <a href="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
-    </li>
-</ul>

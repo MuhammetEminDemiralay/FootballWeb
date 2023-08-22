@@ -1,3 +1,16 @@
 div{
     border-width: 1px;
 }
+th{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 226, 226);
+    text-align: center;
+    text-decoration: underline;
+    text-decoration: none;
+}
+
+td{
+    border: 1px solid rgb(226, 226, 226);
+    text-align: center;
+    background-color: white;
+}

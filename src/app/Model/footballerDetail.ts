@@ -10,5 +10,7 @@ export interface FootballerDetail{
     age : number,
     height : number,
     footballerValue : number,
-    playerNumber : number
+    playerNumber : number,
+    countryImagePath : string,
+    footName : string
 }
