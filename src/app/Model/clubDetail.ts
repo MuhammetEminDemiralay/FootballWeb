@@ -3,6 +3,8 @@ export interface ClubDetail{
     leagueId : number,
     countryId : number,
     clubImagePath : string,
+    leagueImagePath : string,
+    countryImagePath : string,
     date : Date,
     clubName: string,
     squadSize : number,
@@ -12,5 +14,7 @@ export interface ClubDetail{
     stadiumName : string,
     stadiumCapacity : number,
     currentTransferRecord: number,
-    clubMarketValue : number 
+    clubMarketValue : number,
+    leagueLevel : number,
+    leagueName : string
 }

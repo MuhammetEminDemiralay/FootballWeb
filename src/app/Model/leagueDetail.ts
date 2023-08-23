@@ -3,6 +3,8 @@ export interface LeagueDetail{
     countryId : number,
     leagueImageId : number,
     leagueImagePath : string,
+    countryName : string
+    countryImagePath : string,
     leagueName : string,
     date : Date,
     numberOfTeams : number,

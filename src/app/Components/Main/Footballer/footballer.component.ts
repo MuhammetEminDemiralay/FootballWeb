@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Footballer } from 'src/app/Model/footballer';
+import { FootballerDetail } from 'src/app/Model/footballerDetail';
 import { FootballerService } from 'src/app/Service/footballer.service';
 
 @Component({
@@ -14,17 +15,18 @@ export class FootballerComponent implements OnInit{
   ngOnInit(): void {
       this.activatedRoute.params.subscribe(params =>{
         this.ıd = params["ıd"]
+        this.getFootballerDetailByFootballerId();
       })
-      this.getFootballer();
-
   }
 
   ıd : number;
-  footballer : Footballer;
+  footballerDetail : FootballerDetail;
+  imageUrl = "https://localhost:44319/";
 
-  getFootballer(){
-    this.footballerService.getFootballer(this.ıd).subscribe(response => {
-      this.footballer = response.data;
+  
+  getFootballerDetailByFootballerId(){
+    this.footballerService.getFootballerDetailByFootballerId(this.ıd).subscribe(response => {
+      this.footballerDetail = response.data;
     })
   }
 

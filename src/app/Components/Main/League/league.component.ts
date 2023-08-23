@@ -33,7 +33,6 @@ export class LeagueComponent implements OnInit{
   leagueId : number;
   leagueDetail : LeagueDetail;
   imageUrl = "https://localhost:44319/"
-  countryImage : CountryImage;
   
 
   getClubsDetailByLeagueId(){
@@ -45,15 +44,10 @@ export class LeagueComponent implements OnInit{
   getLeagueDetailByLeagueId(){
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
       this.leagueDetail = response.data;
-      this.getImageByCountryId()
     })
   }
 
-  getImageByCountryId(){
-    this.countryService.getImageByCountryId(this.leagueDetail.countryId).subscribe(response => {
-      this.countryImage= response.data;
-    })
-  }
+
 
   
 

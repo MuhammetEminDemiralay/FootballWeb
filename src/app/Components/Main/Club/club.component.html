@@ -22,11 +22,19 @@
         </div>
         <div class="col-4">
              <div class="row">
-                  <div class="col-12" style="height:170.6px; border-style: solid">
-                       
+                  <div class="col-12" style=" border-style: solid; padding: 10px; background-color: white;">
+                         <div class="row">
+                              <div class="col-5" style="text-align: center;">
+                                   <img style="width: 100px;" [src]="imageUrl + clubDetail.leagueImagePath">
+                              </div>
+                              <div class="col-7" >
+                                   <label style="font-size: larger;">{{clubDetail.leagueName}}</label><br>
+                                   <label><b>Lig seviyesi : <img style="width: 20px;" [src]="imageUrl + clubDetail.countryImagePath" alt=""></b> {{clubDetail.leagueLevel}} .lig</label><br>
+                              </div>
+                         </div>
                   </div>
                   <div class="col-12" style="text-align: center; padding-top: 20px; height:85.3px; border-style: solid; background-color: #089fdb; color: white;">
-                       <h2>{{clubDetail.clubMarketValue}} milyar $</h2>
+                       <h2>{{clubDetail.clubMarketValue}} milyon $</h2>
                   </div>
              </div>
         </div> 
@@ -48,14 +56,14 @@
                     </thead>
                     <tbody>
                          <tr *ngFor="let footballerDetail of footballersDetail">
-                              <td>{{footballerDetail.playerNumber}}</td>
+                              <td style="width: 60px; background-color: #74d6fc;">{{footballerDetail.playerNumber}}</td>
                               <td style="width: 200px;">
                                    <img style="width: 50px;" [src]="imageUrl + footballerDetail.footballerImagePath">
                                   <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
                                    {{footballerDetail.positionName}}
                               </td>
                               <td>{{footballerDetail.dateOfBirth}} ({{footballerDetail.age}})</td>
-                              <td><img style="width: 40px;" [src]="imageUrl + footballerDetail.countryImagePath"></td>
+                              <td><img style="width: 40px;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></td>
                               <td>{{footballerDetail.height}}</td>
                               <td>{{footballerDetail.footName}}</td>
                               <td>{{footballerDetail.footballerValue}}</td>

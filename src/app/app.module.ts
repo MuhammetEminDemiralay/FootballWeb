@@ -27,6 +27,7 @@ import { NationalteamComponent } from './Components/Main/nationalteam/nationalte
 import { AdminComponent } from './Components/Header/admin/admin/admin.component';
 import { NationalteamupdateComponent } from './Components/Main/Country/NationalTeamUpdate/nationalteamupdate.component';
 import { NationalteamaddComponent } from './Components/Main/Country/NationalTeamAdd/nationalteamadd.component';
+import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { NationalteamaddComponent } from './Components/Main/Country/NationalTeam
     HeaderboxComponent,
     NaviComponent,
     SelectboxComponent,
+    FootballerComponent,
     FootballeraddComponent,
     FootballerupdateComponent,
     CountryComponent,

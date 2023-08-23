@@ -34,7 +34,7 @@ export class SelectboxComponent implements OnInit{
   leagues : LeagueDetail[] = [];
   clubs : ClubDetail[] = [];
   footballers : FootballerDetail[] = [];
-  footballer : Footballer;
+  footballer : FootballerDetail;
   countryId : number;
   leagueId : number;
   clubId : number;

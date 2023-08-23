@@ -24,8 +24,14 @@ export class FootballerService {
     return this.httpClient.get<ListResponseModel<FootballerDetail>>(this.apiUrl + "Footballer/getFootballersDetailByClubId?clubId=" + clubId)
   }
 
-  getFootballer(footballerId : number = 0) : Observable<SingleResponseModel<Footballer>>{
-    return this.httpClient.get<SingleResponseModel<Footballer>>(this.apiUrl + "Footballer/get?id=" + footballerId)
+  getFootballer(footballerId : number) : Observable<SingleResponseModel<FootballerDetail>>{
+    return this.httpClient.get<SingleResponseModel<FootballerDetail>>(this.apiUrl + "Footballer/get?id=" + footballerId)
   }
+
+  getFootballerDetailByFootballerId(footballerId : number) : Observable<SingleResponseModel<FootballerDetail>>{
+    return this.httpClient.get<SingleResponseModel<FootballerDetail>>(this.apiUrl + "Footballer/getFootballerDetailByFootballerId?footballerId=" + footballerId)
+  }
+
+  
   
 }

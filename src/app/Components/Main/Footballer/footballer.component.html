@@ -6,13 +6,15 @@
 <div class="container-md p-0">
 
     <!-- OYUNCU ÜST BİLGİSİ -->
-   <div class="row mt-2" style="border-style: solid; height: 260px;">
+   <div class="row mt-2" style="border-style: solid; height: 260px;"  *ngIf="footballerDetail">
          <div class="col-8">
               <div class="row">
-                   <div class="col-12" style="height: 57px; border-style: solid;"><h1># {{footballer.name}}</h1></div>
+                   <div class="col-12" style="height: 57px; border-style: solid;"><h1>#{{footballerDetail.playerNumber}} {{footballerDetail.name}}</h1></div>
               </div>
               <div class="row">
-                   <div class="col-3" style="height: 198px; border-style: solid;">Resim</div>
+                    <div class="col-3" style="height: 198px; border-style: solid;">
+                         <img style="width: 150px;" [src]="imageUrl + footballerDetail.footballerImagePath">
+                    </div>
                    <div class="col-9" style="height: 198px; border-style: solid">
                         <div class="col" style="height: 120px; border-style: solid">Kupalar</div>
                         <div class="col" style="height: 68px; border-style: solid">Oyuncu Özellikleri</div>
@@ -24,8 +26,8 @@
                    <div class="col-12" style="height:170.6px; border-style: solid">
                         
                    </div>
-                   <div class="col-12" style="height:85.3px; border-style: solid;">
-                        a
+                   <div class="col-12" style="text-align: center; padding-top: 20px; height:85.3px; border-style: solid; background-color: #089fdb; color: white;">
+                        <h2>{{footballerDetail.footballerValue}} milyon $</h2>
                    </div>
               </div>
          </div>

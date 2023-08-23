@@ -16,18 +16,19 @@
              </div>
         </div>
         <div class="col-4">
-             <div class="row" *ngIf="countryImage">
-                  <div style="height:170.6px;">
-                    <div class="col-6">
-                        <img style="border: 1px solid black; border-radius: 50%; width: 100px;" [src]="imageUrl + countryImage.countryImagePath"> 
-                    </div>
-                    <div class="col-6">
-                        a
-                    </div>
-                    
-
+             <div class="row" *ngIf="leagueDetail">
+                  <div class="col-12" style="height:170.6px;">
+                        <div class="row" style="padding: 10px; background-color: white;">
+                            <div class="col-5">
+                                <img style="border: 1px solid black; border-radius: 50%; width: 100px;" [src]="imageUrl + leagueDetail.countryImagePath"> 
+                            </div>
+                            <div class="col-7">
+                                <b style="color: #2171e2;">{{leagueDetail.countryName}}</b><br>
+                                Lig yüksekliği :<b> {{leagueDetail.leagueLevel}}.Lig</b>
+                            </div>
+                        </div>
                   </div>
-                  <div style="height:85.3px; border-style: solid; background-color: #089fdb; color: white; font-size: larger; text-align: center; padding-top: 20px;">
+                  <div class="col" style="height:85.3px; border-style: solid; background-color: #089fdb; color: white; font-size: larger; text-align: center; padding-top: 20px;">
                        <h2>{{leagueDetail.totalMarketValue}} milyar $</h2>
                   </div>
              </div>
