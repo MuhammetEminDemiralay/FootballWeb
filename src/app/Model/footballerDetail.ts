@@ -4,16 +4,14 @@ export interface FootballerDetail{
     leagueId : number,
     countryId : number,
     footballerImagePath : string,
-    clubImagePath : string,
-    leagueImagePath : string,
-    footballerCountryImagePath : string,
-    leagueCountryImagePath : string,
     positionName : string,
     name : string,
     dateOfBirth : Date,
     age : number,
     height : number,
-    footballerValue : number,
+    footballerValue : number, 
     playerNumber : number,
-    footName : string
+    footName : string,
+    footballerCountryImagePath : string,
+    footballerCountryName : string
 }

@@ -17,14 +17,26 @@
                     </div>
                    <div class="col-9" style="height: 198px; border-style: solid">
                         <div class="col" style="height: 120px; border-style: solid">Kupalar</div>
-                        <div class="col" style="height: 68px; border-style: solid">Oyuncu Özellikleri</div>
+                        <div class="col" style="height: 68px; border-style: solid">
+                              <label style="font-size: medium;">Doğum Tarihi/Yaş : <b>{{footballerDetail.dateOfBirth}}</b></label> - <label>Boy : <b>{{footballerDetail.height}}</b></label> <br>
+                               <label>Uyruk : <img style="width: 30px; border: 1px solid black;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"> <b>{{footballerDetail.footballerCountryName}}</b></label> - <label>Mevki : <b>{{footballerDetail.positionName}}</b></label>
+                        </div>
                    </div>
               </div>
          </div>
-         <div class="col-4">
+         <div class="col-4" *ngIf="clubDetail">
               <div class="row">
                    <div class="col-12" style="height:170.6px; border-style: solid">
-                        
+                        <div class="row">
+                              <div class="col-5">
+                                   <img style="width: 120px;" [src]="imageUrl + clubDetail.clubImagePath">
+                              </div>
+                              <div class="col-7">
+                                  <label>{{clubDetail.clubName}}</label><br>
+                                  <img style="width: 30px;" [src]="imageUrl + clubDetail.leagueImagePath"> - <label>{{clubDetail.leagueName}}</label><br>
+                                  <label>Lig seviyesi : <img style="width: 30px;" [src]="imageUrl + clubDetail.countryImagePath"> - <b>{{clubDetail.leagueLevel}}.Lig</b></label>
+                              </div>
+                        </div>
                    </div>
                    <div class="col-12" style="text-align: center; padding-top: 20px; height:85.3px; border-style: solid; background-color: #089fdb; color: white;">
                         <h2>{{footballerDetail.footballerValue}} milyon $</h2>
