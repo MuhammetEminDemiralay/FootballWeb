@@ -1,0 +1,45 @@
+<form [formGroup]="clubUpdateForm">
+    <div>
+        <label>Club Name</label><br>
+        <input type="text" formControlName="clubName">
+    </div>
+    <div>
+        <label>Squad Size</label><br>
+        <input type="number" formControlName="squadSize">
+    </div>
+    <div>
+        <label>Average Age</label><br>
+        <input type="number" formControlName="averageAge">
+
+    </div>
+    <div>
+        <label>National Team Players</label><br>
+        <input type="number" formControlName="nationalTeamPlayers">
+    </div>
+    <div>
+        <label>Foreigners</label><br>
+        <input type="number" formControlName="foreigners">
+
+    </div>
+    <div>
+        <label>Stadium Name</label><br>
+        <input type="text" formControlName="stadiumName">
+
+    </div>
+    <div>
+        <label>Stadium Capacity</label><br>
+        <input type="number" formControlName="stadiumCapacity">
+    </div>
+    <div>
+        <label>Current Transfer Record</label><br>
+        <input type="number" formControlName="currentTransferRecord">
+
+    </div>
+    <div>
+        <label>Club Market Value</label><br>
+        <input type="number" formControlName="clubMarketValue">
+    </div><br>
+    <div>
+        <button (click)="clubUpdate()">Club Add</button>
+    </div>
+</form>

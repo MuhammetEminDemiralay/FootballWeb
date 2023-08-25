@@ -32,9 +32,7 @@ export class CountryComponent implements OnInit{
 
   countryId : number;
   leagueId : number;
-
-  league : League;
-  leagues : LeagueDetail[] = [];
+  leagueDetails : LeagueDetail[] = [];
 
   imageUrl = "https://localhost:44319/"
 
@@ -44,7 +42,7 @@ export class CountryComponent implements OnInit{
 
   getLeaguesByCountryId(){
     this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
-      this.leagues = response.data;  
+      this.leagueDetails = response.data;  
     })
   }
 
@@ -69,13 +67,17 @@ export class CountryComponent implements OnInit{
   }
 
   leagueDelete(league : League){
-    this.leagueService.deleteLeague(league).subscribe(response => {
-      window.location.reload();
-    })
+    if(window.confirm("Silmek istediğine emin misin?")){
+      this.leagueService.deleteLeague(league).subscribe(response => {
+        window.location.reload();
+      })
+    }
   }
 
   getLeagueId(leagueId : number){
-    this.leagueId = leagueId    
+    this.leagueId = leagueId   
+    console.log(leagueId);
+     
   }
   
   getNationalTeam(nationalTeamId){

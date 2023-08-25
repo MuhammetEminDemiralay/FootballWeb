@@ -1,4 +1,3 @@
-<div>
 <form  [formGroup]="leagueUpdateForm">
     <div>
         <label>League Name</label><br>
@@ -24,11 +23,17 @@
         <label>Reigning Champion</label><br>
         <input type="number" formControlName="reigningChampion">
     </div><br>
-    <div>
-        <button (click)="leagueUpdate()">League Update</button>
+    <div *ngIf="leagueDetail">
+        <button (click)="leagueUpdate()" routerLink="/country/{{leagueDetail.countryId}}">League Update</button>
     </div>
 </form>
-</div>
+
+
+
+
+
+
+
 
 
 

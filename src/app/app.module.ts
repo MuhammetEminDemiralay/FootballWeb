@@ -16,11 +16,7 @@ import { CountryComponent } from './Components/Main/Country/country.component';
 import { CountryaddComponent } from './Components/Main/Country/LeagueAdd/countryadd.component';
 import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/countryupdate.component';
 import { LeagueComponent } from './Components/Main/League/league.component';
-import { LeagueaddComponent } from './Components/Main/League/LeagueAdd/leagueadd.component';
-import { LeagueupdateComponent } from './Components/Main/League/LeagueUpdate/leagueupdate.component';
 import { ClubComponent } from './Components/Main/Club/club.component';
-import { ClubaddComponent } from './Components/Main/Club/ClubAdd/clubadd.component';
-import { ClubupdateComponent } from './Components/Main/Club/ClubUpdate/clubupdate.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Main/home/home.component';
 import { NationalteamComponent } from './Components/Main/nationalteam/nationalteam.component';
@@ -28,6 +24,8 @@ import { AdminComponent } from './Components/Header/admin/admin/admin.component'
 import { NationalteamupdateComponent } from './Components/Main/Country/NationalTeamUpdate/nationalteamupdate.component';
 import { NationalteamaddComponent } from './Components/Main/Country/NationalTeamAdd/nationalteamadd.component';
 import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
+import { ClubaddComponent } from './Components/Main/League/clubadd/clubadd.component';
+import { ClubupdateComponent } from './Components/Main/League/clubupdate/clubupdate.component';
 
 
 @NgModule({
@@ -43,8 +41,6 @@ import { FootballerComponent } from './Components/Main/Footballer/footballer.com
     CountryaddComponent,
     CountryupdateComponent,
     LeagueComponent,
-    LeagueaddComponent,
-    LeagueupdateComponent,
     ClubComponent,
     ClubaddComponent,
     ClubupdateComponent,
@@ -53,7 +49,7 @@ import { FootballerComponent } from './Components/Main/Footballer/footballer.com
     NationalteamComponent,
     AdminComponent,
     NationalteamupdateComponent,
-    NationalteamaddComponent
+    NationalteamaddComponent,
   ],
   imports: [
     CommonModule,

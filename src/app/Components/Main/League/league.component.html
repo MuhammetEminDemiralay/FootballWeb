@@ -35,8 +35,11 @@
         </div>
   </div>
     <div class="row mt-2">
-        <div class="col-8 pl-0">
-            <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b>CLUB-SUPER LİG 23/24</b></div>
+        <div class="col-8 pl-0" *ngIf="leagueDetail">
+            <div class="col-12 py-1" class="title">
+                <b>Club-{{leagueDetail.leagueName}} 23/24</b>
+                <button class="addButton" data-bs-toggle="modal" data-bs-target="#clubAdd">+</button>
+            </div>
             <table class="table mb-0">
                 <thead>
                     <tr>
@@ -46,16 +49,21 @@
                         <th>Yaş</th>
                         <th>Lejyonerler</th>
                         <th>Kadro Değeri</th>
+                        <th>Editör</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let club of clubs">
+                <tbody *ngFor="let clubDetail of clubDetails">
                     <tr>
-                        <td><img style="width: 50px;" [src]="imageUrl + club.clubImagePath"></td>
-                        <td><a routerLink="/club/{{club.id}}">{{club.clubName}}</a></td>
-                        <td>{{club.squadSize}}</td>
-                        <td>{{club.averageAge}}</td>
-                        <td>{{club.foreigners}}</td>
-                        <td>{{club.clubMarketValue}}</td>
+                        <td><img [src]="imageUrl + clubDetail.clubImagePath"></td>
+                        <td><a routerLink="/club/{{clubDetail.id}}">{{clubDetail.clubName}}</a></td>
+                        <td>{{clubDetail.squadSize}}</td>
+                        <td>{{clubDetail.averageAge}}</td>
+                        <td>{{clubDetail.foreigners}}</td>
+                        <td>{{clubDetail.clubMarketValue}}</td>
+                        <td>
+                            <button class="deleteButton" (click)="deleteClub(clubDetail)">-</button>
+                            <button class="updateButton" routerLink="/clubUpdate/{{clubDetail.id}}"></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -64,3 +72,18 @@
     </div>
 </div>
 <br>
+
+
+<div class="modal" tabindex="-1" id="clubAdd">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Club Add</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-clubadd [leagueId]="leagueId" [countryId]="countryId"></app-clubadd>
+        </div>
+      </div>
+    </div>
+  </div>

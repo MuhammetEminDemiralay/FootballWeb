@@ -40,5 +40,7 @@ export class LeagueService {
   leagueUpdate(league : League) : Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "League/update", league)
   }
+
+
   
 }

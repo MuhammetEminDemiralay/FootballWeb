@@ -20,7 +20,7 @@ export class CountryaddComponent implements OnInit{
   
   @Input() countryId : number;
   leagueAddForm : FormGroup;
-
+  
   createLeagueAddForm(){
     this.leagueAddForm = this.formBuilder.group({
       leagueName : ["", Validators.required],

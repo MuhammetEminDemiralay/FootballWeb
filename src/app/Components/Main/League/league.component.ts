@@ -29,22 +29,32 @@ export class LeagueComponent implements OnInit{
     })
   }
 
-  clubs : ClubDetail[] = [];
+  clubDetails : ClubDetail[] = [];
   leagueId : number;
+  countryId : number;
   leagueDetail : LeagueDetail;
   imageUrl = "https://localhost:44319/"
   
 
   getClubsDetailByLeagueId(){
     this.clubService.getClubsDetailByLeagueId(this.leagueId).subscribe(response => {
-      this.clubs = response.data;
+      this.clubDetails = response.data;
     })
   }
 
   getLeagueDetailByLeagueId(){
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
       this.leagueDetail = response.data;
+      this.countryId = response.data.countryId;
     })
+  }
+
+  deleteClub(clubDetail : Club){
+    if(window.confirm("Silmek istediğine emin misin?")){
+      this.clubService.deleteClub(clubDetail).subscribe(response => {
+        window.location.reload();
+      })
+    }
   }
 
 

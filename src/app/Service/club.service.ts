@@ -6,6 +6,7 @@ import { ListResponseModel } from '../Model/listResponseModel';
 import { Observable } from 'rxjs';
 import { ClubDetail } from '../Model/clubDetail';
 import { SingleResponseModel } from '../Model/singleResponseModel';
+import { ResponseModel } from '../Model/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,18 @@ export class ClubService {
 
   getClubDetailByClubId(clubId : number) : Observable<SingleResponseModel<ClubDetail>>{
     return this.httpClient.get<SingleResponseModel<ClubDetail>>(this.apiUrl + "Club/getClubDetailByClubId?clubId=" + clubId);
+  }
+
+  deleteClub(club : Club) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Club/delete", club);
+  }
+
+  addClub(club : Club) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Club/add", club);
+  }
+
+  updateClub(club : Club) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Club/update", club);
   }
 
 }
