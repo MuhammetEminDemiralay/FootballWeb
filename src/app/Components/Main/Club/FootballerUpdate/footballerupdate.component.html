@@ -1,0 +1,92 @@
+<form [formGroup]="footballerUpdateForm">
+    <div>
+        <label>Country</label><br>
+        <select (change)="selectCountryId($event)">
+            <option selected disabled>Country</option>
+            <option [value]="country.id" *ngFor="let country of countrys">{{country.countryName}}</option>
+        </select>
+    </div><br>
+    
+    <div>
+        <label>League</label><br>
+        <select (change)="selectLeagueId($event)" formControlName="leagueId">
+            <option selected disabled>League</option>
+            <option [value]="league.id" *ngFor="let league of leagues">{{league.leagueName}}</option>
+        </select>
+    </div><br>
+
+    <div>
+        <label>Club</label><br>
+        <select (change)="selectClubId($event)" formControlName="clubId">
+            <option selected disabled>Club</option>
+            <option [value]="club.id" *ngFor="let club of clubs">{{club.clubName}}</option>
+        </select>
+    </div><br>
+
+    <div>
+        <label>Footballer Nationality</label><br>
+        <select (change)="selectNationaltyId($event)" formControlName="countryId">
+            <option selected disabled>Footballer Nationalty</option>
+            <option [value]="country.id" *ngFor="let country of countrys">{{country.countryName}}</option>
+        </select>
+    </div><br>
+
+    <div>
+        <label>City</label><br>
+        <select formControlName="cityId">
+            <option selected disabled>City</option>
+            <option [value]="city.id" *ngFor="let city of citys">{{city.cityName}}</option>
+        </select>
+    </div><br>
+
+    <div>
+        <label>Position Name</label><br>
+        <select formControlName="positionId">
+            <option selected disabled>Position</option>
+            <option [value]="position.id" *ngFor="let position of positions">{{position.positionName}}</option>
+        </select>
+    </div><br>
+
+    <div>
+        <label>Foot</label><br>
+        <select formControlName="footId">
+            <option selected disabled>Foot</option>
+            <option [value]="foot.id" *ngFor="let foot of foots">{{foot.footName}}</option>
+        </select>
+    </div><br>
+
+    <div>
+        <label>Footballer Name</label><br>
+        <input type="text" formControlName="name">
+    </div><br>
+
+    <div>
+        <label>Date of Birth</label><br>
+        <input type="datetime" formControlName="dateOfBirth">
+    </div><br>
+
+    <div>
+        <label>Age</label><br>
+        <input type="number" formControlName="age">
+    </div><br>
+
+    <div>
+        <label>Height</label><br>
+        <input type="number" formControlName="height">
+    </div><br>
+
+    <div>
+        <label>Footballer Market Value</label><br>
+        <input type="number" formControlName="footballerValue">
+    </div><br>
+
+    <div>
+        <label>PLayer Number</label><br>
+        <input type="number" formControlName="playerNumber">
+    </div><br>
+
+    <button (click)="footballerUpdate()" routerLink="/club/{{clubId}}">Footballer Update</button>
+
+</form>
+
+

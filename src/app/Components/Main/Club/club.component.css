@@ -18,3 +18,26 @@ td{
 span{
     vertical-align: middle;
 }
+
+.updateButton::before{
+    content:"\270F";
+}
+
+.deleteButton{
+    margin-right: 10px;
+}
+
+.addButton{
+    text-align: center;
+    font-size: small;
+    vertical-align: middle;
+    float: right;
+}
+
+.title{
+    background-color:#1a3151;
+    text-indent: 6px; 
+    font-size: large;
+    font-weight: bold; 
+    color: white;
+}

@@ -1,19 +1,20 @@
 export interface Footballer{
     id : number, 
     clubId : number, 
-    leagueId? : number,
+    leagueId : number,
     countryId : number, 
     cityId : number,
-    transferHistoryId : number, 
-    careerStatId : number,
     positionId : number,
-    outfitterId : number,
-    nationalTeamId : number,
+    transferHistoryId? : number, 
+    careerStatId? : number,
+    outfitterId? : number,
+    footId : number,
     name : string,
     dateOfBirth : Date,
     age : number,
     height : number,
-    footballerValue : number
+    footballerValue : number,
+    playerNumber : number
 }
 
 

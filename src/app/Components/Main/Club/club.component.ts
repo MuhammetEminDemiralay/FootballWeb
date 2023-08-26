@@ -32,7 +32,7 @@ export class ClubComponent implements OnInit{
   footballersDetail : FootballerDetail[] = [];
   clubDetail : ClubDetail;
   leagueDetail : LeagueDetail;
-  clubId : number = 0;
+  clubId : number;
   imageUrl = "https://localhost:44319/";
 
   getFootballersDetailByClubId(){

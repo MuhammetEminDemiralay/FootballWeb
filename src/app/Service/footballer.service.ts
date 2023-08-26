@@ -6,6 +6,7 @@ import { ListResponseModel } from '../Model/listResponseModel';
 import { Observable } from 'rxjs';
 import { SingleResponseModel } from '../Model/singleResponseModel';
 import { FootballerDetail } from '../Model/footballerDetail';
+import { ResponseModel } from '../Model/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class FootballerService {
     return this.httpClient.get<SingleResponseModel<FootballerDetail>>(this.apiUrl + "Footballer/getFootballerDetailByFootballerId?footballerId=" + footballerId)
   }
 
+  updateFootballer(footballer : Footballer) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Footballer/update", footballer);
+  }
   
   
 }

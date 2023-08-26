@@ -10,8 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderboxComponent } from './Components/Header/headerbox/headerbox.component';
 import { NaviComponent } from './Components/Header/navi/navi.component';
 import { SelectboxComponent } from './Components/Header/selectbox/selectbox.component';
-import { FootballeraddComponent } from './Components/Main/Footballer/FootballerAdd/footballeradd.component';
-import { FootballerupdateComponent } from './Components/Main/Footballer/FootballerUpdate/footballerupdate.component';
 import { CountryComponent } from './Components/Main/Country/country.component';
 import { CountryaddComponent } from './Components/Main/Country/LeagueAdd/countryadd.component';
 import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/countryupdate.component';
@@ -23,9 +21,11 @@ import { NationalteamComponent } from './Components/Main/nationalteam/nationalte
 import { AdminComponent } from './Components/Header/admin/admin/admin.component';
 import { NationalteamupdateComponent } from './Components/Main/Country/NationalTeamUpdate/nationalteamupdate.component';
 import { NationalteamaddComponent } from './Components/Main/Country/NationalTeamAdd/nationalteamadd.component';
-import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
 import { ClubaddComponent } from './Components/Main/League/clubadd/clubadd.component';
 import { ClubupdateComponent } from './Components/Main/League/clubupdate/clubupdate.component';
+import { FootballerupdateComponent } from './Components/Main/Club/FootballerUpdate/footballerupdate.component';
+import { FootballeraddComponent } from './Components/Main/Club/FootballerAdd/footballeradd.component';
+import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
 
 
 @NgModule({

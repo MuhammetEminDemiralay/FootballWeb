@@ -9,6 +9,7 @@ import { NationalteamComponent } from './Components/Main/nationalteam/nationalte
 import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/countryupdate.component';
 import { ClubaddComponent } from './Components/Main/League/clubadd/clubadd.component';
 import { ClubupdateComponent } from './Components/Main/League/clubupdate/clubupdate.component';
+import { FootballerupdateComponent } from './Components/Main/Club/FootballerUpdate/footballerupdate.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path : "footballer/:ıd", component : FootballerComponent},
   {path : "nationalTeam/:ıd", component : NationalteamComponent},
   {path : "leagueUpdate/:id", component : CountryupdateComponent},
-  {path : "clubUpdate/:id", component: ClubupdateComponent}
+  {path : "clubUpdate/:id", component: ClubupdateComponent},
+  {path : "footballerUpdate/:id", component : FootballerupdateComponent}
 
 
 ];

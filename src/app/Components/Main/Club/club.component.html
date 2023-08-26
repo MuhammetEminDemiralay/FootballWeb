@@ -41,7 +41,10 @@
   </div>
   <div class="row mt-2" *ngIf="clubDetail">
           <div class="col-8 pl-0">
-               <div class="col-12 py-1" style="background-color:#1a3151; text-indent: 6px; font-size: large; color: white;"><b style="text-transform: uppercase;">KADRO {{clubDetail.clubName}}</b></div>
+               <div class="col-12 py-1" class="title">
+                    <b style="text-transform: uppercase;">TEAM {{clubDetail.clubName}}</b>
+                    <button class="addButton" data-bs-toggle="modal" data-bs-target="#footballerAdd">+</button>
+               </div>
                <table>
                     <thead>
                          <tr>
@@ -49,24 +52,27 @@
                               <th>Oyuncu</th>
                               <th>Doğum Tarihi/Yaş</th>
                               <th>Uyruk</th>
-                              <th>Boy</th>
-                              <th>Ayak</th>
                               <th>Piyasa Değeri</th>
+                              <th>Editör</th>
                          </tr>
                     </thead>
                     <tbody>
                          <tr *ngFor="let footballerDetail of footballersDetail">
-                              <td style="width: 60px; background-color: #74d6fc;">{{footballerDetail.playerNumber}}</td>
-                              <td style="width: 200px;">
-                                   <img style="width: 50px;" [src]="imageUrl + footballerDetail.footballerImagePath">
-                                  <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
-                                   {{footballerDetail.positionName}}
+                              <td style="width: 40px; background-color: #74d6fc;">{{footballerDetail.playerNumber}}</td>
+                              <td style="width: 200px; text-align: start;">
+                                   <div>
+                                        <img style="width: 40px;" [src]="imageUrl + footballerDetail.footballerImagePath">
+                                        <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
+                                        {{footballerDetail.positionName}}
+                                   </div>
                               </td>
                               <td>{{footballerDetail.dateOfBirth}} ({{footballerDetail.age}})</td>
-                              <td><img style="width: 40px;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></td>
-                              <td>{{footballerDetail.height}}</td>
-                              <td>{{footballerDetail.footName}}</td>
+                              <td><img style="width: 35px;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></td>
                               <td>{{footballerDetail.footballerValue}}</td>
+                              <td>
+                                   <button class="deleteButton">-</button>
+                                   <button class="updateButton" routerLink="/footballerUpdate/{{footballerDetail.id}}"></button>
+                              </td>
                          </tr>
                     </tbody>
                </table>
@@ -74,3 +80,22 @@
      <div class="col-4"></div>
  </div>
 </div>
+
+
+
+
+
+<div class="modal" tabindex="-1" id="footballerAdd">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title">Footballer Add</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+             <app-footballeradd></app-footballeradd>
+         </div>
+       </div>
+     </div>
+   </div>
+ 

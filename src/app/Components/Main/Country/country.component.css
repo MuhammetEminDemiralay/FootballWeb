@@ -57,3 +57,23 @@ a:hover{
 b{
     font-size: larger;
 }
+
+#bir{
+    background-color: white;
+}
+#iki{
+    background-color: #000080;
+     color: white; 
+}
+#üc{
+    background-color: #1E90FF;
+}
+#dort{
+    background-color: #00FFFF;
+}
+#beş{
+    background-color: #87CEFA;
+}
+#altı{
+    background-color: #B0E0E6;
+}
