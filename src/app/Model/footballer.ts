@@ -5,7 +5,7 @@ export interface Footballer{
     countryId : number, 
     cityId : number,
     positionId : number,
-    transferHistoryId? : number, 
+    transferHistoryId? : number,
     careerStatId? : number,
     outfitterId? : number,
     footId : number,

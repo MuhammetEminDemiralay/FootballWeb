@@ -33,20 +33,31 @@ export class ClubComponent implements OnInit{
   clubDetail : ClubDetail;
   leagueDetail : LeagueDetail;
   clubId : number;
+  leagueId : number;
+  countryId : number;
   imageUrl = "https://localhost:44319/";
+  noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
 
   getFootballersDetailByClubId(){
     this.footballerService.getFootballersDetailByClubId(this.clubId).subscribe(response => {
       this.footballersDetail = response.data;
-      
     })
   } 
 
   getClubDetailByClubId(){
     this.clubService.getClubDetailByClubId(this.clubId).subscribe(response => {
-      this.clubDetail = response.data;    
+      this.clubDetail = response.data; 
+      this.leagueId = response.data.leagueId;
+      this.countryId = response.data.countryId;
     })
   }
 
+  deleteFootballer(footballerDetail : Footballer){
+    if(window.confirm("Silmek istediğine emin misin?")){
+      this.footballerService.deleteFootballer(footballerDetail).subscribe(response => {
+        window.location.reload();
+      })
+    }
+  }
   
 }

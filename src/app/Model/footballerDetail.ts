@@ -6,7 +6,7 @@ export interface FootballerDetail{
     cityId : number,
     footId : number,
     positionId : number,
-    footballerImagePath : string,
+    footballerImagePath? : string,
     positionName : string,
     name : string,
     dateOfBirth : Date,
@@ -15,6 +15,6 @@ export interface FootballerDetail{
     footballerValue : number, 
     playerNumber : number,
     footName : string,
-    footballerCountryImagePath : string,
+    footballerCountryImagePath? : string,
     footballerCountryName : string
 }

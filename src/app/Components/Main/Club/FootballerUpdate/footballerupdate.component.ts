@@ -45,7 +45,7 @@ export class FootballerupdateComponent implements OnInit{
    })
    this.getAllCountry(); 
    this.getAllPosition();
-   this.getFoot();
+   this.getAllFoot();
    this.createFootballerForm();
   }
 
@@ -118,7 +118,7 @@ export class FootballerupdateComponent implements OnInit{
     })
   }
 
-  getFoot(){
+  getAllFoot(){
     this.footService.getAllFoot().subscribe(response => {
       this.foots = response.data;
     })
@@ -131,10 +131,7 @@ export class FootballerupdateComponent implements OnInit{
       leagueId : ["", Validators.required],
       countryId : ["", Validators.required],
       cityId : ["", Validators.required],
-      transferHistoryId : ["", Validators.required],
-      careerStatId :  ["", Validators.required],
       positionId : ["", Validators.required],
-      outfitterId : ["", Validators.required],
       footId : ["", Validators.required],
       name : ["", Validators.required],
       dateOfBirth : ["", Validators.required],
@@ -180,7 +177,8 @@ export class FootballerupdateComponent implements OnInit{
     }
 
     this.footballerService.updateFootballer(footballerModel).subscribe(response => {
-      
+      window.location.reload();
+
     })
   }
 

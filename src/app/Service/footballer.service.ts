@@ -36,6 +36,14 @@ export class FootballerService {
   updateFootballer(footballer : Footballer) : Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "Footballer/update", footballer);
   }
+
+  addFootballer(footballer : Footballer) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Footballer/add", footballer);
+  }
+
+  deleteFootballer(footballer : Footballer) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Footballer/delete", footballer);
+  }
   
   
 }

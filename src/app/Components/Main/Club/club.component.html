@@ -41,7 +41,7 @@
   </div>
   <div class="row mt-2" *ngIf="clubDetail">
           <div class="col-8 pl-0">
-               <div class="col-12 py-1" class="title">
+               <div id="a" class="col-12 py-1" class="title">
                     <b style="text-transform: uppercase;">TEAM {{clubDetail.clubName}}</b>
                     <button class="addButton" data-bs-toggle="modal" data-bs-target="#footballerAdd">+</button>
                </div>
@@ -61,7 +61,7 @@
                               <td style="width: 40px; background-color: #74d6fc;">{{footballerDetail.playerNumber}}</td>
                               <td style="width: 200px; text-align: start;">
                                    <div>
-                                        <img style="width: 40px;" [src]="imageUrl + footballerDetail.footballerImagePath">
+                                        <img style="width: 40px;" [src]="footballerDetail.footballerImagePath.length !==0 ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
                                         <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
                                         {{footballerDetail.positionName}}
                                    </div>
@@ -70,7 +70,7 @@
                               <td><img style="width: 35px;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></td>
                               <td>{{footballerDetail.footballerValue}}</td>
                               <td>
-                                   <button class="deleteButton">-</button>
+                                   <button class="deleteButton" (click)="deleteFootballer(footballerDetail)">-</button>
                                    <button class="updateButton" routerLink="/footballerUpdate/{{footballerDetail.id}}"></button>
                               </td>
                          </tr>
@@ -93,7 +93,7 @@
            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-             <app-footballeradd></app-footballeradd>
+             <app-footballeradd [leagueId]="leagueId" [countryId]="countryId"></app-footballeradd>
          </div>
        </div>
      </div>
