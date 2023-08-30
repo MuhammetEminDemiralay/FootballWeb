@@ -30,6 +30,9 @@ export class FootballerComponent implements OnInit{
   footballerDetail : FootballerDetail;
   clubDetail : ClubDetail;
   imageUrl = "https://localhost:44319/";
+  noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
+  saha = "Images/b45e40a275244e0fabba7775b19a0fe7.png"
+
 
   
   getFootballerDetailByFootballerId(){

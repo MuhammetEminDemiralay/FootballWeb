@@ -16,5 +16,6 @@ export interface FootballerDetail{
     playerNumber : number,
     footName : string,
     footballerCountryImagePath? : string,
-    footballerCountryName : string
+    footballerCountryName : string,
+    cityName : string
 }

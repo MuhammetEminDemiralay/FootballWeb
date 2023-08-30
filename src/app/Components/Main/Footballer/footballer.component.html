@@ -13,7 +13,7 @@
               </div>
               <div class="row">
                     <div class="col-3" style="height: 198px; border-style: solid;">
-                         <img style="width: 150px;" [src]="imageUrl + footballerDetail.footballerImagePath">
+                         <img style="width: 150px;" [src]=" footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
                     </div>
                    <div class="col-9" style="height: 198px; border-style: solid">
                         <div class="col" style="height: 120px; border-style: solid">Kupalar</div>
@@ -59,11 +59,30 @@
 
    <div class="row mt-2 gx-2">
        <div class="col-8">
-          <div class="col-12 mb-2" style="border-style: solid; height: 316px;">
-               İSTATİSTİKLER
-          </div>
-          <div class="col-12 mb-2" style="border-style: solid; height: 526px;">
-               OYUNCU BİLGİLERİ
+          <div  class="col-12 mb-2" class="playerInfo" *ngIf="clubDetail">
+               <div class="row mx-0">
+                    <div  class="title">Oyuncu Bilgileri</div>
+                    <div class="col-6 px-0" style="text-indent: 10px;">
+                         <div></div>
+                         <p></p>
+                         <p>Anavatandaki isim : <b>{{footballerDetail.name}}</b></p>
+                         <p>Doğum tarihi : <b>{{footballerDetail.dateOfBirth | date}}</b></p>
+                         <p>Doğum yeri : <b>{{footballerDetail.cityName}} <img style="width: 30px; border: thin solid black;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></b></p>
+                         <p>Yaş : <b>{{footballerDetail.age}}</b></p>
+                         <p>Boy : <b>{{footballerDetail.height}}</b></p>
+                         <p>Uyruk : <b><img  style="width: 30px; border: thin solid black;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"> {{footballerDetail.footballerCountryName}}</b></p>
+                         <p>Mevki : <b>{{footballerDetail.positionName}}</b></p>
+                         <p>Ayak : <b>{{footballerDetail.footName}}</b></p>
+                         <p>Güncel klüp : <b><img style="width: 30px;" [src]="imageUrl + clubDetail.clubImagePath"> {{clubDetail.clubName}}</b></p>
+                    </div>
+                    <div class="col-6 px-0">
+                         <div style="background-color:rgb(60, 213, 255, 0.5); margin: 0px; text-indent: 20px;">Detaylı Mevkiler</div>
+                         <div class="row" style="margin: 0px">
+                              <div class="col-3">a</div>
+                              <div class="col-9" class="saha">a</div>
+                         </div>
+                    </div>
+               </div>
           </div>
           <div class="col-12 mb-2 " style="border-style: solid; height: 83px;">
                DİĞER VERİLER

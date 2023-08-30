@@ -34,50 +34,62 @@
                          </div>
                   </div>
                   <div class="col-12" style="text-align: center; padding-top: 20px; height:85.3px; border-style: solid; background-color: #089fdb; color: white;">
-                       <h2>{{clubDetail.clubMarketValue}} milyon $</h2>
+                       <h2>{{clubDetail.clubMarketValue | currency}}</h2>
                   </div>
              </div>
         </div> 
   </div>
   <div class="row mt-2" *ngIf="clubDetail">
-          <div class="col-8 pl-0">
-               <div id="a" class="col-12 py-1" class="title">
-                    <b style="text-transform: uppercase;">TEAM {{clubDetail.clubName}}</b>
+          <div class="col-8" style="padding: 0px;">
+               <div class="title">
+                    <b>TEAM {{clubDetail.clubName}}</b>
                     <button class="addButton" data-bs-toggle="modal" data-bs-target="#footballerAdd">+</button>
                </div>
-               <table>
-                    <thead>
-                         <tr>
-                              <th></th>
-                              <th>Oyuncu</th>
-                              <th>Doğum Tarihi/Yaş</th>
-                              <th>Uyruk</th>
-                              <th>Piyasa Değeri</th>
-                              <th>Editör</th>
-                         </tr>
-                    </thead>
-                    <tbody>
-                         <tr *ngFor="let footballerDetail of footballersDetail">
-                              <td style="width: 40px; background-color: #74d6fc;">{{footballerDetail.playerNumber}}</td>
-                              <td style="width: 200px; text-align: start;">
-                                   <div>
-                                        <img style="width: 40px;" [src]="footballerDetail.footballerImagePath.length !==0 ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
-                                        <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a>
-                                        {{footballerDetail.positionName}}
-                                   </div>
-                              </td>
-                              <td>{{footballerDetail.dateOfBirth}} ({{footballerDetail.age}})</td>
-                              <td><img style="width: 35px;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></td>
-                              <td>{{footballerDetail.footballerValue}}</td>
-                              <td>
-                                   <button class="deleteButton" (click)="deleteFootballer(footballerDetail)">-</button>
-                                   <button class="updateButton" routerLink="/footballerUpdate/{{footballerDetail.id}}"></button>
-                              </td>
-                         </tr>
-                    </tbody>
-               </table>
+               <div class="col-12">
+                    <table style="border: 1px solid red; margin-right: 5px;">
+                         <thead>
+                              <tr>
+                                   <th></th>
+                                   <th>Oyuncu</th>
+                                   <th>Doğum Tarihi/Yaş</th>
+                                   <th>Uyruk</th>
+                                   <th>Piyasa Değeri</th>
+                                   <th  style="width: 100px;">Editör</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr *ngFor="let footballerDetail of footballersDetail">
+                                   <td style="width: 40px; background-color: #74d6fc;">{{footballerDetail.playerNumber}}</td>
+                                   <td style="width: 200px; text-align: start;">
+                                        <table>
+                                             <tbody>
+                                                  <tr>
+                                                       <td style="border:none">
+                                                            <img style="width: 40px;" [src]="footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
+                                                       </td>
+                                                       <td style="text-align: start; border: none; padding-left: 5px;">
+                                                            <a style="text-decoration: none;" routerLink="/footballer/{{footballerDetail.id}}">{{footballerDetail.name}}</a><br>
+                                                            <span >{{footballerDetail.positionName}}</span>            
+                                                       </td>
+                                                  </tr>
+                                             </tbody>
+                                        </table>
+                                   </td>
+                                   <td>{{footballerDetail.dateOfBirth | date}} ({{footballerDetail.age}})</td>
+                                   <td><img style="width: 35px;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></td>
+                                   <td>{{footballerDetail.footballerValue}}</td>
+                                   <td>
+                                         <button class="deleteButton" (click)="deleteFootballer(footballerDetail)">-</button>
+                                         <button class="updateButton"  routerLink="/footballerUpdate/{{footballerDetail.id}}"></button>
+                                   </td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </div>
           </div>
-     <div class="col-4"></div>
+          <div class="col-4">
+               a
+          </div>
  </div>
 </div>
 

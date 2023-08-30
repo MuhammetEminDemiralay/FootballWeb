@@ -1,7 +1,8 @@
 div{
     border-width: 1px;
 }
-th{
+
+th, td{
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(226, 226, 226);
     text-align: center;
@@ -9,26 +10,22 @@ th{
     text-decoration: none;
 }
 
-td{
-    border: 1px solid rgb(226, 226, 226);
-    text-align: center;
-    background-color: white;
-}
-
-span{
-    vertical-align: middle;
-}
-
 .updateButton::before{
     content:"\270F";
 }
 
+.updateButton{
+    border: 1px solid black;
+}
+
 .deleteButton{
-    margin-right: 10px;
+    border: 1px solid black;
+    background-color: none;
 }
 
 .addButton{
-    text-align: center;
+    border: 1px solid black;
+    background-color: white;
     font-size: small;
     vertical-align: middle;
     float: right;
@@ -37,7 +34,9 @@ span{
 .title{
     background-color:#1a3151;
     text-indent: 6px; 
-    font-size: large;
+    font-size: larger;
     font-weight: bold; 
     color: white;
+    margin-right: 5px;
 }
+
