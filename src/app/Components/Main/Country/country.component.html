@@ -56,13 +56,13 @@
                 <li class="list-group-item list-group-item-action" id="listNationalTeam">
                   <div class="row">
                     <div class="col-2">
-                      <img [src]="imageUrl + nationalTeamDetail.countryImagePath">
+                      <img [src]="imageUrl + nationalTeamDetail.nationalTeamImagePath">
                     </div>
                     <div class="col-6">
                       <a routerLink="/nationalTeam/{{nationalTeamDetail.id}}">{{nationalTeamDetail.nationalTeamName}}</a>
                     </div>
                     <div class="col-2">
-                      <!-- <button class="remove" (click)="removeNationalTeam(nationalTeam)">-</button> -->
+                      <button class="remove" (click)="removeNationalTeam(nationalTeamDetail)">-</button> 
                     </div>
                     <div class="col-2">
                       <button class="updateButton" (click)="getNationalTeam(nationalTeamDetail.id)" data-bs-toggle="modal" data-bs-target="#nationalTeamUpdate"></button>

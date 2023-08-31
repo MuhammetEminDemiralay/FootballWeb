@@ -84,11 +84,11 @@ export class CountryComponent implements OnInit{
     this.nationalTeamId = nationalTeamId;  
   }
 
-  // removeNationalTeam(nationalTeam : NationalTeam){
-  //   this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
-  //     window.location.reload();
-  //   })
-  // }
+  removeNationalTeam(nationalTeam : NationalTeamDetail){
+     this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
+      window.location.reload();
+     })
+   }
 
   
  

@@ -24,7 +24,6 @@ export class NationalteamaddComponent implements OnInit{
     this.nationalTeamAddForm = this.formBuilder.group({
       nationalTeamLevel : ["", Validators.required],
       nationalTeamName : ["", Validators.required],
-      nationalTeamPicture : ["", Validators.required],
       squadSize : ["", Validators.required],
       averageAge : ["", Validators.required],
       marketValue : ["", Validators.required]
@@ -37,7 +36,6 @@ export class NationalteamaddComponent implements OnInit{
       countryId : this.countryId,
       nationalTeamLevel : model.nationalTeamLevel,
       nationalTeamName : model.nationalTeamName,
-      nationalTeamPicture : model.nationalTeamPicture, 
       squadSize : model.squadSize, 
       averageAge : model.averageAge,  
       marketValue : model.marketValue 

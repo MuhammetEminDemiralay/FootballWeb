@@ -19,9 +19,9 @@ div{
 }
 
 .saha{
-    background-size: 300px;
+    background-size: 330px;
     background-repeat: no-repeat;
-    height: 300px;
+    height: 400px;
     border: thin solid rgb(211, 211, 211);
     background-image: url("src/app/Components/Image/Saha.png");
 }

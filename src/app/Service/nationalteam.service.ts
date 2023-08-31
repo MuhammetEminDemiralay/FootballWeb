@@ -25,7 +25,7 @@ export class NationalteamService {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "NationalTeam/add", nationalTeam)
   }
 
-  deleteNationalTeam(nationalTeam : NationalTeam) : Observable<ResponseModel>{
+  deleteNationalTeam(nationalTeam : NationalTeamDetail) : Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "NationalTeam/delete", nationalTeam)
   }
 

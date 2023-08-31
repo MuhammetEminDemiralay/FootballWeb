@@ -1,10 +1,9 @@
 export interface NationalTeamDetail{
     id : number,
     countryId : number,
-    countryImageId : number,
     nationalTeamLevel : number,
     nationalTeamName : string,
-    countryImagePath : string,
+    nationalTeamImagePath : string,
     date : Date,
     squadSize : number,
     averageAge : number,
