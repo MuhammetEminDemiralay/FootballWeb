@@ -1,0 +1,12 @@
+table, th, td{
+    border: thin solid black;
+}
+
+.title{
+    background-color:#1a3151;
+    text-indent: 6px; 
+    font-size: larger;
+    font-weight: bold; 
+    color: white;
+    margin-right: 5px;
+}

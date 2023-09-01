@@ -85,6 +85,19 @@
         <input type="number" formControlName="playerNumber">
     </div><br>
 
+    <div>
+        <label>Active national team player ?</label><br>
+        <input type="checkbox" (change)="selectedNationalTeam($event)">
+    </div>
+    
+    <div>
+        <label>National Team name</label><br>
+        <Select (change)="nationalTeamLevelSelected($event)">
+            <option disabled selected>National team name</option>
+            <option [value]="nationalTeam.nationalTeamLevel" *ngFor="let nationalTeam of nationalTeamDetail">{{nationalTeam.nationalTeamName}}</option>
+        </Select>
+    </div>
+
     <button (click)="footballerAdd()" routerLink="/club/{{clubId}}">Footballer Add</button>
 
 </form>

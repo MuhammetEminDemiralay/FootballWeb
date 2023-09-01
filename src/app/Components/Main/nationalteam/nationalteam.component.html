@@ -1,7 +1,27 @@
 <div class="container mt-2"  style="padding-left: 0px;">
     <div class="row mt-2">
-        <div class="col-8">
-            a
+        <div class="col-8" *ngIf="footballerDetails">
+            <div class="title"  *ngIf="nationalTeamDetail">
+                <b>Kadro {{nationalTeamDetail.nationalTeamName}}</b>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numara</th>
+                        <th>Yaş</th>
+                        <th>Klüp</th>
+                        <th>Piyasa Değeri</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let footballerDetail of footballerDetails">
+                        <td>Oyuncu Milli takım numarası</td>
+                        <td>{{footballerDetail.age}}</td>
+                        <td>{{footballerDetail.name}}</td>
+                        <td>Piyasa Değeri</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-4">
             b

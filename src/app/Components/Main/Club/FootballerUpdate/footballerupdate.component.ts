@@ -173,13 +173,24 @@ export class FootballerupdateComponent implements OnInit{
       cityId : model.cityId,
       dateOfBirth : model.dateOfBirth,
       footballerValue : model.footballerValue,
-      playerNumber : model.playerNumber
+      playerNumber : model.playerNumber,
+      nationalTeamPlayerActive : this.nationalTeamSelected
     }
 
     this.footballerService.updateFootballer(footballerModel).subscribe(response => {
       window.location.reload();
 
     })
+  }
+
+  nationalTeamSelected : boolean = false;
+
+  selectedNationalTeam(e : any){
+    if(e.target.checked){
+      this.nationalTeamSelected = true;
+    }else{
+      this.nationalTeamSelected = false;
+    }      
   }
 
 

@@ -17,5 +17,7 @@ export interface FootballerDetail{
     footName : string,
     footballerCountryImagePath? : string,
     footballerCountryName : string,
-    cityName : string
+    cityName : string,
+    nationalTeamPlayerActive : boolean,
+    nationalTeamLevel : number
 }

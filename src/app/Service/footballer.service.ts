@@ -44,6 +44,10 @@ export class FootballerService {
   deleteFootballer(footballer : Footballer) : Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "Footballer/delete", footballer);
   }
+
+  getFootballerDetailByNationalTeam(countryId : number, nationalTeam : boolean, nationalTeamLevel : number) : Observable<ListResponseModel<FootballerDetail>>{
+    return this.httpClient.get<ListResponseModel<FootballerDetail>>(this.apiUrl + "Footballer/getFootballerDetailByNationalTeam?countryId=" + countryId +  "&nationalTeam=true" +  "&nationalTeamLevel=" + nationalTeamLevel);
+  }
   
   
 }

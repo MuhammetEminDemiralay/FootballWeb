@@ -3,8 +3,7 @@ export interface NationalTeam{
     countryId : number,
     nationalTeamLevel : number,
     nationalTeamName : string,
-    nationalTeamPicture : string,
     squadSize : number,
     averageAge : number,
-    marketValue : number
+    marketValue : number,
 }

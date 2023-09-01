@@ -85,6 +85,11 @@
         <input type="number" formControlName="playerNumber">
     </div><br>
 
+    <div>
+        <label>National Team Select?</label><br>
+        <input type="checkbox" (change)="selectedNationalTeam($event)">
+    </div>
+
     <button (click)="footballerUpdate()" routerLink="/club/{{clubId}}">Footballer Update</button>
 
 </form>

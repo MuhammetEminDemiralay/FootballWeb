@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FootballerDetail } from 'src/app/Model/footballerDetail';
+import { NationalTeam } from 'src/app/Model/nationalTeam';
+import { NationalTeamDetail } from 'src/app/Model/nationalTeamDetail';
+import { FootballerService } from 'src/app/Service/footballer.service';
+import { NationalteamService } from 'src/app/Service/nationalteam.service';
 
 @Component({
   selector: 'app-nationalteam',
@@ -7,12 +13,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NationalteamComponent implements OnInit{
   
-  constructor(){
-
-  }
+  constructor(private activatedRoute : ActivatedRoute,
+              private footballerService : FootballerService,
+              private nationalTeamService : NationalteamService
+              ){}
   
   ngOnInit(): void {
-    
+    this.activatedRoute.params.subscribe(params => {
+      this.nationalTeamId = params["id"];     
+      this.getNationalTeamDetailByNationalTeamId();   
+    })
+  }
+
+  nationalTeamId : number;
+  countryId : number;
+  nationalTeamLevel : number;
+  nationalTeamDetail : NationalTeamDetail;
+  footballerDetails : FootballerDetail[] = []
+
+  getNationalTeamDetailByNationalTeamId(){
+    this.nationalTeamService.getNationalTeamDetailByNationalTeamId(this.nationalTeamId).subscribe(response => {
+      this.nationalTeamDetail = response.data;
+      this.nationalTeamLevel = response.data.nationalTeamLevel;
+      this.countryId = response.data.countryId;
+      this.getFootballerDetailByNationalTeam();
+    })
+  }
+
+  getFootballerDetailByNationalTeam(){
+    this.footballerService.getFootballerDetailByNationalTeam(this.countryId, true, this.nationalTeamLevel).subscribe(response => {
+      this.footballerDetails = response.data;
+      console.log(response.data);
+      
+    })
   }
 
 }

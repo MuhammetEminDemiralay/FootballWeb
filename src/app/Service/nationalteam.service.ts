@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { League } from '../Model/league';
 import { ResponseModel } from '../Model/responseModel';
 import { NationalTeamDetail } from '../Model/nationalTeamDetail';
+import { SingleResponseModel } from '../Model/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class NationalteamService {
 
   getNationalTeamDetailByCountryId(countryId : number) : Observable<ListResponseModel<NationalTeamDetail>>{
     return this.httpClient.get<ListResponseModel<NationalTeamDetail>>(this.apiUrl + "NationalTeam/getnationalteamDetailbycountryıd?countryId=" + countryId);
+  }
+
+  getNationalTeamDetailByNationalTeamId(nationalTeamId : number) : Observable<SingleResponseModel<NationalTeamDetail>>{
+    return this.httpClient.get<SingleResponseModel<NationalTeamDetail>>(this.apiUrl + "NationalTeam/getnationalteamDetailbyNationalTeamId?nationalTeamId=" + nationalTeamId);
   }
 
   addNationalTeam(nationalTeam : NationalTeam) : Observable<ResponseModel>{

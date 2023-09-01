@@ -18,7 +18,7 @@ const routes: Routes = [
   {path : "league/:ıd", component : LeagueComponent},
   {path : "club/:ıd", component : ClubComponent},
   {path : "footballer/:ıd", component : FootballerComponent},
-  {path : "nationalTeam/:ıd", component : NationalteamComponent},
+  {path : "nationalTeam/:id", component : NationalteamComponent},
   {path : "leagueUpdate/:id", component : CountryupdateComponent},
   {path : "clubUpdate/:id", component: ClubupdateComponent},
   {path : "footballerUpdate/:id", component : FootballerupdateComponent}

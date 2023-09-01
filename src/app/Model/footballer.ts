@@ -14,7 +14,9 @@ export interface Footballer{
     age : number,
     height : number,
     footballerValue : number,
-    playerNumber : number
+    playerNumber : number,
+    nationalTeamPlayerActive : boolean,
+    nationalTeamLevel : number
 }
 
 
