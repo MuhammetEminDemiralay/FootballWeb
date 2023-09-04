@@ -5,7 +5,7 @@ div{
 
 .playerInfo{
     border: thin solid black;
-    height: 526px;
+    height: 526px; 
 }
 
 .title{
@@ -19,9 +19,34 @@ div{
 }
 
 .saha{
+    display: grid;
+
     background-size: 330px;
     background-repeat: no-repeat;
     height: 400px;
     border: thin solid rgb(211, 211, 211);
     background-image: url("src/app/Components/Image/Saha.png");
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 35px 50px 35px 35px ;
+    padding: 0px;
+}
+
+.positions{
+    border : 1px solid red;
+}
+
+.oneplayer{
+    grid-column-start: 2;
+    text-align: center;
+}
+.twoplayer{
+    grid-row-start: 2;
+    grid-column-start: 1;
+    text-align: center;
+    padding: 10px;
+}
+.three{
+    grid-row-start: 2;
+    grid-column-start: 2;
+    text-align: center;
 }

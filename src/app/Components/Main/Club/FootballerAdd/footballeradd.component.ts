@@ -137,8 +137,8 @@ export class FootballeraddComponent implements OnInit{
 
   footballerAdd(){
     let model = Object.assign({}, this.footballerAddForm.value);
-    model.nationalTeamOnOff = this.nationalTeamSelected;
-    model.nationalTeamPlayerActive = this.nationalTeamLevel;
+    model.nationalTeamPlayerActive = this.nationalTeamSelected;
+    model.nationalTeamLevel = this.nationalTeamLevel;
     this.footballerService.addFootballer(model).subscribe(response => {    
       window.location.reload(); 
     })

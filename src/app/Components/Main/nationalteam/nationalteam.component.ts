@@ -30,6 +30,9 @@ export class NationalteamComponent implements OnInit{
   nationalTeamLevel : number;
   nationalTeamDetail : NationalTeamDetail;
   footballerDetails : FootballerDetail[] = []
+  imageUrl = "https://localhost:44319/"
+  noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
+
 
   getNationalTeamDetailByNationalTeamId(){
     this.nationalTeamService.getNationalTeamDetailByNationalTeamId(this.nationalTeamId).subscribe(response => {
@@ -43,8 +46,6 @@ export class NationalteamComponent implements OnInit{
   getFootballerDetailByNationalTeam(){
     this.footballerService.getFootballerDetailByNationalTeam(this.countryId, true, this.nationalTeamLevel).subscribe(response => {
       this.footballerDetails = response.data;
-      console.log(response.data);
-      
     })
   }
 

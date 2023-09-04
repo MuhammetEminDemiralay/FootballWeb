@@ -8,6 +8,7 @@
                 <thead>
                     <tr>
                         <th>Numara</th>
+                        <th>Oyuncu</th>
                         <th>Yaş</th>
                         <th>Klüp</th>
                         <th>Piyasa Değeri</th>
@@ -15,10 +16,16 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let footballerDetail of footballerDetails">
-                        <td>Oyuncu Milli takım numarası</td>
+                        <td>Numara</td>
+                        <td>
+                           <img style="width: 30px;" [src]="footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
+                           <b>{{footballerDetail.name}}</b> 
+                        </td>
                         <td>{{footballerDetail.age}}</td>
-                        <td>{{footballerDetail.name}}</td>
-                        <td>Piyasa Değeri</td>
+                        <td>
+                            <img style="width: 30px;"  [src]="imageUrl + footballerDetail.footballerClubImagePath">
+                        </td>
+                        <td>{{footballerDetail.footballerValue}}</td>
                     </tr>
                 </tbody>
             </table>

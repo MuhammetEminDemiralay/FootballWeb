@@ -10,6 +10,7 @@ import { Footballer } from 'src/app/Model/footballer';
 import { FootballerDetail } from 'src/app/Model/footballerDetail';
 import { League } from 'src/app/Model/league';
 import { LeagueDetail } from 'src/app/Model/leagueDetail';
+import { NationalTeamDetail } from 'src/app/Model/nationalTeamDetail';
 import { Position } from 'src/app/Model/position';
 import { CityService } from 'src/app/Service/city.service';
 import { ClubService } from 'src/app/Service/club.service';
@@ -17,6 +18,7 @@ import { CountryService } from 'src/app/Service/country.service';
 import { FootService } from 'src/app/Service/foot.service';
 import { FootballerService } from 'src/app/Service/footballer.service';
 import { LeagueService } from 'src/app/Service/league.service';
+import { NationalteamService } from 'src/app/Service/nationalteam.service';
 import { PositionService } from 'src/app/Service/position.service';
 
 @Component({
@@ -34,6 +36,7 @@ export class FootballerupdateComponent implements OnInit{
               private cityService : CityService,
               private footService : FootService,
               private formBuilder : FormBuilder,
+              private nationalTeamService : NationalteamService,
               private activatedRoute : ActivatedRoute
               ){}
 
@@ -47,6 +50,7 @@ export class FootballerupdateComponent implements OnInit{
    this.getAllPosition();
    this.getAllFoot();
    this.createFootballerForm();
+   this.createTransferHistory();
   }
 
   footballerId : number;
@@ -60,8 +64,14 @@ export class FootballerupdateComponent implements OnInit{
   footballerUpdateForm : FormGroup;
   footballerDetail : FootballerDetail;
   footballerCountryId : number;
+  nationalTeamDetail : NationalTeamDetail[] = [];
   citys : City[] = [];
   foots : Foot[] = [];
+  nationalTeamLevel : number = null;
+  nationalTeamSelected : boolean = false;
+
+  transferHistoryForm : FormGroup;
+
 
   getAllCountry(){
     this.countryService.getAll().subscribe(response => {
@@ -109,6 +119,7 @@ export class FootballerupdateComponent implements OnInit{
 
   selectNationaltyId(event : any){
     this.footballerCountryId = event.target.value;
+    this.getNationalTeamByCountryId();
     this.getCityByCountryId();
   }
 
@@ -123,6 +134,25 @@ export class FootballerupdateComponent implements OnInit{
       this.foots = response.data;
     })
   }
+
+  selectedNationalTeam(e : any){
+    if(e.target.checked){
+      this.nationalTeamSelected = true;
+    }else{
+      this.nationalTeamSelected = false;
+    }      
+  }
+
+  nationalTeamLevelSelected(e : any){
+    this.nationalTeamLevel = e.target.value;     
+  }
+
+  getNationalTeamByCountryId(){
+    this.nationalTeamService.getNationalTeamDetailByCountryId(this.footballerCountryId).subscribe(response => {
+      this.nationalTeamDetail = response.data;
+    })
+  }
+
 
 
   createFootballerForm(){
@@ -144,6 +174,8 @@ export class FootballerupdateComponent implements OnInit{
 
   getFootballerByFootballerId(){
     this.footballerService.getFootballerDetailByFootballerId(this.footballerId).subscribe(response => {
+      console.log(response.data);
+      this.footballerDetail = response.data;
        this.footballerUpdateForm.patchValue({
         name : response.data.name,
         dateOfBirth : response.data.dateOfBirth,
@@ -174,24 +206,32 @@ export class FootballerupdateComponent implements OnInit{
       dateOfBirth : model.dateOfBirth,
       footballerValue : model.footballerValue,
       playerNumber : model.playerNumber,
-      nationalTeamPlayerActive : this.nationalTeamSelected
+      nationalTeamPlayerActive : this.nationalTeamSelected,
+      nationalTeamLevel : this.nationalTeamLevel
     }
 
     this.footballerService.updateFootballer(footballerModel).subscribe(response => {
       window.location.reload();
-
     })
   }
 
-  nationalTeamSelected : boolean = false;
 
-  selectedNationalTeam(e : any){
-    if(e.target.checked){
-      this.nationalTeamSelected = true;
-    }else{
-      this.nationalTeamSelected = false;
-    }      
+
+
+
+  createTransferHistory(){
+    this.transferHistoryForm = this.formBuilder.group({
+       beforeClubId : ["", Validators.required],
+       lastClubId : ["", Validators.required],
+       season : ["", Validators.required],
+       joined : ["", Validators.required],
+       ContractExpires : ["", Validators.required],
+       ContractExtension : ["", Validators.required],
+       mv : ["", Validators.required],
+       fee : ["", Validators.required]
+    })
   }
+
 
 
 }

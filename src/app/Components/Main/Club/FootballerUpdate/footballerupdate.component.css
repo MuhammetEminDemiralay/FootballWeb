@@ -1,0 +1,16 @@
+div{
+    display: inline-block;
+    margin: 8px;
+}
+
+
+input, select{
+    width: 180px;
+    padding: 5px;
+}
+
+button{
+    width: 180px;
+}
+
+
