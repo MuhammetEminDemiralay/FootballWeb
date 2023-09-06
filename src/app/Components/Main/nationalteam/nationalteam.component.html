@@ -12,6 +12,7 @@
                         <th>Yaş</th>
                         <th>Klüp</th>
                         <th>Piyasa Değeri</th>
+                        <th>Editör</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,9 @@
                             <img style="width: 30px;"  [src]="imageUrl + footballerDetail.footballerClubImagePath">
                         </td>
                         <td>{{footballerDetail.footballerValue}}</td>
+                        <td>
+                            <button (click)="playerActiveAndPassive(footballerDetail)">-</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
