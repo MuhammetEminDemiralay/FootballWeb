@@ -109,11 +109,11 @@
     <div>
         <label>Season</label><br>
         <select formControlName="season">
-            <option [ngValue]='24' selected>23/24</option>
-            <option [ngValue]='25'>24/25</option>
-            <option [ngValue]='26'>25/26</option>
-            <option [ngValue]='27'>26/27</option>
-            <option [ngValue]='27'>27/28</option>
+            <option [value]='24'>23/24</option>
+            <option [value]='25'>24/25</option>
+            <option [value]='26'>25/26</option>
+            <option [value]='27'>26/27</option>
+            <option [value]='27'>27/28</option>
         </select>
     </div>
     <div>
@@ -126,28 +126,19 @@
     </div>
     <div>
         <label>Joined</label><br>
-        <input type="date">
+        <input type="date" formControlName="joined">
     </div>
     <div>
         <label>Contract Expires</label><br>
-        <input type="date">
-    </div>
-    <div>
-        <label>Contract Extension</label><br>
-        <input type="date">
-    </div>
-    <div>
-        <label>Market Value</label><br>
-        <input type="number">
+        <input type="date" formControlName="contractExpires">
     </div>
     <div>
         <label>Fee</label><br>
-        <input type="number">
+        <input type="number" formControlName="fee">
     </div>
     <div>
-        <button>Transfer Added</button>
+        <button (click)="transferHistoryaAdded()">Transfer Added</button>
     </div>
-
 </form>
 
 

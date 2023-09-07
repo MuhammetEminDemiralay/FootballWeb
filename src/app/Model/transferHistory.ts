@@ -1,13 +1,9 @@
 export interface TransferHistory{
     id : number,
-    beforeClubId : number,
+    currentClubId : number,
     lastClubId : number,
-    beforeClubName : string,
-    lastClubName : string,
     season : number,
     joined : Date, 
-    ContractExpires : Date,
-    ContractExtension : Date,
-    mv : number,
+    contractExpires : Date,
     fee : number
 }

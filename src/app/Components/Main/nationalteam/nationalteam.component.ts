@@ -52,7 +52,7 @@ export class NationalteamComponent implements OnInit{
   playerActiveAndPassive(footballerDetail : FootballerDetail){
     footballerDetail.nationalTeamPlayerActive = false;
     this.footballerService.updateFootballer(footballerDetail).subscribe(response => {
-      console.log("güncellendi");
+      window.location.reload();
     })
   }
 

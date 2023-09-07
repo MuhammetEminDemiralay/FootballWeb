@@ -12,6 +12,7 @@ import { League } from 'src/app/Model/league';
 import { LeagueDetail } from 'src/app/Model/leagueDetail';
 import { NationalTeamDetail } from 'src/app/Model/nationalTeamDetail';
 import { Position } from 'src/app/Model/position';
+import { TransferHistory } from 'src/app/Model/transferHistory';
 import { CityService } from 'src/app/Service/city.service';
 import { ClubService } from 'src/app/Service/club.service';
 import { CountryService } from 'src/app/Service/country.service';
@@ -20,6 +21,7 @@ import { FootballerService } from 'src/app/Service/footballer.service';
 import { LeagueService } from 'src/app/Service/league.service';
 import { NationalteamService } from 'src/app/Service/nationalteam.service';
 import { PositionService } from 'src/app/Service/position.service';
+import { TransferhistoryService } from 'src/app/Service/transferhistory.service';
 
 @Component({
   selector: 'app-footballerupdate',
@@ -37,7 +39,8 @@ export class FootballerupdateComponent implements OnInit{
               private footService : FootService,
               private formBuilder : FormBuilder,
               private nationalTeamService : NationalteamService,
-              private activatedRoute : ActivatedRoute
+              private activatedRoute : ActivatedRoute,
+              private transferHistoryService : TransferhistoryService
               ){}
 
   ngOnInit(): void {
@@ -207,7 +210,7 @@ export class FootballerupdateComponent implements OnInit{
       footballerValue : model.footballerValue,
       playerNumber : model.playerNumber,
       nationalTeamPlayerActive : this.nationalTeamSelected,
-      nationalTeamLevel : this.nationalTeamLevel
+      nationalTeamLevel : this.nationalTeamLevel != null ? this.nationalTeamLevel : this.footballerDetail.nationalTeamLevel 
     }
 
     this.footballerService.updateFootballer(footballerModel).subscribe(response => {
@@ -216,22 +219,30 @@ export class FootballerupdateComponent implements OnInit{
   }
 
 
-
-
-
   createTransferHistory(){
     this.transferHistoryForm = this.formBuilder.group({
-       beforeClubId : ["", Validators.required],
-       lastClubId : ["", Validators.required],
        season : ["", Validators.required],
        joined : ["", Validators.required],
-       ContractExpires : ["", Validators.required],
-       ContractExtension : ["", Validators.required],
-       mv : ["", Validators.required],
+       contractExpires : ["", Validators.required],
        fee : ["", Validators.required]
     })
   }
 
+
+  transferHistoryaAdded(){
+    let model = Object.assign({}, this.transferHistoryForm.value);
+    let transferHistoryModel =  <TransferHistory>{
+      currentClubId : this.footballerDetail.clubId,
+      lastClubId : this.clubId,
+      season : model.season,
+      joined : model.joined,
+      contractExpires : model.contractExpires,
+      fee : model.fee
+    }
+    this.transferHistoryService.addTransferHistory(transferHistoryModel).subscribe(response => {
+      console.log("Transfer geçmişine eklendi");
+    })
+  }
 
 
 }

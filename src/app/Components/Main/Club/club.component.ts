@@ -60,8 +60,6 @@ export class ClubComponent implements OnInit{
     }
   }
 
-  addButton(){
-    window.location.reload();
-  }
+
   
 }
