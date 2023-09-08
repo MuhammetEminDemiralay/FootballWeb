@@ -99,7 +99,36 @@
                DİĞER VERİLER
           </div>
           <div class="col-12 mb-2" style="border-style: solid; height: 233px;">
-               Transfer geçmişi
+               <table>
+                    <thead>
+                         <tr>
+                              <th>Season</th>
+                              <th>Date</th>
+                              <th>Before Club</th>
+                              <th>Last Club</th>
+                              <th>Market Value</th>
+                              <th>Fee</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let transferHistory of transferHistoryDetail">
+                              <td>{{transferHistory.season}}</td>
+                              <td>{{transferHistory.joined}}</td>
+                              <td>
+                                   <img style="width: 25px;" [src]="imageUrl + transferHistory.beforeClubImagePath">
+                                   <img style="width: 20px;" [src]="imageUrl + transferHistory.beforeClubCountryImagePath">
+                                   {{transferHistory.beforeClubName}}
+                              </td>
+                              <td>
+                                   <img style="width: 25px;" [src]="imageUrl + transferHistory.lastClubImagePath">
+                                   <img style="width: 20px;" [src]="imageUrl + transferHistory.lastClubCountryImagePath">
+                                   {{transferHistory.lastClubName}}
+                              </td>
+                              <td>{{transferHistory.marketValue}}</td>
+                              <td>{{transferHistory.fee}}</td>
+                         </tr>     
+                    </tbody>
+               </table>
           </div>
           <div class="col-12 mb-2" style="border-style: solid; height: 66px;">
                GENÇLİK KULÜPLERİ

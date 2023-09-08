@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ClubDetail } from 'src/app/Model/clubDetail';
 import { Footballer } from 'src/app/Model/footballer';
 import { FootballerDetail } from 'src/app/Model/footballerDetail';
+import { TransferHistoryDetail } from 'src/app/Model/transferhistorydetail';
 import { ClubService } from 'src/app/Service/club.service';
 import { FootballerService } from 'src/app/Service/footballer.service';
+import { TransferhistoryService } from 'src/app/Service/transferhistory.service';
 
 @Component({
   selector: 'app-footballer',
@@ -15,6 +17,7 @@ export class FootballerComponent implements OnInit{
   
   constructor(private activatedRoute : ActivatedRoute,
               private footballerService : FootballerService,
+              private transferHistoryService : TransferhistoryService,
               private clubService : ClubService
               ){}
 
@@ -23,6 +26,7 @@ export class FootballerComponent implements OnInit{
       this.activatedRoute.params.subscribe(params =>{
         this.ıd = params["ıd"]
         this.getFootballerDetailByFootballerId();
+        this.getTransferHistoryByFootballerId();
       })
   }
 
@@ -32,6 +36,7 @@ export class FootballerComponent implements OnInit{
   imageUrl = "https://localhost:44319/";
   noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
   saha = "Images/b45e40a275244e0fabba7775b19a0fe7.png"
+  transferHistoryDetail : TransferHistoryDetail[] = []; 
 
 
   
@@ -47,6 +52,13 @@ export class FootballerComponent implements OnInit{
       this.clubDetail = response.data;
     })
   }
+
+  getTransferHistoryByFootballerId(){
+    this.transferHistoryService.getTransferHistoryDetailByFootballerId(this.ıd).subscribe(response => {
+      this.transferHistoryDetail = response.data;
+    })
+  }
+  
 
 
 }

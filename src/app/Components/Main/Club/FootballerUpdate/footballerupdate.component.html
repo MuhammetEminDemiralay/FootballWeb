@@ -117,7 +117,7 @@
         </select>
     </div>
     <div>
-        <label>Before Club Name</label><br>
+        <label>Current Club Name</label><br>
         <input [value]="footballerDetail.clubName" readonly type="text">
     </div>
     <div>
@@ -137,7 +137,7 @@
         <input type="number" formControlName="fee">
     </div>
     <div>
-        <button (click)="transferHistoryaAdded()">Transfer Added</button>
+        <button (click)="transferHistoryaAdded()" [disabled]="footballerDetail.clubId == clubId">Transfer Added</button>
     </div>
 </form>
 

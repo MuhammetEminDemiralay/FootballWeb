@@ -50,3 +50,9 @@ div{
     grid-column-start: 2;
     text-align: center;
 }
+
+
+th, td{
+    border: 1px solid black;
+    padding: 5px;
+}

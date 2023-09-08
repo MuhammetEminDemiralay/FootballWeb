@@ -214,7 +214,6 @@ export class FootballerupdateComponent implements OnInit{
     }
 
     this.footballerService.updateFootballer(footballerModel).subscribe(response => {
-      window.location.reload();
     })
   }
 
@@ -232,6 +231,7 @@ export class FootballerupdateComponent implements OnInit{
   transferHistoryaAdded(){
     let model = Object.assign({}, this.transferHistoryForm.value);
     let transferHistoryModel =  <TransferHistory>{
+      footballerId : this.footballerDetail.id,
       currentClubId : this.footballerDetail.clubId,
       lastClubId : this.clubId,
       season : model.season,
@@ -239,9 +239,19 @@ export class FootballerupdateComponent implements OnInit{
       contractExpires : model.contractExpires,
       fee : model.fee
     }
-    this.transferHistoryService.addTransferHistory(transferHistoryModel).subscribe(response => {
-      console.log("Transfer geçmişine eklendi");
-    })
+    if(this.footballerDetail.clubId == this.clubId){
+      console.log("Faklı bir klüp seçiniz");
+    }else{
+      this.transferHistoryService.addTransferHistory(transferHistoryModel).subscribe(response => {
+        console.log("Transfer geçmişine eklendi");
+      })
+    }
+
+  }
+
+  transferNewClub(){
+    if(this.footballerDetail.clubId == this.clubId){
+    }
   }
 
 
