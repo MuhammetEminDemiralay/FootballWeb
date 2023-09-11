@@ -56,3 +56,36 @@ th, td{
     border: 1px solid black;
     padding: 5px;
 }
+
+#alan{
+    border: thin solid black;
+}
+
+.satir{
+    float: left;
+    margin: 5px;
+}
+
+p{
+    padding: 7px 0px 0px 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.countryImage{
+    border: thin solid black;
+    width: 20px;    
+}
+
+#footballerValue{
+    display: inline-block; 
+    background-color: #089fdb; 
+    width: 200px; 
+    height: 75px; 
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    position: relative;
+    left: 100px;
+}

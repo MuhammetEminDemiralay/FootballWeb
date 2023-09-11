@@ -43,6 +43,8 @@ export class FootballerComponent implements OnInit{
   getFootballerDetailByFootballerId(){
     this.footballerService.getFootballerDetailByFootballerId(this.ıd).subscribe(response => {
       this.footballerDetail = response.data;
+      console.log(response.data);
+      
       this.getClubDetailByClubId();
     })
   }
