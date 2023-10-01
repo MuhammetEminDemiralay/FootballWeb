@@ -1,79 +1,22 @@
 
-.title{
-    background-color:#1a3151;
-    text-indent: 6px; 
-    font-size: large;
-    font-weight: bold; 
-    color: white;
-}
-
-.updateButton::before{
-    content:"\270F";
-}
-
-.addButton{
-    text-align: center;
-    font-size: small;
-    vertical-align: middle;
-    float: right;
-}
-
-.deleteButton{
-    margin-right: 10px;
-}
-
-tr{
-   border:1px solid rgb(194, 193, 193); 
-}
-
-th{
-    text-align: center;
-    vertical-align: middle;
-}
-
-td{
-    text-align: center;
-    vertical-align: middle;
+*{
+    padding: 0px;
+    margin: 0px;
 }
 
 img{
-    width: 40px;
+    width: 30px;
 }
 
-a{
-    font-weight: bolder;
-    font-size: large;
-    text-decoration: none;
+th, td{
+    text-align: center;
+    padding: 0px;
+    border: thin solid rgb(222, 222, 222);
 }
 
-a:hover{
-    text-decoration: underline;
+
+li{
+    list-style-type: none;
 }
 
-#listNationalTeam{
-    height: 50px;
-}
 
-b{
-    font-size: larger;
-}
-
-#bir{
-    background-color: white;
-}
-#iki{
-    background-color: #000080;
-     color: white; 
-}
-#üc{
-    background-color: #1E90FF;
-}
-#dort{
-    background-color: #00FFFF;
-}
-#beş{
-    background-color: #87CEFA;
-}
-#altı{
-    background-color: #B0E0E6;
-}

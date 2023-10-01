@@ -1,7 +1,4 @@
-div{
-    border-width: 2px;
-}
-
-footer{
-    border-width: 2px;
+*{
+    padding: 0px;
+    margin: 0px auto;
 }

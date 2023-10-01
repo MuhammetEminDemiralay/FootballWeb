@@ -71,7 +71,6 @@ export class CountryupdateComponent implements OnInit{
     }
 
     this.leagueService.leagueUpdate(leagueModel).subscribe(response => {
-      console.log(response.message);
     })
   }
 

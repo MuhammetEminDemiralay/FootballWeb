@@ -33,9 +33,8 @@ export class CountryComponent implements OnInit{
   countryId : number;
   leagueId : number;
   leagueDetails : LeagueDetail[] = [];
-
   imageUrl = "https://localhost:44319/"
-
+  noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
   nationalTeams : NationalTeamDetail[] = [];
   nationalTeamId : number;
   
@@ -44,19 +43,6 @@ export class CountryComponent implements OnInit{
     this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
       this.leagueDetails = response.data;  
     })
-  }
-
-  leagueLevel(leagueLevel : number){
-    if(leagueLevel == 1){
-      return "background-color :#000080;"
-    }else if(leagueLevel == 2){
-      return "background-color: #1E90FF"
-    }else if(leagueLevel == 3){
-      return "background-color: #00FFFF"
-    }else if(leagueLevel == 4){
-      return  "background-color: #87CEFA"
-    }
-    return "background-color: #B0E0E6"
   }
 
 
