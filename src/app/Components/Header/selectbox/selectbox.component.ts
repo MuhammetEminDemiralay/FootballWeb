@@ -40,80 +40,74 @@ export class SelectboxComponent implements OnInit{
   clubId : number;
   footballerId : number;
 
-  getAllCountry(){
+  getAllCountry(){                  // country details
     this.countryService.getAll().subscribe(response => {
       this.countrys = response.data;  
     })
   }
 
-  //
+  disableClub : boolean = false;
+  disableFootballer : boolean = false;
+  selectCountry(e : any){             // select country
+    this.countryId = e.target.value;
+    if(this.clubs.length > 0){
+      this.clubs = [];
+     let newLeagueId = this.leagues[0].id;
+    }else{
+      this.getLeaguesDetailByCountryId();
+    }
+    
+  }
 
-
-
-  getLeaguesDetailByCountryId(){
+  getLeaguesDetailByCountryId(){       // league details
     this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
       this.leagues = response.data;
     })
   }  
 
-  selectCountry(e : any){
-    this.countryId = e.target.value;
-    this.getLeaguesDetailByCountryId();
-  }
- 
-  countryRoute(){
+  countryRoute(){                     // country route
     this.router.navigate(["/country", this.countryId])
   }
 
-  //
+  selectLeague(e : any){            // select club
+    this.leagueId = e.target.value;
+    if(this.footballers.length > 0){
+      this.footballers = [];
+    }
+    this.getClubsDetailByLeagueId();
+  }
 
-  getClubsDetailByLeagueId(){
+  getClubsDetailByLeagueId(){        // club details
     this.clubService.getClubsDetailByLeagueId(this.leagueId).subscribe(response => {
       this.clubs = response.data;
     })
   }
 
-  selectLeague(e : any){
-    this.leagueId = e.target.value;
-    this.getClubsDetailByLeagueId();
-  }
-
-  leagueRoute(){
+  leagueRoute(){                    // league route
     this.router.navigate(["/league", this.leagueId])
   }
 
-  //
-
-  getFootballerByClubId(){
+  getFootballerByClubId(){           // footballer details
     this.footballerService.getFootballersDetailByClubId(this.clubId).subscribe(response => {
       this.footballers = response.data;      
     })
   }
 
-  selectClub(e : any){
+  selectClub(e : any){              // select club
     this.clubId = e.target.value;
     this.getFootballerByClubId();
   }
 
-  clubRoute(){
+  clubRoute(){                      // club route
     this.router.navigate(["/club", this.clubId])
   }
   
-
-  //
-
-
-  selectFootbaler(e : any){
+  selectFootbaler(e : any){         // select footballer
     this.footballerId = e.target.value;
   }
 
-  footballerRoute(){
+  footballerRoute(){               // footballer route
     this.router.navigate(["/footballer", this.footballerId])
   }
-
-  //
-
-
-
 
 }

@@ -40,7 +40,7 @@ export class CountryupdateComponent implements OnInit{
         players : response.data.players,
         reigningChampion : response.data.reigningChampion,
         totalMarketValue : response.data.totalMarketValue,
-      })
+      })   
     })
 
   }

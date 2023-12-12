@@ -3,7 +3,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th style="text-align: start; text-indent: 10px; font-weight: bolder; background-color: rgb(26, 49, 81); color: white;" colspan="6">AVRUPA LİGLERİ VE KUPA MÜSABAKALARI</th>
+                        <th style="text-align: start; text-indent: 10px; font-weight: bolder; background-color: rgb(26, 49, 81); color: white;" colspan="6">
+                            <span>AVRUPA LİGLERİ VE KUPA MÜSABAKALARI</span>
+                            <button data-bs-toggle="modal" data-bs-target="#leagueAdd" style="float: right;"><i class="bi bi-plus"></i></button>
+                        </th>
                     </tr>
                 </thead>
                 <thead>
@@ -42,25 +45,71 @@
                         <td>{{leagueDetail.totalMarketValue}} milyar€</td>
                         <td>
                             <button  class="m-1" (click)="leagueDelete(leagueDetail)"><i class="bi bi-dash-lg"></i></button>
-                            <button  class="m-1" routerLink="/leagueUpdate/{{leagueDetail.id}}" ><i class="bi bi-pencil-fill"></i></button>
+                            <button  class="m-1" routerLink="/leagueUpdate/{{leagueDetail.id}}"><i class="bi bi-pencil-fill"></i></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-12 col-md-4 p-1">
-            <div class="bg-light p-2">MİLLİ TAKIMLAR</div>
+            <div class="bg-light p-1">
+                <span>MİLLİ TAKIMLAR</span>
+                <button data-bs-toggle="modal" data-bs-target="#nationalTeamAdd" style="float: right;" routerLink="/nationalTeam"><i class="bi bi-plus"></i></button>
+            </div>      
             <ul class="list-group" *ngFor="let nationalTeam of nationalTeams">
-                <li  routerLink="/nationalTeam/{{nationalTeam.id}}" class="list-group-item list-group list-group-item-action rounded-0 p-2">
+                <li class="list-group-item list-group list-group-item-action rounded-0 p-2">
                     <div class="row">
-                        <div class="col-2 text-center">
+                        <div class="col-2">
                             <img  [src]="imageUrl + nationalTeam.nationalTeamImagePath">
                         </div>
-                        <div class="col-7">{{nationalTeam.nationalTeamName}}</div>
-                        <div class="col-2">a</div>
-                        <div class="col-1">></div>
+                        <div class="col-5" routerLink="/nationalTeam/{{nationalTeam.id}}">
+                            <span>{{nationalTeam.nationalTeamName}}</span>
+                        </div>
+                        <div class="col-3 text-center">
+                            <button class="m-1"><i class="bi bi-dash"></i></button>
+                            <button class="m-1"><i class="bi bi-pencil-fill"></i></button>
+                        </div>
+                        <div class="col-2">
+                            <button style="float: right; border: none; background-color:transparent;" routerLink="/nationalTeam/{{nationalTeam.id}}">
+                                <i id="arrow" class='bx bx-chevron-right  bx-sm'></i>
+                            </button>
+                        </div>
                     </div>
                 </li>
             </ul>
         </div>
     </div>
+
+
+
+
+
+
+<div class="modal" tabindex="-1" id="leagueAdd">
+    <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">League Add</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="margin: auto;">
+            <app-countryadd></app-countryadd>
+        </div>
+        </div>
+    </div>
+</div>    
+    
+<div class="modal" tabindex="-1" id="nationalTeamAdd">
+     <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title">National Team Add</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body" style="margin: auto;">
+            <app-nationalteamadd></app-nationalteamadd>
+        </div>
+       </div>
+     </div>
+</div>
+ 

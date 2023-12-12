@@ -1,41 +1,60 @@
-<div class="col-12">
-    <div class="d-flex justify-content-evenly ">
-        <button routerLink="/home"><i class="bi bi-house-door-fill"></i></button>
-        <div>
-            <button><i class="bi bi-flag-fill"></i></button>
-            <Select (change)="selectCountry($event)">
-                <option selected disabled>Ülke</option>
-                <option [value]="country.id" *ngFor="let country of countrys">{{country.countryName}}</option>
-            </Select>
-            <button class="buttonArrow" (click)="countryRoute()"></button>
-        </div>
+<div class="wrapper">
 
-        <div>
-            <button  class="cup"></button>
-            <Select (change)="selectLeague($event)">
-                <option selected disabled>Müsabaka</option>
-                <option [value]="league.id" *ngFor="let league of leagues">{{league.leagueName}}</option>
-            </Select>
-            <button  class="buttonArrow" (click)="leagueRoute()"></button>
+    <div class="box">
+        <div class="icon-box" routerLink="/home">
+            <i class='bx bxs-home home icon'></i>
         </div>
+    </div>
 
-        <div>
-            <button class="uniform"></button>
-            <Select (change)="selectClub($event)">
-                <option selected disabled>Klüp</option>
-                <option [value]="club.id" *ngFor="let club of clubs">{{club.clubName}}</option>
-            </Select>
-            <button  class="buttonArrow" (click)="clubRoute()"></button>
+    <div class="box">
+        <div class="icon-box">
+            <i class='bx bxs-flag-alt flag icon'></i>
         </div>
-        
-        <div>
-            <button class="face"></button>
-            <Select (change)="selectFootbaler($event)">
-                <option selected disabled>Futbolcu</option>
-                <option [value]="footballer.id" *ngFor="let footballer of footballers">{{footballer.name}}</option>
-            </Select>
-            <button  class="buttonArrow" (click)="footballerRoute()"></button>
+        <select class="select" (change)="selectCountry($event)">
+            <option selected disabled>Country</option>
+            <option [value]="country.id" *ngFor="let country of countrys">{{country.countryName}}</option>
+        </select>
+        <div class="btn-box">
+            <i class='bx bx-chevrons-right arrow' (click)="countryRoute()"></i>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="icon-box">
+            <i class='bx bxs-trophy icon'></i>
+        </div>
+        <select class="select" (change)="selectLeague($event)">
+            <option selected disabled>League</option>
+            <option [value]="league.id" *ngFor="let league of leagues">{{league.leagueName}}</option>
+        </select>
+        <div class="btn-box">
+            <i class='bx bx-chevrons-right arrow' (click)="leagueRoute()"></i>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="icon-box">
+            <i class='bx bxs-t-shirt icon'></i>
+        </div>
+        <Select class="select" (change)="selectClub($event)" [disabled]="disableClub">
+            <option selected disabled>Club</option>
+            <option [value]="club.id" *ngFor="let club of clubs">{{club.clubName}}</option>
+        </Select>
+        <div class="btn-box">
+            <i class='bx bx-chevrons-right arrow' (click)="clubRoute()"></i>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="icon-box">
+            <i class="bi bi-person-fill icon"></i>
+        </div>
+        <select class="select" (change)="selectFootbaler($event)" [disabled]="disableFootballer">
+            <option selected disabled>Player</option>
+            <option [value]="footballer.id" *ngFor="let footballer of footballers">{{footballer.name}}</option>
+        </select>
+        <div class="btn-box">
+            <i class='bx bx-chevrons-right arrow' (click)="footballerRoute()"></i>
         </div>
     </div>
 </div>
-
