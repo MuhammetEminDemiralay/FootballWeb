@@ -39,75 +39,103 @@ export class SelectboxComponent implements OnInit{
   leagueId : number;
   clubId : number;
   footballerId : number;
+  disabledClub : boolean = true; 
+  disabledFootballer : boolean = true;
 
-  getAllCountry(){                  // country details
+
+  disabledViewClub(){
+    if(this.disabledClub){      
+      return "disabled-selected";
+    }
+    else{
+      return ""
+    }
+  }
+
+  disabledViewFootballer(){
+    if(this.disabledFootballer){
+      return "disabled-selected"
+    }else{
+      return ""
+    }
+  }
+
+
+  getAllCountry(){   
     this.countryService.getAll().subscribe(response => {
       this.countrys = response.data;  
     })
   }
 
-  disableClub : boolean = false;
-  disableFootballer : boolean = false;
-  selectCountry(e : any){             // select country
+  selectCountry(e : any){       
     this.countryId = e.target.value;
-    if(this.clubs.length > 0){
-      this.clubs = [];
-     let newLeagueId = this.leagues[0].id;
-    }else{
-      this.getLeaguesDetailByCountryId();
+    this.getLeaguesDetailByCountryId();
+    if(this.leagueId != null){
+      this.clubs = null;
+      this.footballers = null;
+      this.disabledClub = true;
+      this.disabledFootballer = true;
     }
-    
   }
 
-  getLeaguesDetailByCountryId(){       // league details
+  getLeaguesDetailByCountryId(){  
     this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
       this.leagues = response.data;
     })
   }  
 
-  countryRoute(){                     // country route
-    this.router.navigate(["/country", this.countryId])
-  }
-
-  selectLeague(e : any){            // select club
+  selectLeague(e : any){    
     this.leagueId = e.target.value;
-    if(this.footballers.length > 0){
-      this.footballers = [];
+    if(this.clubId != null){
+      this.clubs = null;
+      this.footballers = null;
+      this.disabledFootballer = true;
     }
+    this.disabledClub = false;
     this.getClubsDetailByLeagueId();
   }
 
-  getClubsDetailByLeagueId(){        // club details
+  getClubsDetailByLeagueId(){ 
     this.clubService.getClubsDetailByLeagueId(this.leagueId).subscribe(response => {
       this.clubs = response.data;
     })
   }
 
-  leagueRoute(){                    // league route
-    this.router.navigate(["/league", this.leagueId])
+  
+  selectClub(e : any){  
+    this.clubId = e.target.value;
+    this.disabledFootballer = false;
+    this.getFootballerByClubId();
   }
 
-  getFootballerByClubId(){           // footballer details
+  getFootballerByClubId(){   
     this.footballerService.getFootballersDetailByClubId(this.clubId).subscribe(response => {
       this.footballers = response.data;      
     })
   }
 
-  selectClub(e : any){              // select club
-    this.clubId = e.target.value;
-    this.getFootballerByClubId();
-  }
-
-  clubRoute(){                      // club route
-    this.router.navigate(["/club", this.clubId])
-  }
-  
-  selectFootbaler(e : any){         // select footballer
+  selectFootbaler(e : any){ 
     this.footballerId = e.target.value;
   }
 
-  footballerRoute(){               // footballer route
+  footballerRoute(){ 
     this.router.navigate(["/footballer", this.footballerId])
+  }
+
+  clubRoute(){    
+    this.router.navigate(["/club", this.clubId])
+  }
+
+  leagueRoute(){  
+    this.router.navigate(["/league", this.leagueId])
+  }
+
+  countryRoute(){   
+    this.router.navigate(["/country", this.countryId])
+  }
+
+  selectboxReload(){
+    window.location.reload();
   }
 
 }

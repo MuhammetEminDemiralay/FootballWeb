@@ -1,83 +1,42 @@
-    <div class="row">
-        <div class="col-12 col-md-8 p-1">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th style="text-align: start; text-indent: 10px; font-weight: bolder; background-color: rgb(26, 49, 81); color: white;" colspan="6">
-                            <span>AVRUPA LİGLERİ VE KUPA MÜSABAKALARI</span>
-                            <button data-bs-toggle="modal" data-bs-target="#leagueAdd" style="float: right;"><i class="bi bi-plus"></i></button>
-                        </th>
-                    </tr>
-                </thead>
-                <thead>
-                    <tr>
-                        <th style="text-align: start;">Müsabaka</th>
-                        <th>Kulüpler</th>
-                        <th>Oyuncu</th>
-                        <th>Forum</th>
-                        <th>Toplam Değer</th>
-                        <th>Editör</th>
-                    </tr>
-                </thead>
+<div class="row">
+    <div class="col-12 col-md-8 p-1">
 
-                <tbody  *ngFor="let leagueDetail of leagueDetails;">
+
+
+
+
+        <div class="league-wrapper">
+           <div class="title-box">
+                a
+           </div>
+           <table class="table">
+                <thead>
                     <tr>
-                        <td style="text-align: start; text-indent: 10px; background-color: rgb(174, 213, 247);" colspan="6">{{leagueDetail.leagueLevel}}.Lig</td>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <td>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td style="border: none;">
-                                            <img [src]="leagueDetail.leagueImagePath ? imageUrl + leagueDetail.leagueImagePath : imageUrl + noFootballerPhoto">
-                                        </td>
-                                        <td style="border: none;">
-                                            <a style="text-decoration: none;" routerLink="/league/{{leagueDetail.id}}">{{leagueDetail.leagueName}}</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>         
-                        <td>{{leagueDetail.numberOfTeams}}</td>
-                        <td>{{leagueDetail.players}}</td>
-                        <td>Forum</td>
-                        <td>{{leagueDetail.totalMarketValue}} milyar€</td>
-                        <td>
-                            <button  class="m-1" (click)="leagueDelete(leagueDetail)"><i class="bi bi-dash-lg"></i></button>
-                            <button  class="m-1" routerLink="/leagueUpdate/{{leagueDetail.id}}"><i class="bi bi-pencil-fill"></i></button>
-                        </td>
+                        <td>a</td>
+                        <td>b</td>
+                        <td>c</td>
+                        <td>d</td>
+                        <td>e</td>
                     </tr>
                 </tbody>
-            </table>
+
+           </table>
+
         </div>
-        <div class="col-12 col-md-4 p-1">
-            <div class="bg-light p-1">
-                <span>MİLLİ TAKIMLAR</span>
-                <button data-bs-toggle="modal" data-bs-target="#nationalTeamAdd" style="float: right;" routerLink="/nationalTeam"><i class="bi bi-plus"></i></button>
-            </div>      
-            <ul class="list-group" *ngFor="let nationalTeam of nationalTeams">
-                <li class="list-group-item list-group list-group-item-action rounded-0 p-2">
-                    <div class="row">
-                        <div class="col-2">
-                            <img  [src]="imageUrl + nationalTeam.nationalTeamImagePath">
-                        </div>
-                        <div class="col-5" routerLink="/nationalTeam/{{nationalTeam.id}}">
-                            <span>{{nationalTeam.nationalTeamName}}</span>
-                        </div>
-                        <div class="col-3 text-center">
-                            <button class="m-1"><i class="bi bi-dash"></i></button>
-                            <button class="m-1"><i class="bi bi-pencil-fill"></i></button>
-                        </div>
-                        <div class="col-2">
-                            <button style="float: right; border: none; background-color:transparent;" routerLink="/nationalTeam/{{nationalTeam.id}}">
-                                <i id="arrow" class='bx bx-chevron-right  bx-sm'></i>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
+
+
+
+
     </div>
 
 
@@ -85,31 +44,11 @@
 
 
 
-<div class="modal" tabindex="-1" id="leagueAdd">
-    <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">League Add</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" style="margin: auto;">
-            <app-countryadd></app-countryadd>
-        </div>
+
+    
+    <div class="col-12 col-md-4 p-1">
+        <div class="national-wrapper">
+            B
         </div>
     </div>
 </div>    
-    
-<div class="modal" tabindex="-1" id="nationalTeamAdd">
-     <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title">National Team Add</h5>
-           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body" style="margin: auto;">
-            <app-nationalteamadd></app-nationalteamadd>
-        </div>
-       </div>
-     </div>
-</div>
- 
