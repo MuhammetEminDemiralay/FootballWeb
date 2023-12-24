@@ -1,54 +1,39 @@
-<div class="row">
-    <div class="col-12 col-md-8 p-1">
-
-
-
-
-
+<div class="row p-0 m-0">
+    <div class="col-12 col-md-8 p-1 m-0">
         <div class="league-wrapper">
            <div class="title-box">
-                a
+                DOMESTIC LEAGUES & CUPS
            </div>
            <table class="table">
                 <thead>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>C</th>
-                        <th>D</th>
-                        <th>E</th>
+                        <th>Competition</th>
+                        <th>Clubs</th>
+                        <th>Player</th>
+                        <th>Forum</th>
+                        <th>Total Value</th>
+                        <th>Editör</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody *ngFor="let league of leagueDetails; let i = index">
                     <tr>
-                        <td>a</td>
+                        <td>{{league.leagueName}}</td>
                         <td>b</td>
                         <td>c</td>
                         <td>d</td>
                         <td>e</td>
+                        <td>f</td>
                     </tr>
                 </tbody>
-
            </table>
-
         </div>
-
-
-
-
-
     </div>
 
-
-
-
-
-
-
-    
-    <div class="col-12 col-md-4 p-1">
+    <div class="col-12 col-md-4  p-1  m-0">
         <div class="national-wrapper">
             B
         </div>
     </div>
 </div>    
+

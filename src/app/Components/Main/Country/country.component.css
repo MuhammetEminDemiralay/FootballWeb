@@ -1,18 +1,23 @@
-*{
-    padding: 0;
-    margin: 0;
-}
+
 
 .league-wrapper{
+    padding: 0;
+    margin: 0;
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-color: orange;
-    border: 1px solid black;
 }
 
 .league-wrapper .title-box{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
     width: 100%;
-    background-color: blue;
+    height: 34px;
+    background-color: #1a3151;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 
