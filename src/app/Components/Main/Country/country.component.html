@@ -1,5 +1,5 @@
 <div class="row p-0 m-0">
-    <div class="col-12 col-md-8 p-1 m-0">
+    <div class="col-12 col-md-8 p-2 m-0">
         <div class="league-wrapper">
            <div class="title-box">
                 DOMESTIC LEAGUES & CUPS
@@ -7,7 +7,7 @@
            <table class="table">
                 <thead>
                     <tr>
-                        <th>Competition</th>
+                        <th id="competition">Competition</th>
                         <th>Clubs</th>
                         <th>Player</th>
                         <th>Forum</th>
@@ -16,21 +16,85 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let league of leagueDetails; let i = index">
-                    <tr>
-                        <td>{{league.leagueName}}</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td>d</td>
-                        <td>e</td>
-                        <td>f</td>
+                <tbody>
+                    <tr *ngIf="leagueFirst.length > 0"><td  class="league-level" colspan="6">First Tier</td></tr>
+                    <tr *ngFor="let first of leagueFirst">
+                        <td id="img-td">
+                            <img routerLink="/league/{{first.id}}" [src]="first.leagueImagePath ? imageUrl + first.leagueImagePath : imageUrl + noFootballerPhoto">
+                            <span routerLink="/league/{{first.id}}">{{first.leagueName}}</span>
+                        </td>
+                        <td>{{first.numberOfTeams}}</td>
+                        <td>{{first.players}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td>{{first.totalMarketValue}}</td>
+                        <td>Editör</td>
+                    </tr>
+                    <tr *ngIf="leagueSecond.length > 0"><td class="league-level"  colspan="6">Second Tier</td></tr>
+                    <tr *ngFor="let second of leagueSecond">
+                        <td  id="img-td">
+                            <img [src]="second.leagueImagePath ? imageUrl + second.leagueImagePath : imageUrl + noFootballerPhoto">
+                            <span>{{second.leagueName}}</span>
+                        </td>
+                        <td>{{second.numberOfTeams}}</td>
+                        <td>{{second.players}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td>{{second.totalMarketValue}}</td>
+                        <td>Editör</td>
+                    </tr>
+                    <tr *ngIf="leagueThird.length > 0"><td class="league-level"  colspan="6">Third Tier</td></tr>
+                    <tr *ngFor="let third of leagueThird">
+                        <td  id="img-td">
+                            <img [src]="third.leagueImagePath ? imageUrl + third.leagueImagePath : imageUrl + noFootballerPhoto">
+                            <span>{{third.leagueName}}</span>
+                        </td>
+                        <td>{{third.numberOfTeams}}</td>
+                        <td>{{third.players}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td>{{third.totalMarketValue}}</td>
+                        <td>Editör</td>
+                    </tr>
+                    <tr *ngIf="leagueFourth.length > 0"><td class="league-level"  colspan="6">Fourth Tier</td></tr>
+                    <tr *ngFor="let fourth of leagueFourth">
+                        <td  id="img-td">
+                            <img [src]="fourth.leagueImagePath ? imageUrl + fourth.leagueImagePath : imageUrl + noFootballerPhoto">
+                            <span>{{fourth.leagueName}}</span>
+                        </td>
+                        <td>{{fourth.numberOfTeams}}</td>
+                        <td>{{fourth.players}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td>{{fourth.totalMarketValue}}</td>
+                        <td>Editör</td>
+                    </tr>
+                    <tr *ngIf="leagueFifth.length > 0"><td class="league-level"  colspan="6">Fifth Tier</td></tr>
+                    <tr *ngFor="let fifth of leagueFifth">
+                        <td  id="img-td">
+                            <img [src]="fifth.leagueImagePath ? imageUrl + fifth.leagueImagePath : imageUrl + noFootballerPhoto">
+                            <span>{{fifth.leagueName}}</span>
+                        </td>
+                        <td>{{fifth.numberOfTeams}}</td>
+                        <td>{{fifth.players}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td>{{fifth.totalMarketValue}}</td>
+                        <td>Editör</td>
+                    </tr>
+                    <tr *ngIf="leagueSixth.length > 0"><td class="league-level"  colspan="6">Sixth Tier</td></tr>
+                    <tr *ngFor="let sixth of leagueSixth">
+                        <td  id="img-td">
+                            <img [src]="sixth.leagueImagePath ? imageUrl + sixth.leagueImagePath : imageUrl + noFootballerPhoto">
+                            <span>{{sixth.leagueName}}</span>
+                        </td>
+                        <td>{{sixth.numberOfTeams}}</td>
+                        <td>{{sixth.players}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td>{{sixth.totalMarketValue}}</td>
+                        <td>Editör</td>
                     </tr>
                 </tbody>
            </table>
         </div>
     </div>
 
-    <div class="col-12 col-md-4  p-1  m-0">
+    <div class="col-12 col-md-4  p-2  m-0">
         <div class="national-wrapper">
             B
         </div>

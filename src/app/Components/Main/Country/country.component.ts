@@ -37,11 +37,23 @@ export class CountryComponent implements OnInit{
   noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
   nationalTeams : NationalTeamDetail[] = [];
   nationalTeamId : number;
-  
 
+  leagueFirst : LeagueDetail[] = [];
+  leagueSecond : LeagueDetail[] = [];
+  leagueThird : LeagueDetail[] = [];
+  leagueFourth : LeagueDetail[] = [];
+  leagueFifth : LeagueDetail[] = [];
+  leagueSixth : LeagueDetail[] = [];
   getLeaguesByCountryId(){
     this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
-      this.leagueDetails = response.data;  
+      this.leagueDetails = response.data;
+
+      this.leagueFirst = response.data.filter(data => data.leagueLevel == 1);
+      this.leagueSecond = response.data.filter(data => data.leagueLevel == 2);
+      this.leagueThird = response.data.filter(data => data.leagueLevel == 3);
+      this.leagueFourth = response.data.filter(data => data.leagueLevel == 4);
+      this.leagueFifth = response.data.filter(data => data.leagueLevel == 5);
+      this.leagueSixth = response.data.filter(data => data.leagueLevel == 6);      
     })
   }
 
@@ -77,7 +89,5 @@ export class CountryComponent implements OnInit{
    }
 
 
-  
- 
   
 }
