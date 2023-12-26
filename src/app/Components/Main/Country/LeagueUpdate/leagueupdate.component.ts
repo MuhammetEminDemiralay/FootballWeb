@@ -1,5 +1,5 @@
 import { getLocaleFirstDayOfWeek } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { League } from 'src/app/Model/league';
@@ -8,41 +8,48 @@ import { CountryService } from 'src/app/Service/country.service';
 import { LeagueService } from 'src/app/Service/league.service';
 
 @Component({
-  selector: 'app-countryupdate',
-  templateUrl: './countryupdate.component.html',
-  styleUrls: ['./countryupdate.component.css']
+  selector: 'app-leagueupdate',
+  templateUrl: './leagueupdate.component.html',
+  styleUrls: ['./leagueupdate.component.css']
 })
-export class CountryupdateComponent implements OnInit{
+export class CountryupdateComponent implements OnInit, OnChanges{
 
   constructor(private countryService : CountryService, private activatedRoute : ActivatedRoute ,private leagueService : LeagueService, private formBuilder : FormBuilder){}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.leagueId = params["id"];
+      this.countryId = params["id"];
     })
     this.createLeagueUpdate();
-    this.getLeagueDetailByLeagueId();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(this.leagueId){
+      this.getLeagueDetailByLeagueId();
+    }
   }
   
+  @Input() leagueId : number;
   leagueUpdateForm : FormGroup;
   countryId : number;
   leagueDetail : LeagueDetail;
-  leagueId : number;
 
-  getLeagueDetailByLeagueId(){
+
+  getLeagueDetailByLeagueId(){    
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
-      this.leagueDetail = response.data;
+        this.leagueDetail = response.data;     
+        console.log(response.data);
+           
+        this.leagueUpdateForm.setValue({
+          leagueName : response.data.leagueName,
+          leagueLevel : response.data.leagueLevel,
+          numberOfTeams : response.data.numberOfTeams,
+          players : response.data.players,
+          reigningChampion : response.data.reigningChampion,
+          totalMarketValue : response.data.totalMarketValue,
+        })   
 
-      this.leagueUpdateForm.setValue({
-        leagueName : response.data.leagueName,
-        leagueLevel : response.data.leagueLevel,
-        numberOfTeams : response.data.numberOfTeams,
-        players : response.data.players,
-        reigningChampion : response.data.reigningChampion,
-        totalMarketValue : response.data.totalMarketValue,
-      })   
     })
-
   }
 
   createLeagueUpdate(){

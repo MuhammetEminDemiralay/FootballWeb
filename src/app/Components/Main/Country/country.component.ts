@@ -24,7 +24,7 @@ export class CountryComponent implements OnInit{
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.countryId = params["ıd"];
+      this.countryId = params["id"];
       this.getLeaguesByCountryId();
       this.getNationalTeamsByCountryId();
     })
@@ -73,9 +73,8 @@ export class CountryComponent implements OnInit{
   }
 
   getLeagueId(leagueId : number){
-    this.leagueId = leagueId   
+    this.leagueId = leagueId 
     console.log(leagueId);
-     
   }
   
   getNationalTeam(nationalTeamId){

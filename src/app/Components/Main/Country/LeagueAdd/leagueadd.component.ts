@@ -4,9 +4,9 @@ import { League } from 'src/app/Model/league';
 import { LeagueService } from 'src/app/Service/league.service';
 
 @Component({
-  selector: 'app-countryadd',
-  templateUrl: './countryadd.component.html',
-  styleUrls: ['./countryadd.component.css']
+  selector: 'app-leagueadd',
+  templateUrl: './leagueadd.component.html',
+  styleUrls: ['./leagueadd.component.css']
 })
 export class CountryaddComponent implements OnInit{
   
@@ -15,7 +15,7 @@ export class CountryaddComponent implements OnInit{
               ){}
 
   ngOnInit(): void {
-  this.createLeagueAddForm()
+    this.createLeagueAddForm()
   }
   
   @Input() countryId : number;

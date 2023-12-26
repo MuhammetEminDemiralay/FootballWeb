@@ -11,8 +11,8 @@ import { HeaderboxComponent } from './Components/Header/headerbox/headerbox.comp
 import { NaviComponent } from './Components/Header/navi/navi.component';
 import { SelectboxComponent } from './Components/Header/selectbox/selectbox.component';
 import { CountryComponent } from './Components/Main/Country/country.component';
-import { CountryaddComponent } from './Components/Main/Country/LeagueAdd/countryadd.component';
-import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/countryupdate.component';
+import { CountryaddComponent } from './Components/Main/Country/LeagueAdd/leagueadd.component';
+import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/leagueupdate.component';
 import { LeagueComponent } from './Components/Main/League/league.component';
 import { ClubComponent } from './Components/Main/Club/club.component';
 import { FooterComponent } from './Components/footer/footer.component';
