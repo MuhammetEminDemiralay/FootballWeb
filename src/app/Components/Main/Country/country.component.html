@@ -30,7 +30,7 @@
                         <td>{{first.totalMarketValue}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
-                            <i class="bx bx-minus delete icon"></i>
+                            <i (click)="leagueDelete(first)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                     <tr *ngIf="leagueSecond.length > 0"><td class="league-level"  colspan="6">Second Tier</td></tr>
@@ -45,7 +45,7 @@
                         <td>{{second.totalMarketValue}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
-                            <i class="bx bx-minus delete icon"></i>
+                            <i (click)="leagueDelete(second)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                     <tr *ngIf="leagueThird.length > 0"><td class="league-level"  colspan="6">Third Tier</td></tr>
@@ -60,7 +60,7 @@
                         <td>{{third.totalMarketValue}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
-                            <i class="bx bx-minus delete icon"></i>
+                            <i (click)="leagueDelete(third)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                     <tr *ngIf="leagueFourth.length > 0"><td class="league-level"  colspan="6">Fourth Tier</td></tr>
@@ -75,7 +75,7 @@
                         <td>{{fourth.totalMarketValue}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
-                            <i class="bx bx-minus delete icon"></i>
+                            <i (click)="leagueDelete(fourth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                     <tr *ngIf="leagueFifth.length > 0"><td class="league-level"  colspan="6">Fifth Tier</td></tr>
@@ -90,7 +90,7 @@
                         <td>{{fifth.totalMarketValue}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
-                            <i class="bx bx-minus delete icon"></i>
+                            <i (click)="leagueDelete(fifth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                     <tr *ngIf="leagueSixth.length > 0"><td class="league-level"  colspan="6">Sixth Tier</td></tr>
@@ -105,7 +105,7 @@
                         <td>{{sixth.totalMarketValue}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
-                            <i class="bx bx-minus delete icon"></i>
+                            <i (click)="leagueDelete(sixth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -127,8 +127,8 @@
                 <li>
                     <i *ngIf="false" routerLink="/nationalTeam/{{nationalTeam.id}}" class='bx bx-chevron-right'></i>
                     <div class="national-icon" *ngIf="true">
-                        <i class='bx bxs-pencil icon'></i>
-                        <i class="bx bx-minus icon"></i>
+                        <i (click)="getNationalTeamId(nationalTeam.id)" data-bs-toggle="modal" data-bs-target="#nationalTeamUpdate" class='bx bxs-pencil icon'></i>
+                        <i (click)="nationalTeamDelete(nationalTeam)" class="bx bx-minus icon"></i>
                     </div>
                 </li>
             </ul>
@@ -140,13 +140,13 @@
 
 
 <div class="modal" tabindex="-1" id="leagueAdd">
-    <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content modal-customize">
         <div class="modal-header">
             <h5 class="modal-title">League Add</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" style="margin: auto;">
+        <div class="modal-body model-image p-5 m-0">
             <app-leagueadd></app-leagueadd>
         </div>
         </div>
@@ -154,13 +154,13 @@
 </div>    
 
 <div class="modal" tabindex="-1" id="leagueUpdate">
-    <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">League Update</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" style="margin: auto;">
+        <div class="modal-body model-image">
             <app-leagueupdate [leagueId]="leagueId"></app-leagueupdate>
         </div>
         </div>
@@ -168,16 +168,30 @@
 </div>  
     
 <div class="modal" tabindex="-1" id="nationalTeamAdd">
-     <div class="modal-dialog modal-xl"  style="margin: 0px auto;">
-       <div class="modal-content">
+     <div class="modal-dialog modal-lg">
+       <div class="modal-content modal-customize">
          <div class="modal-header">
            <h5 class="modal-title">National Team Add</h5>
            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
-         <div class="modal-body" style="margin: auto;">
+         <div class="modal-body  model-image">
             <app-nationalteamadd></app-nationalteamadd>
         </div>
        </div>
      </div>
 </div>
+
+<div class="modal " tabindex="-1" id="nationalTeamUpdate">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content modal-customize">
+        <div class="modal-header">
+            <h5 class="modal-title">League Update</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body  model-image" >
+            <app-nationalteamupdate [nationalTeamId]="nationalTeamId"></app-nationalteamupdate>
+        </div>
+        </div>
+    </div>
+</div>  
  

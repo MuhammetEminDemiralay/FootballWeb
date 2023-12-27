@@ -1,33 +1,19 @@
-<form [formGroup]="leagueAddForm">
-    <div>
-        <label>League Name</label>
-        <input type="text" formControlName="leagueName">
-    </div>  
-    <div>
-        <label>Number of Teams</label>
-        <input type="number" formControlName="numberOfTeams">
-    </div>
-    <div>
-        <label>Total Market Value</label>
-        <input type="number" formControlName="totalMarketValue">
-    </div>
-    <div>
-        <label>Players</label>
-        <input type="number" formControlName="players">
-    </div>
-    <div>
-        <label>League Level</label>
-        <input type="number" formControlName="leagueLevel">
-    </div>
-    <div>
-        <label>Reigning Champion</label>
-        <input type="number" formControlName="reigningChampion">
-    </div><br>
-    <div>
-        <button (click)="leagueAdd()">League add</button>
-    </div>
-</form>
+<div class="wrapper">
+    <form [formGroup]="leagueAddForm">
 
+            <input type="text" formControlName="leagueName" placeholder="League name...">
+
+            <input type="number" formControlName="numberOfTeams" placeholder="Number of teams...">
+
+            <input type="number" formControlName="totalMarketValue" placeholder="Total market value...">
+
+            <input type="number" formControlName="players" placeholder="Players...">
+
+            <input type="number" formControlName="leagueLevel" placeholder="League level...">
+
+            <input type="number" formControlName="reigningChampion" placeholder="Reigning champion...">
+    </form>
+</div>
 
 
 

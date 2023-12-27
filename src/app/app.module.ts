@@ -30,6 +30,7 @@ import { NationalteamplayeraddComponent } from './Components/Main/NationalTeam/n
 import { NationalteamplayerupdateComponent } from './Components/Main/NationalTeam/nationalteamplayerupdate/nationalteamplayerupdate.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { NationalteamplayerupdateComponent } from './Components/Main/NationalTea
     NationalteamaddComponent,
     NationalteamplayeraddComponent,
     NationalteamplayerupdateComponent,
+
   ],
   imports: [
     CommonModule,

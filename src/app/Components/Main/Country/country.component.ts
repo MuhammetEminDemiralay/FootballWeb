@@ -37,7 +37,6 @@ export class CountryComponent implements OnInit{
   noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
   nationalTeams : NationalTeamDetail[] = [];
   nationalTeamId : number;
-
   leagueFirst : LeagueDetail[] = [];
   leagueSecond : LeagueDetail[] = [];
   leagueThird : LeagueDetail[] = [];
@@ -57,7 +56,6 @@ export class CountryComponent implements OnInit{
     })
   }
 
-
   getNationalTeamsByCountryId(){
     this.nationalTeamService.getNationalTeamDetailByCountryId(this.countryId).subscribe(response => {
       this.nationalTeams = response.data;
@@ -65,7 +63,7 @@ export class CountryComponent implements OnInit{
   }
 
   leagueDelete(league : League){
-    if(window.confirm("Silmek istediğine emin misin?")){
+    if(window.confirm("Are you sure you want to delete")){
       this.leagueService.deleteLeague(league).subscribe(response => {
         window.location.reload();
       })
@@ -74,14 +72,14 @@ export class CountryComponent implements OnInit{
 
   getLeagueId(leagueId : number){
     this.leagueId = leagueId 
-    console.log(leagueId);
   }
   
-  getNationalTeam(nationalTeamId){
+  getNationalTeamId(nationalTeamId : number){
     this.nationalTeamId = nationalTeamId;  
   }
 
-  removeNationalTeam(nationalTeam : NationalTeamDetail){
+  nationalTeamDelete(nationalTeam : NationalTeamDetail){
+    if(window.confirm("Are you sure you want to delete"))
      this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
       window.location.reload();
      })

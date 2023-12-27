@@ -11,15 +11,20 @@ import { NationalteamService } from 'src/app/Service/nationalteam.service';
 })
 export class NationalteamaddComponent implements OnInit{
   
-  constructor(private formBuilder : FormBuilder, private nationalTeamService : NationalteamService, private activatedRoute : ActivatedRoute){}
+  constructor(private formBuilder : FormBuilder, 
+              private nationalTeamService : NationalteamService, 
+              private activatedRoute : ActivatedRoute){}
 
   ngOnInit(): void {
+      this.activatedRoute.params.subscribe(param => {
+        this.countryId = param["id"];
+      })
       this.createNationalTeamForm()
   }
 
   nationalTeamAddForm : FormGroup;
-  @Input() countryId : number;
-
+  countryId : number;
+  
   createNationalTeamForm(){
     this.nationalTeamAddForm = this.formBuilder.group({
       nationalTeamLevel : ["", Validators.required],

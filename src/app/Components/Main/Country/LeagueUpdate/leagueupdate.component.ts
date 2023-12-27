@@ -34,11 +34,20 @@ export class CountryupdateComponent implements OnInit, OnChanges{
   countryId : number;
   leagueDetail : LeagueDetail;
 
+  createLeagueUpdate(){
+    this.leagueUpdateForm = this.formBuilder.group({
+      leagueName : ["", Validators.required],
+      numberOfTeams : ["", Validators.required],
+      totalMarketValue  : ["", Validators.required],
+      players : ["", Validators.required],
+      leagueLevel : ["", Validators.required],
+      reigningChampion : ["", Validators.required]
+    })
+  }
 
-  getLeagueDetailByLeagueId(){    
+  getLeagueDetailByLeagueId(){        
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
         this.leagueDetail = response.data;     
-        console.log(response.data);
            
         this.leagueUpdateForm.setValue({
           leagueName : response.data.leagueName,
@@ -52,23 +61,11 @@ export class CountryupdateComponent implements OnInit, OnChanges{
     })
   }
 
-  createLeagueUpdate(){
-    this.leagueUpdateForm = this.formBuilder.group({
-      leagueName : ["", Validators.required],
-      numberOfTeams : ["", Validators.required],
-      totalMarketValue  : ["", Validators.required],
-      players : ["", Validators.required],
-      leagueLevel : ["", Validators.required],
-      reigningChampion : ["", Validators.required]
-    })
-  }
-
-
   leagueUpdate(){
     let model = Object.assign({}, this.leagueUpdateForm.value);
     let leagueModel = <League>{
       id : this.leagueId,
-      countryId : this.leagueDetail.countryId,
+      countryId : this.countryId,
       leagueName : model.leagueName,
       leagueLevel : model.leagueLevel,
       numberOfTeams : model.numberOfTeams,
