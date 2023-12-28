@@ -1,20 +1,34 @@
 <div class="wrapper">
     <form [formGroup]="leagueAddForm">
 
-            <input type="text" formControlName="leagueName" placeholder="League name...">
+        <div class="box">
+            <label for="leagueName">League Name</label>
+            <input type="text" formControlName="leagueName" id="leagueName">
+        </div>
+        <div class="box">
+            <label for="numberOfTeams">Number Of Teams</label>
+            <input type="number" formControlName="numberOfTeams" id="numberOfTeams">
+        </div>
+        <div class="box">
+            <label for="totalMarketValue">Total Market Value</label>
+            <input type="number" formControlName="totalMarketValue" id="totalMarketValue">
+        </div>
+        <div class="box">
+            <label for="players">Players</label>
+            <input type="number" formControlName="players" id="players">
+        </div>
+        <div class="box">
+            <label for="leagueLevel">League Level</label>
+            <input type="number" formControlName="leagueLevel" id="leagueLevel">
+        </div>
+        <div class="box">
+            <label for="reigningChampion">Last Champion</label>
+            <input type="number" formControlName="reigningChampion" id="reigningChampion">
+        </div>
 
-            <input type="number" formControlName="numberOfTeams" placeholder="Number of teams...">
-
-            <input type="number" formControlName="totalMarketValue" placeholder="Total market value...">
-
-            <input type="number" formControlName="players" placeholder="Players...">
-
-            <input type="number" formControlName="leagueLevel" placeholder="League level...">
-
-            <input type="number" formControlName="reigningChampion" placeholder="Reigning champion...">
+        <button type="submit" class="btn" (click)="leagueAdd()">Add</button>
     </form>
 </div>
-
 
 
 

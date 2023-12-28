@@ -1,40 +1,34 @@
-<form  [formGroup]="leagueUpdateForm">
-    <div>
-        <label>League Name</label>
-        <input type="text" formControlName="leagueName">
-    </div>
-    <div>
-        <label>Number of Teams</label>
-        <input type="number" formControlName="numberOfTeams">
-    </div>
-    <div>
-        <label>Total Market Value</label>
-        <input type="number" formControlName="totalMarketValue">
-    </div>
-    <div>
-        <label>Players</label>
-        <input type="number" formControlName="players">
-    </div>
-    <div>
-        <label>League Level</label>
-        <input type="number" formControlName="leagueLevel">
-    </div>
-    <div>
-        <label>Reigning Champion</label>
-        <input type="number" formControlName="reigningChampion">
-    </div>
-    <div *ngIf="leagueDetail">
-        <button (click)="leagueUpdate()" routerLink="/country/{{leagueDetail.countryId}}">League Update</button>
-    </div>
-</form>
+<div class="wrapper">
+    <form [formGroup]="leagueUpdateForm">
 
+        <div class="box">
+            <label for="leagueName">League Name</label>
+            <input type="text" formControlName="leagueName" id="leagueName">
+        </div>
+        <div class="box">
+            <label for="numberOfTeams">Number Of Teams</label>
+            <input type="number" formControlName="numberOfTeams" id="numberOfTeams">
+        </div>
+        <div class="box">
+            <label for="totalMarketValue">Total Market Value</label>
+            <input type="number" formControlName="totalMarketValue" id="totalMarketValue">
+        </div>
+        <div class="box">
+            <label for="players">Players</label>
+            <input type="number" formControlName="players" id="players">
+        </div>
+        <div class="box">
+            <label for="leagueLevel">League Level</label>
+            <input type="number" formControlName="leagueLevel" id="leagueLevel">
+        </div>
+        <div class="box">
+            <label for="reigningChampion">Last Champion</label>
+            <input type="number" formControlName="reigningChampion" id="reigningChampion">
+        </div>
 
-
-
-
-
-
-
+        <button type="submit" class="btn" (click)="leagueUpdate()">Update</button>
+    </form>
+</div>
 
 
 

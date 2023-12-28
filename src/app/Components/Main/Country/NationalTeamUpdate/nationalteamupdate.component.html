@@ -1,27 +1,33 @@
-<form [formGroup]="nationalTeamUpdateForm">
-    <div>
-        <label>National Team Level</label><br>
-        <input type="number" formControlName="nationalTeamLevel">
-    </div>
-    <div>
-        <label>National Team Name</label><br>
-        <input type="text" formControlName="nationalTeamName">
-    </div>
-    <div>
-        <label>Squad Size</label><br>
-        <input type="number" formControlName="squadSize">
-    </div>
-    <div>
-        <label>Average Age</label><br>
-        <input type="number" formControlName="averageAge">
-    </div>
-    <div>
-        <label>Market Value</label><br>
-        <input type="number" formControlName="marketValue">
-    </div>
-    <br>
-    <div>
-        <button (click)="nationalTeamUpdate()">National Team Update</button>
-    </div>
-</form>
+
+
+<div class="wrapper">
+    <form [formGroup]="nationalTeamUpdateForm">
+
+        <div class="box">
+            <label for="nationalTeamLevel">National Team Level</label>
+            <input type="text" formControlName="nationalTeamLevel" id="nationalTeamLevel">
+        </div>
+        <div class="box">
+            <label for="nationalTeamName">National Team Name</label>
+            <input type="text" formControlName="nationalTeamName" id="nationalTeamName">
+        </div>
+        <div class="box">
+            <label for="squadSize">Squad Size</label>
+            <input type="number" formControlName="squadSize" id="squadSize">
+        </div>
+        <div class="box">
+            <label for="averageAge">Average Age</label>
+            <input type="number" formControlName="averageAge" id="averageAge">
+        </div>
+        <div class="box">
+            <label for="marketValue">Market Value</label>
+            <input type="number" formControlName="marketValue" id="marketValue">
+        </div>
+
+        <button type="submit" class="btn" (click)="nationalTeamUpdate()">Update</button>
+    </form>
+</div>
+
+
+
 

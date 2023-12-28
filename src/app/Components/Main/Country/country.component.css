@@ -187,12 +187,6 @@ td,th{
     cursor: pointer;
 }
 
-.model-image{
-    background-image: url("./img/field.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: auto auto;
-    min-width: 450px; 
-    min-height:520px;
-    
+.model{
+    min-height: 500px;
 }
