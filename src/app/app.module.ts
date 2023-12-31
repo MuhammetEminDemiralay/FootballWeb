@@ -28,6 +28,7 @@ import { FootballeraddComponent } from './Components/Main/Club/FootballerAdd/foo
 import { FootballerComponent } from './Components/Main/Footballer/footballer.component';
 import { NationalteamplayeraddComponent } from './Components/Main/NationalTeam/nationalteamplayeradd/nationalteamplayeradd.component';
 import { NationalteamplayerupdateComponent } from './Components/Main/NationalTeam/nationalteamplayerupdate/nationalteamplayerupdate.component';
+import { ImagemanagerComponent } from './Components/Main/İmageManager/imagemanagaer/imagemanager.component';
 
 
 
@@ -55,7 +56,7 @@ import { NationalteamplayerupdateComponent } from './Components/Main/NationalTea
     NationalteamaddComponent,
     NationalteamplayeraddComponent,
     NationalteamplayerupdateComponent,
-
+    ImagemanagerComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Model/country';
 import { League } from 'src/app/Model/league';
@@ -22,6 +22,7 @@ export class CountryComponent implements OnInit{
               private router : Router
               ){}
 
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.countryId = params["id"];
@@ -34,7 +35,7 @@ export class CountryComponent implements OnInit{
   leagueId : number;
   leagueDetails : LeagueDetail[] = [];
   imageUrl = "https://localhost:44319/"
-  noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
+  noLeaguePhoto = "Images/73979273bfdf469999ef0af342bbdac9.png"
   nationalTeams : NationalTeamDetail[] = [];
   nationalTeamId : number;
   leagueFirst : LeagueDetail[] = [];
@@ -71,7 +72,7 @@ export class CountryComponent implements OnInit{
   }
 
   getLeagueId(leagueId : number){
-    this.leagueId = leagueId 
+    this.leagueId = leagueId     
   }
   
   getNationalTeamId(nationalTeamId : number){

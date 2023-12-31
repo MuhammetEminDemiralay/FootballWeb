@@ -1,6 +1,8 @@
 <div class="wrapper">
     <form [formGroup]="leagueUpdateForm">
-
+        <div class="select-image">
+            <app-imagemanager [leagueId]="leagueId"></app-imagemanager>
+        </div>
         <div class="box">
             <label for="leagueName">League Name</label>
             <input type="text" formControlName="leagueName" id="leagueName">

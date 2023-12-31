@@ -46,6 +46,7 @@ export class CountryupdateComponent implements OnInit, OnChanges{
   }
 
   getLeagueDetailByLeagueId(){        
+    
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
         this.leagueDetail = response.data;     
            
@@ -77,6 +78,5 @@ export class CountryupdateComponent implements OnInit, OnChanges{
     this.leagueService.leagueUpdate(leagueModel).subscribe(response => {
     })
   }
-
 
 }

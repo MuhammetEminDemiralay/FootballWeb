@@ -71,6 +71,10 @@ form .btn:hover{
     color: #fff;
 }
 
+.select-image{
+    position: absolute;
+}
+
 @media only screen and (max-width:500px){
     form .box{
         max-width: 140px;
