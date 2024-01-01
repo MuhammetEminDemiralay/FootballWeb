@@ -76,6 +76,7 @@ export class CountryupdateComponent implements OnInit, OnChanges{
     }
 
     this.leagueService.leagueUpdate(leagueModel).subscribe(response => {
+      window.location.reload();
     })
   }
 

@@ -10,7 +10,7 @@
                 <i class='bx bxs-flag-alt flag icon'></i>
             </div>
             <select class="select" (change)="selectCountry($event)">
-                <option selected>Country</option>
+                <option  selected>Country</option>
                 <option [value]="country.id" *ngFor="let country of countrys">{{country.countryName}}</option>
             </select>
             <div class="btn-box">

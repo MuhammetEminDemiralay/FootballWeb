@@ -19,9 +19,4 @@ export class CountryService {
   getAll() : Observable<ListResponseModel<Country>>{
     return this.httpClient.get<ListResponseModel<Country>>(this.apiUrl + "Country/getall");
   }
-
-  getImageByCountryId(countryId : number) : Observable<SingleResponseModel<CountryImage>>{
-    return this.httpClient.get<SingleResponseModel<CountryImage>>(this.apiUrl + "CountryImage/getImageByCountryId?countryId=" + countryId)
-  }
-
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NationalTeam } from 'src/app/Model/nationalTeam';
 import { NationalteamService } from 'src/app/Service/nationalteam.service';
 
@@ -13,17 +13,15 @@ export class NationalteamaddComponent implements OnInit{
   
   constructor(private formBuilder : FormBuilder, 
               private nationalTeamService : NationalteamService, 
-              private activatedRoute : ActivatedRoute){}
+              private activatedRoute : ActivatedRoute,
+              private router : Router){}
 
   ngOnInit(): void {
-      this.activatedRoute.params.subscribe(param => {
-        this.countryId = param["id"];
-      })
       this.createNationalTeamForm()
   }
 
   nationalTeamAddForm : FormGroup;
-  countryId : number;
+  @Input() countryId : number;
   
   createNationalTeamForm(){
     this.nationalTeamAddForm = this.formBuilder.group({
@@ -47,7 +45,7 @@ export class NationalteamaddComponent implements OnInit{
     }
     
     this.nationalTeamService.addNationalTeam(nationalTeamModel).subscribe(response => {
-      console.log(response.message);
+      window.location.reload()
     })
   }
 

@@ -1,0 +1,42 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrapper .file{
+    width: 250px;
+}
+
+.wrapper .file::-webkit-file-upload-button{
+    background-color: #000814;
+    border-radius: 6px;
+    padding: 4px 10px;
+    border: thin solid black;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.2s linear;
+}
+
+.wrapper .file::-webkit-file-upload-button:hover{
+    background-color: #fff;
+    color: #000814;
+    border: 2px solid #000814;
+}
+
+.wrapper .btn{
+    border-radius: 6px;
+    padding: 4px 20px;
+    border: thin solid black;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000814;
+    transition: all 0.2s linear;
+
+}
+
+.wrapper .btn:hover{
+    background-color: #fff;
+    color: #000814;
+    border: 2px solid #000814;
+}

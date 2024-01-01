@@ -121,7 +121,7 @@
             </div>
             <ul class="national-team" *ngFor="let nationalTeam of nationalTeams">
                 <li class="name-img">
-                    <img  routerLink="/nationalTeam/{{nationalTeam.id}}" [src]="imageUrl + nationalTeam.nationalTeamImagePath">
+                    <img  routerLink="/nationalTeam/{{nationalTeam.id}}" [src]=" nationalTeam.nationalTeamImagePath ? imageUrl + nationalTeam.nationalTeamImagePath :  imageUrl + noLeaguePhoto">
                     <span routerLink="/nationalTeam/{{nationalTeam.id}}">{{nationalTeam.nationalTeamName}}</span>
                 </li>
                 <li>
@@ -147,7 +147,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-2 model">
-            <app-leagueadd></app-leagueadd>
+            <app-leagueadd [countryId]="countryId"></app-leagueadd>
         </div>
         </div>
     </div>
@@ -175,7 +175,7 @@
            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body p-2">
-            <app-nationalteamadd></app-nationalteamadd>
+            <app-nationalteamadd [countryId]="countryId"></app-nationalteamadd>
         </div>
        </div>
      </div>

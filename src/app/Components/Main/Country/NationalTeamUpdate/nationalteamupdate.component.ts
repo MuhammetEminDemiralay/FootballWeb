@@ -25,8 +25,6 @@ export class NationalteamupdateComponent implements OnInit, OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.nationalTeamId){
-      console.log(this.nationalTeamId);
-      
       this.getNationalTeamByNationalTeamId();
     }
   }
@@ -49,7 +47,6 @@ export class NationalteamupdateComponent implements OnInit, OnChanges{
   getNationalTeamByNationalTeamId(){
     this.nationalTeamService.getNationalTeamDetailByNationalTeamId(this.nationalTeamId).subscribe(response => {
       this.nationalTeamDetail = response.data;
-      console.log(response.data);
       
       this.nationalTeamUpdateForm.setValue({
         nationalTeamLevel : response.data.nationalTeamLevel,
@@ -75,7 +72,7 @@ export class NationalteamupdateComponent implements OnInit, OnChanges{
     }
     
     this.nationalTeamService.updateNationalTeam(nationalTeamModel).subscribe(response => {
-      console.log(response.message);
+      window.location.reload()
     })
   }
 }

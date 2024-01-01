@@ -45,7 +45,6 @@ export class CountryaddComponent implements OnInit{
     }
 
     this.leagueService.addLeague(leagueModel).subscribe(response => {
-      console.log(response.message);
       window.location.reload();
     })
   }

@@ -87,7 +87,7 @@ td,th{
 }
 
 #img-td img:hover{
-    transform: scale(1.2);
+    transform: scale(1.4);
 }
 
 .chat{
@@ -179,7 +179,7 @@ td,th{
     cursor: pointer;
 }
 
-.national-team img{
+.name-img img{
     width: 45px;
     height: 25px;
     object-fit: cover;

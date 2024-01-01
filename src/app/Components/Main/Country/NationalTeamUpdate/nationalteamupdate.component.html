@@ -2,7 +2,9 @@
 
 <div class="wrapper">
     <form [formGroup]="nationalTeamUpdateForm">
-
+        <div class="select-image">
+            <app-imagemanager [countryId]="countryId"></app-imagemanager>
+        </div>
         <div class="box">
             <label for="nationalTeamLevel">National Team Level</label>
             <input type="text" formControlName="nationalTeamLevel" id="nationalTeamLevel">

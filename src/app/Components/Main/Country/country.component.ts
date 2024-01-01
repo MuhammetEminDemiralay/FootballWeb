@@ -35,7 +35,7 @@ export class CountryComponent implements OnInit{
   leagueId : number;
   leagueDetails : LeagueDetail[] = [];
   imageUrl = "https://localhost:44319/"
-  noLeaguePhoto = "Images/73979273bfdf469999ef0af342bbdac9.png"
+  noLeaguePhoto = "Images/noImage.jpg"
   nationalTeams : NationalTeamDetail[] = [];
   nationalTeamId : number;
   leagueFirst : LeagueDetail[] = [];

@@ -23,7 +23,7 @@ export class LeagueComponent implements OnInit{
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.leagueId = params["ıd"];
+      this.leagueId = params["id"];
       this.getClubsDetailByLeagueId()
       this.getLeagueDetailByLeagueId();
     })
