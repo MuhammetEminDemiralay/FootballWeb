@@ -62,7 +62,6 @@ export class ImagemanagerComponent implements OnInit, OnChanges{
           this.formData.append("file", this.file);
           this.formData.append("id", `${response.data.id}`)
           this.imageUpdate();
-          
         }
       })
     }else if(this.leagueId){
@@ -77,11 +76,22 @@ export class ImagemanagerComponent implements OnInit, OnChanges{
         }
       })
     }else if(this.clubId){
+      console.log(this.currentId);
       
+      this.imageService.getImageByclubId(this.currentId).subscribe(response => {
+        if(response.data == null){
+          this.imageAdd();
+        }else{
+          this.formData.delete("files");
+          this.formData.append("file", this.file);
+          this.formData.append("id", `${response.data.id}`);
+          this.imageUpdate();
+        }
+      })
     }
 
   }
-
+  
   imageAdd(){
     if(this.countryId){
       this.imageService.countryImageAdd(this.formData).subscribe(response => {
@@ -90,8 +100,10 @@ export class ImagemanagerComponent implements OnInit, OnChanges{
       this.imageService.leagueImageAdd(this.formData).subscribe(response => {
       })
     }else if(this.clubId){
-
+      this.imageService.clubImageAdd(this.formData).subscribe(response => {
+      })
     }
+    window.location.reload()
   }
 
   imageUpdate(){
@@ -102,8 +114,10 @@ export class ImagemanagerComponent implements OnInit, OnChanges{
       this.imageService.leagueImageUpdate(this.formData).subscribe(response => {
       })
     }else if(this.clubId){
-
+      this.imageService.clubImageUpdate(this.formData).subscribe(response => {
+      })
     }
+    window.location.reload()
   }
   
   

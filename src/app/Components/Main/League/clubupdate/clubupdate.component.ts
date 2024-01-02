@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Club } from 'src/app/Model/club';
@@ -10,26 +10,34 @@ import { ClubService } from 'src/app/Service/club.service';
   templateUrl: './clubupdate.component.html',
   styleUrls: ['./clubupdate.component.css']
 })
-export class ClubupdateComponent implements OnInit{
+export class ClubupdateComponent implements OnInit, OnChanges{
   
   constructor(private activatedRoute : ActivatedRoute, private formBuilder : FormBuilder, private clubService : ClubService){}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params =>{
-      this.clubId = params["id"]
+      this.leagueId = params["id"]
     })
-    this.getClubDetailByClubId();
     this.createClubUpdateForm();
   }
 
-  clubId : number;
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.clubId){
+      console.log(this.clubId);
+      this.getClubDetailByClubId();
+    }
+  }
+
+  @Input() clubId : number;
+  leagueId : number;
   clubUpdateForm : FormGroup;
   clubDetail : ClubDetail;
-
+  
   getClubDetailByClubId(){
     this.clubService.getClubDetailByClubId(this.clubId).subscribe(response => {
       this.clubDetail = response.data;
-
+      console.log(response.data);
+      
       this.clubUpdateForm.setValue({
         clubName : response.data.clubName,
         squadSize : response.data.squadSize,

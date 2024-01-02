@@ -42,7 +42,7 @@
                         <td>{{second.numberOfTeams}}</td>
                         <td>{{second.players}}</td>
                         <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{second.totalMarketValue}}</td>
+                        <td>{{second.totalMarketValue  | currency : 'EUR'}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(second)" class="bx bx-minus delete icon"></i>
@@ -57,7 +57,7 @@
                         <td>{{third.numberOfTeams}}</td>
                         <td>{{third.players}}</td>
                         <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{third.totalMarketValue}}</td>
+                        <td>{{third.totalMarketValue  | currency : 'EUR'}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(third)" class="bx bx-minus delete icon"></i>
@@ -72,7 +72,7 @@
                         <td>{{fourth.numberOfTeams}}</td>
                         <td>{{fourth.players}}</td>
                         <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{fourth.totalMarketValue}}</td>
+                        <td>{{fourth.totalMarketValue  | currency : 'EUR'}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(fourth)" class="bx bx-minus delete icon"></i>
@@ -87,14 +87,14 @@
                         <td>{{fifth.numberOfTeams}}</td>
                         <td>{{fifth.players}}</td>
                         <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{fifth.totalMarketValue}}</td>
+                        <td>{{fifth.totalMarketValue  | currency : 'EUR'}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(fifth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                     <tr *ngIf="leagueSixth.length > 0"><td class="league-level"  colspan="6">Sixth Tier</td></tr>
-                    <tr *ngFor="let sixth of leagueSixth"  (click)="getLeagueId(sixth.id)">
+                    <tr class="value-box" *ngFor="let sixth of leagueSixth"  (click)="getLeagueId(sixth.id)">
                         <td  id="img-td">
                             <img [src]="sixth.leagueImagePath ? imageUrl + sixth.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span>{{sixth.leagueName}}</span>
@@ -102,7 +102,7 @@
                         <td>{{sixth.numberOfTeams}}</td>
                         <td>{{sixth.players}}</td>
                         <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{sixth.totalMarketValue}}</td>
+                        <td>{{sixth.totalMarketValue | currency : 'EUR'}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(sixth)" class="bx bx-minus delete icon"></i>

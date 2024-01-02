@@ -6,6 +6,7 @@ import { SingleResponseModel } from '../Model/singleResponseModel';
 import { LeagueImage } from '../Model/leagueImage';
 import { ResponseModel } from '../Model/responseModel';
 import { CountryImage } from '../Model/countryImage';
+import { ClubImage } from '../Model/clubImage';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,23 @@ export class ImageService {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "LeagueImage/delete", image);
   }
 
+  //
+
+
+  clubImageAdd(formData : FormData) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "ClubImage/add", formData);
+  }
+
+  clubImageUpdate(formData : FormData) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "ClubImage/update", formData);
+  }
+
+  getImageByclubId(id : number) : Observable<SingleResponseModel<ClubImage>>{
+    return this.httpClient.get<SingleResponseModel<ClubImage>>(this.apiUrl +  "ClubImage/getClubImageByClubId?clubId=" + id)
+  }                                                                            
+
+  deleteClubImage(image : ClubImage) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "ClubImage/delete", image);
+  }
 
 }

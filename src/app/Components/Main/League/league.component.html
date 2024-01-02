@@ -1,5 +1,83 @@
-<div class="row">
-    <div class="col">
-        
-    </div>
+<div class="row bg-success p-5  m-0">
+    TOPMTİTLE
 </div>
+<div class="row p-0 m-0">
+    <div class="col-12 col-md-8 p-2 m-0">
+        <div class="league-wrapper">
+           <div class="title-box" *ngIf="leagueDetail">
+                CLUBS - {{leagueDetail.leagueName| uppercase}} - LIG 23/24
+                <i  data-bs-toggle="modal" data-bs-target="#clubAdd" class='bx bx-plus plus icon'></i>
+           </div>     
+           <table class="table">
+                <thead>
+                    <tr>
+                        <th  id="competition">Club</th>
+                        <th>Squad</th>
+                        <th>Age</th>
+                        <th>Foreigners</th>
+                        <th>Forum</th>
+                        <th>Market Value</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let clubDetail of clubDetails" (click)="getClubId(clubDetail.id)">
+                        <td id="img-td">
+                            <img routerLink="/club/{{clubDetail.id}}" [src]="clubDetail.clubImagePath ? imageUrl + clubDetail.clubImagePath : imageUrl + noLeaguePhoto">
+                            <span routerLink="/club/{{clubDetail.id}}">{{clubDetail.clubName}}</span>
+                        </td>
+                        <td>{{clubDetail.squadSize}}</td>
+                        <td>{{clubDetail.averageAge}}</td>
+                        <td>{{clubDetail.foreigners}}</td>
+                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td class="value">{{clubDetail.clubMarketValue | currency:'EUR'}}</td>
+                        <td class="edit-box">
+                            <i data-bs-toggle="modal"  data-bs-target="#clubUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i (click)="deleteClub(clubDetail)" class="bx bx-minus delete icon"></i>
+                        </td>
+                    </tr>
+                </tbody>
+           </table>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-4  p-2  m-0">
+        <div class="national-wrapper">
+            <div class="title-box">
+                NATIONAL TEAMS
+            </div>
+        </div>
+    </div>
+</div>    
+
+
+
+<div class="modal" tabindex="-1" id="clubAdd">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Club Add</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-2 model">
+            <app-clubadd [leagueId]="leagueId"></app-clubadd>
+        </div>
+        </div>
+    </div>
+</div> 
+
+<div class="modal" tabindex="-1" id="clubUpdate">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Club Update</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-2">
+            <app-clubupdate [clubId]="clubId"></app-clubupdate>
+        </div>
+        </div>
+    </div>
+</div>  
+
+

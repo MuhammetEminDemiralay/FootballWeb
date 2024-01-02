@@ -1,45 +1,41 @@
-<form [formGroup]="clubAddForm">
-    <div>
-        <label>Club Name</label><br>
-        <input type="text" formControlName="clubName">
-    </div>
-    <div>
-        <label>Squad Size</label><br>
-        <input type="number" formControlName="squadSize">
-    </div>
-    <div>
-        <label>Average Age</label><br>
-        <input type="number" formControlName="averageAge">
-
-    </div>
-    <div>
-        <label>National Team Players</label><br>
-        <input type="number" formControlName="nationalTeamPlayers">
-    </div>
-    <div>
-        <label>Foreigners</label><br>
-        <input type="number" formControlName="foreigners">
-
-    </div>
-    <div>
-        <label>Stadium Name</label><br>
-        <input type="text" formControlName="stadiumName">
-
-    </div>
-    <div>
-        <label>Stadium Capacity</label><br>
-        <input type="number" formControlName="stadiumCapacity">
-    </div>
-    <div>
-        <label>Current Transfer Record</label><br>
-        <input type="number" formControlName="currentTransferRecord">
-
-    </div>
-    <div>
-        <label>Club Market Value</label><br>
-        <input type="number" formControlName="clubMarketValue">
-    </div><br>
-    <div>
-        <button (click)="clubAdd()">Club Add</button>
-    </div>
-</form>
+<div class="wrapper">
+    <form [formGroup]="clubAddForm">
+        <div class="box">
+            <label for="clubName">Club Name</label>
+            <input type="text" formControlName="clubName" id="clubName">
+        </div>
+        <div class="box">
+            <label for="squadSize">Squad Size</label>
+            <input type="text" formControlName="squadSize" id="squadSize">
+        </div>
+        <div class="box">
+            <label for="averageAge">Average Age</label>
+            <input type="text" formControlName="averageAge" id="averageAge">
+        </div>
+        <div class="box">
+            <label for="nationalTeamPlayers">National Team Players</label>
+            <input type="text" formControlName="nationalTeamPlayers" id="nationalTeamPlayers">
+        </div>
+        <div class="box">
+            <label for="foreigners">Foreigners</label>
+            <input type="text" formControlName="foreigners" id="foreigners">
+        </div>
+        <div class="box">
+            <label for="stadiumName">Stadium Name</label>
+            <input type="text" formControlName="stadiumName" id="stadiumName">
+        </div>
+        <div class="box">
+            <label for="stadiumCapacity">Stadium Capacity</label>
+            <input type="text" formControlName="stadiumCapacity" id="stadiumCapacity">
+        </div>
+        <div class="box">
+            <label for="currentTransferRecord">Transfer Record</label>
+            <input type="text" formControlName="currentTransferRecord" id="currentTransferRecord">
+        </div>
+        <div class="box">
+            <label for="clubMarketValue">Club Market Value</label>
+            <input type="text" formControlName="clubMarketValue" id="clubMarketValue">
+        </div>
+        <button type="submit" class="btn" (click)="clubAdd()">Add</button>
+    </form>
+</div>

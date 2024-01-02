@@ -18,7 +18,6 @@ export class LeagueComponent implements OnInit{
   constructor(private activatedRoute : ActivatedRoute,
     private clubService : ClubService,
     private leagueService : LeagueService,
-    private countryService : CountryService
     ){}
   
   ngOnInit(): void {
@@ -30,31 +29,35 @@ export class LeagueComponent implements OnInit{
   }
 
   clubDetails : ClubDetail[] = [];
+  clubId : number;
   leagueId : number;
   countryId : number;
   leagueDetail : LeagueDetail;
   imageUrl = "https://localhost:44319/"
-  
+  noLeaguePhoto = "Images/noImage.jpg"
 
   getClubsDetailByLeagueId(){
     this.clubService.getClubsDetailByLeagueId(this.leagueId).subscribe(response => {
-      this.clubDetails = response.data;
+      this.clubDetails = response.data; 
     })
   }
 
   getLeagueDetailByLeagueId(){
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
       this.leagueDetail = response.data;
-      this.countryId = response.data.countryId;
+      this.countryId = response.data.countryId;      
     })
   }
-
   deleteClub(clubDetail : Club){
-    if(window.confirm("Silmek istediğine emin misin?")){
+    if(window.confirm("Are you sure you want to delete")){
       this.clubService.deleteClub(clubDetail).subscribe(response => {
         window.location.reload();
       })
     }
+  }
+
+  getClubId(clubId : number){
+    this.clubId = clubId     
   }
 
 
