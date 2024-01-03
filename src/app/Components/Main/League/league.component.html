@@ -1,14 +1,50 @@
-<div class="row bg-success p-5  m-0">
-    TOPMTİTLE
+<div class="row p-0  m-0" *ngIf="leagueDetail">
+    <div class="col-12 p-2 m-0">
+        <div class="row league-wrapper bg-success content-box">
+            <div class="col-4 col-sm-3 col-lg-2 bg-warning">
+                <div class="row content">
+                    <div class="col-12 league-text">{{leagueDetail.leagueName}}</div>
+                    <div class="col-12 img">
+                        <img class="imgs" [src]="leagueDetail.leagueImagePath ? imageUrl + leagueDetail.leagueImagePath : imageUrl + noLeaguePhoto" alt="">
+                    </div>
+                    <div class="col-12 small-price bg-danger">PRİCE</div>
+                </div>
+            </div>
+            <div class="col-8 col-sm-9 col-lg-10">
+                <div class="row content">
+                    <div class="col-12 top-content">
+                        <div class="row content p-0 top-box">
+                            <div class="col-4">
+                                <img class="imgs img-country" [src]="leagueDetail.countryImagePath ? imageUrl + leagueDetail.countryImagePath : imageUrl + noLeaguePhoto" alt="">
+                            </div>
+                            <div class="col-8"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 bg-warning bottom-content">
+                        <div class="row content">         
+                            <div class="col-6 bg-light content-description">content</div>
+                            <div class="col-6 bg-dark content-null">a</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price">
+                price
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row p-0 m-0">
+
+
+
+<div class="row p-0 m-0 mt-3">
     <div class="col-12 col-md-8 p-2 m-0">
         <div class="league-wrapper">
            <div class="title-box" *ngIf="leagueDetail">
                 CLUBS - {{leagueDetail.leagueName| uppercase}} - LIG 23/24
                 <i  data-bs-toggle="modal" data-bs-target="#clubAdd" class='bx bx-plus plus icon'></i>
            </div>     
-           <table class="table">
+           <table class="table" style="width: 100%;">
                 <thead>
                     <tr>
                         <th  id="competition">Club</th>
@@ -46,6 +82,26 @@
             <div class="title-box">
                 NATIONAL TEAMS
             </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>a</th>
+                        <th>b</th>
+                        <th>c</th>
+                        <th>d</th>
+                        <th>e</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>b</td>
+                        <td>c</td>
+                        <td>d</td>
+                        <td>e</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>    
