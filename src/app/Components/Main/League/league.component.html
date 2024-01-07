@@ -66,7 +66,7 @@
                         <td>{{clubDetail.averageAge}}</td>
                         <td>{{clubDetail.foreigners}}</td>
                         <td><i class='bx bxs-message chat' ></i></td>
-                        <td class="value">{{clubDetail.clubMarketValue | currency:'EUR'}}</td>
+                        <td class="value">{{clubDetail.clubMarketValue | customcurrency}}</td>
                         <td class="edit-box">
                             <i data-bs-toggle="modal"  data-bs-target="#clubUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="deleteClub(clubDetail)" class="bx bx-minus delete icon"></i>
