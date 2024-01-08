@@ -13,13 +13,13 @@ import { LeagueService } from 'src/app/Service/league.service';
   templateUrl: './league.component.html',
   styleUrls: ['./league.component.css']
 })
-export class LeagueComponent implements OnInit{
-  
-  constructor(private activatedRoute : ActivatedRoute,
-    private clubService : ClubService,
-    private leagueService : LeagueService,
-    ){}
-  
+export class LeagueComponent implements OnInit {
+
+  constructor(private activatedRoute: ActivatedRoute,
+    private clubService: ClubService,
+    private leagueService: LeagueService,
+  ) { }
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.leagueId = params["id"];
@@ -28,40 +28,54 @@ export class LeagueComponent implements OnInit{
     })
   }
 
-  clubDetails : ClubDetail[] = [];
-  clubId : number;
-  leagueId : number;
-  countryId : number;
-  leagueDetail : LeagueDetail;
+  clubDetails: ClubDetail[] = [];
+  clubId: number;
+  leagueId: number;
+  countryId: number;
+  leagueDetail: LeagueDetail;
   imageUrl = "https://localhost:44319/"
   noLeaguePhoto = "Images/noImage.jpg"
+  leagueTotalValue : number = 0;
+  leagueForeigners : number = 0;
+  averageAge : number = 0;
 
-  getClubsDetailByLeagueId(){
+
+  getClubsDetailByLeagueId() {
     this.clubService.getClubsDetailByLeagueId(this.leagueId).subscribe(response => {
-      this.clubDetails = response.data; 
+      this.clubDetails = response.data;
+      response.data.forEach(club => this.leagueTotalValue += club.clubMarketValue);
     })
   }
 
-  getLeagueDetailByLeagueId(){
+  getLeagueDetailByLeagueId() {
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
       this.leagueDetail = response.data;
-      this.countryId = response.data.countryId;      
+      this.countryId = response.data.countryId;
+      this.leagueForeigners = (response.data.foreigners / response.data.players)
+      response.data.age.forEach(a => this.averageAge += a);
+      
+      
+      
+      if(true){
+        console.log(this.leagueDetail);  
+      }
+      
     })
   }
-  deleteClub(clubDetail : Club){
-    if(window.confirm("Are you sure you want to delete")){
+  deleteClub(clubDetail: Club) {
+    if (window.confirm("Are you sure you want to delete")) {
       this.clubService.deleteClub(clubDetail).subscribe(response => {
         window.location.reload();
       })
     }
   }
 
-  getClubId(clubId : number){
-    this.clubId = clubId     
+  getClubId(clubId: number) {
+    this.clubId = clubId
   }
 
 
 
-  
+
 
 }

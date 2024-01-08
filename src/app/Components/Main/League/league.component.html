@@ -1,35 +1,62 @@
 <div class="row p-0  m-0" *ngIf="leagueDetail">
     <div class="col-12 p-2 m-0">
-        <div class="row league-wrapper bg-success content-box">
-            <div class="col-4 col-sm-3 col-lg-2 bg-warning">
+        <div class="row league-wrapper content-box">
+            <div class="col-4 col-sm-3 col-lg-2">
                 <div class="row content">
                     <div class="col-12 league-text">{{leagueDetail.leagueName}}</div>
                     <div class="col-12 img">
-                        <img class="imgs" [src]="leagueDetail.leagueImagePath ? imageUrl + leagueDetail.leagueImagePath : imageUrl + noLeaguePhoto" alt="">
+                        <img class="imgs"
+                            [src]="leagueDetail.leagueImagePath ? imageUrl + leagueDetail.leagueImagePath : imageUrl + noLeaguePhoto"
+                            alt="">
                     </div>
-                    <div class="col-12 small-price bg-danger">PRİCE</div>
+                    <div class="col-12 small-price">
+                        {{leagueTotalValue |customcurrency}}
+                    </div>
                 </div>
             </div>
             <div class="col-8 col-sm-9 col-lg-10">
                 <div class="row content">
                     <div class="col-12 top-content">
-                        <div class="row content p-0 top-box">
-                            <div class="col-4">
-                                <img class="imgs img-country" [src]="leagueDetail.countryImagePath ? imageUrl + leagueDetail.countryImagePath : imageUrl + noLeaguePhoto" alt="">
+                        <div class="row content p-0 m-0 top-box">
+                            <div class=" col-3 d-flex  align-items-center">
+                                <img class="imgs img-country"
+                                    [src]="leagueDetail.countryImagePath ? imageUrl + leagueDetail.countryImagePath : imageUrl + noLeaguePhoto"
+                                    alt="">
                             </div>
-                            <div class="col-8"></div>
+                            <div class="col-9">
+                                <ul class="description">
+                                    <li>{{leagueDetail.countryName}}</li>
+                                    <li>league level : {{leagueDetail.leagueLevel | leaguelevel}}</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-12 bg-warning bottom-content">
-                        <div class="row content">         
-                            <div class="col-6 bg-light content-description">content</div>
-                            <div class="col-6 bg-dark content-null">a</div>
+                    <div class="col-12 bottom-content">
+                        <div class="row content">
+                            <div class="col-9 content-description">
+                                <div class="row">
+                                    <div class="col-12 col-md-5">
+                                        <ul class="description">
+                                            <li><span>Number of teams : </span>{{leagueDetail.numberOfTeams}} teams</li>
+                                            <li><span>Players : </span>{{leagueDetail.players}}</li>
+                                            <li><span>Foreigners : </span><span>{{leagueDetail.foreigners}} Players</span><span>{{leagueForeigners | percent}}</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-7">
+                                        <ul class="description">
+                                            <li><span>Age</span><span>{{averageAge / leagueDetail.players}}</span></li>
+                                            <li><span>Most valuable player</span><span>{{leagueDetail.mostValuablePlayer.name}}</span><span>{{leagueDetail.mostValuablePlayer.footballerValue}}</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 content-null"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="price">
-                price
+                {{leagueTotalValue |customcurrency}}
             </div>
         </div>
     </div>
@@ -40,40 +67,41 @@
 <div class="row p-0 m-0 mt-3">
     <div class="col-12 col-md-8 p-2 m-0">
         <div class="league-wrapper">
-           <div class="title-box" *ngIf="leagueDetail">
+            <div class="title-box" *ngIf="leagueDetail">
                 CLUBS - {{leagueDetail.leagueName| uppercase}} - LIG 23/24
-                <i  data-bs-toggle="modal" data-bs-target="#clubAdd" class='bx bx-plus plus icon'></i>
-           </div>     
-           <table class="table" style="width: 100%;">
+                <i data-bs-toggle="modal" data-bs-target="#clubAdd" class='bx bx-plus plus icon'></i>
+            </div>
+            <table class="table" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th  id="competition">Club</th>
+                        <th id="competition">Club</th>
                         <th>Squad</th>
                         <th>Age</th>
                         <th>Foreigners</th>
                         <th>Forum</th>
                         <th>Market Value</th>
-                        <th>Edit</th>
+                        <th class="edit-th">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let clubDetail of clubDetails" (click)="getClubId(clubDetail.id)">
                         <td id="img-td">
-                            <img routerLink="/club/{{clubDetail.id}}" [src]="clubDetail.clubImagePath ? imageUrl + clubDetail.clubImagePath : imageUrl + noLeaguePhoto">
+                            <img routerLink="/club/{{clubDetail.id}}"
+                                [src]="clubDetail.clubImagePath ? imageUrl + clubDetail.clubImagePath : imageUrl + noLeaguePhoto">
                             <span routerLink="/club/{{clubDetail.id}}">{{clubDetail.clubName}}</span>
                         </td>
                         <td>{{clubDetail.squadSize}}</td>
                         <td>{{clubDetail.averageAge}}</td>
                         <td>{{clubDetail.foreigners}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
+                        <td><i class='bx bxs-message chat'></i></td>
                         <td class="value">{{clubDetail.clubMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#clubUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#clubUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="deleteClub(clubDetail)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                 </tbody>
-           </table>
+            </table>
         </div>
     </div>
 
@@ -104,36 +132,34 @@
             </table>
         </div>
     </div>
-</div>    
+</div>
 
 
 
 <div class="modal" tabindex="-1" id="clubAdd">
     <div class="modal-dialog modal-lg ">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Club Add</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-2 model">
-            <app-clubadd [leagueId]="leagueId"></app-clubadd>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Club Add</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2 model">
+                <app-clubadd [leagueId]="leagueId"></app-clubadd>
+            </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal" tabindex="-1" id="clubUpdate">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Club Update</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-2">
-            <app-clubupdate [clubId]="clubId"></app-clubupdate>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Club Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <app-clubupdate [clubId]="clubId"></app-clubupdate>
+            </div>
         </div>
     </div>
-</div>  
-
-
+</div>

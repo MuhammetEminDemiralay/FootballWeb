@@ -30,6 +30,7 @@ import { NationalteamplayeraddComponent } from './Components/Main/NationalTeam/n
 import { NationalteamplayerupdateComponent } from './Components/Main/NationalTeam/nationalteamplayerupdate/nationalteamplayerupdate.component';
 import { ImagemanagerComponent } from './Components/Main/İmageManager/imagemanagaer/imagemanager.component';
 import { CustomcurrencyPipe } from './Pipe/customcurrency.pipe';
+import { LeaguelevelPipe } from './Pipe/leaguelevel.pipe';
 
 
 
@@ -58,7 +59,8 @@ import { CustomcurrencyPipe } from './Pipe/customcurrency.pipe';
     NationalteamplayeraddComponent,
     NationalteamplayerupdateComponent,
     ImagemanagerComponent,
-    CustomcurrencyPipe
+    CustomcurrencyPipe,
+    LeaguelevelPipe
   ],
   imports: [
     CommonModule,

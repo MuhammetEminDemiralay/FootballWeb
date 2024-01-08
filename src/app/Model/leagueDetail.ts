@@ -10,5 +10,8 @@ export interface LeagueDetail{
     totalMarketValue : number,
     players : number,
     leagueLevel : number,
-    reigningChampion : number
+    reigningChampion : number,
+    foreigners? : number,
+    age : number[],
+    mostValuablePlayer : any
 }
