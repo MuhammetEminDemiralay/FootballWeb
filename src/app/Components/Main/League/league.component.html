@@ -18,34 +18,34 @@
                 <div class="row content">
                     <div class="col-12 top-content">
                         <div class="row content p-0 m-0 top-box">
-                            <div class=" col-3 d-flex  align-items-center">
+                            <div class="col-5 col-sm-3 d-flex  align-items-center">
                                 <img class="imgs img-country"
                                     [src]="leagueDetail.countryImagePath ? imageUrl + leagueDetail.countryImagePath : imageUrl + noLeaguePhoto"
                                     alt="">
                             </div>
-                            <div class="col-9">
+                            <div class="col-7 col-sm-9">
                                 <ul class="description">
-                                    <li>{{leagueDetail.countryName}}</li>
-                                    <li>league level : {{leagueDetail.leagueLevel | leaguelevel}}</li>
+                                    <li class="league-name">{{leagueDetail.countryName}}</li>
+                                    <li>League level : <span class="league-detail">{{leagueDetail.leagueLevel | leaguelevel}}</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 bottom-content">
+                    <div class="col-12 bottom-content ">
                         <div class="row content">
                             <div class="col-9 content-description">
                                 <div class="row">
                                     <div class="col-12 col-md-5">
                                         <ul class="description">
-                                            <li><span>Number of teams : </span>{{leagueDetail.numberOfTeams}} teams</li>
-                                            <li><span>Players : </span>{{leagueDetail.players}}</li>
-                                            <li><span>Foreigners : </span><span>{{leagueDetail.foreigners}} Players</span><span>{{leagueForeigners | percent}}</span></li>
+                                            <li><span>Number of teams : </span><span class="league-detail">{{leagueDetail.numberOfTeams}} teams</span></li>
+                                            <li><span>Players : </span><span class="league-detail">{{leagueDetail.players}}</span></li>
+                                            <li><span>Foreigners : </span><span class="league-detail blue-detail">{{leagueDetail.foreigners}} Players </span><span>{{leagueForeigners | percent}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="col-12 col-md-7">
                                         <ul class="description">
-                                            <li><span>Age</span><span>{{averageAge / leagueDetail.players}}</span></li>
-                                            <li><span>Most valuable player</span><span>{{leagueDetail.mostValuablePlayer.name}}</span><span>{{leagueDetail.mostValuablePlayer.footballerValue}}</span></li>
+                                            <li><span>Age : </span><span class="league-detail">{{averageAge / leagueDetail.players}}</span></li>
+                                            <li><span>Most valuable player : </span><span class="league-detail blue-detail">{{leagueDetail.mostValuablePlayer.name}} </span><span>{{leagueDetail.mostValuablePlayer.footballerValue | customcurrency}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
