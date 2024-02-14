@@ -18,12 +18,11 @@ export class ClubComponent implements OnInit{
   constructor(private activatedRoute : ActivatedRoute,
               private footballerService : FootballerService,
               private clubService : ClubService,
-              private leagueService : LeagueService
               ){}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.clubId = params["ıd"]
+      this.clubId = params["id"]
       this.getFootballersDetailByClubId();
       this.getClubDetailByClubId();
     })
@@ -33,22 +32,27 @@ export class ClubComponent implements OnInit{
   clubDetail : ClubDetail;
   leagueDetail : LeagueDetail;
   clubId : number;
-  leagueId : number;
-  countryId : number;
-  imageUrl = "https://localhost:44319/";
-  noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
+  imageUrl = "https://localhost:44319/"
+  noClubPhoto = "Images/noImage.jpg"
+  squadSize : number = 0;
+  averageAge : number = 0;
+  clubForeigners : number = 0;
+
 
   getFootballersDetailByClubId(){
     this.footballerService.getFootballersDetailByClubId(this.clubId).subscribe(response => {
       this.footballersDetail = response.data;
+      console.log(response.data);
+      this.squadSize = response.data.length;
+      response.data.forEach((item) => this.averageAge += item.age);
+      
     })
   } 
 
   getClubDetailByClubId(){
     this.clubService.getClubDetailByClubId(this.clubId).subscribe(response => {
-      this.clubDetail = response.data; 
-      this.leagueId = response.data.leagueId;
-      this.countryId = response.data.countryId;
+      this.clubDetail = response.data;
+      console.log(response.data);
     })
   }
 

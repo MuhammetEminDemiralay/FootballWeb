@@ -53,13 +53,6 @@ export class LeagueComponent implements OnInit {
       this.countryId = response.data.countryId;
       this.leagueForeigners = (response.data.foreigners / response.data.players)
       response.data.age.forEach(a => this.averageAge += a);
-      
-      
-      
-      if(true){
-        console.log(this.leagueDetail);  
-      }
-      
     })
   }
   deleteClub(clubDetail: Club) {

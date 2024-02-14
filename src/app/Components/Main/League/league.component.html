@@ -1,7 +1,8 @@
-<div class="row p-0  m-0" *ngIf="leagueDetail">
-    <div class="col-12 p-2 m-0">
-        <div class="row league-wrapper content-box">
-            <div class="col-4 col-sm-3 col-lg-2">
+<div class="row p-0 m-0" *ngIf="leagueDetail">
+    <div class="col-12  m-0">
+        <div class="row content-box">
+
+            <div class="col-4 col-sm-3 col-lg-2 row-box">
                 <div class="row content">
                     <div class="col-12 league-text">{{leagueDetail.leagueName}}</div>
                     <div class="col-12 img">
@@ -14,10 +15,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8 col-sm-9 col-lg-10">
+
+            <!-- ---------- -->
+
+            <div class="col-8 col-sm-9 col-lg-10 row-box">
                 <div class="row content">
                     <div class="col-12 top-content">
-                        <div class="row content p-0 m-0 top-box">
+                        <div class="row p-0 m-0 top-box">
                             <div class="col-5 col-sm-3 d-flex  align-items-center">
                                 <img class="imgs img-country"
                                     [src]="leagueDetail.countryImagePath ? imageUrl + leagueDetail.countryImagePath : imageUrl + noLeaguePhoto"
@@ -26,26 +30,36 @@
                             <div class="col-7 col-sm-9">
                                 <ul class="description">
                                     <li class="league-name">{{leagueDetail.countryName}}</li>
-                                    <li>League level : <span class="league-detail">{{leagueDetail.leagueLevel | leaguelevel}}</span></li>
+                                    <li>League level : <span class="league-detail">{{leagueDetail.leagueLevel |
+                                            leaguelevel}}</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 bottom-content ">
-                        <div class="row content">
+                        <div class="row">
                             <div class="col-9 content-description">
                                 <div class="row">
                                     <div class="col-12 col-md-5">
                                         <ul class="description">
-                                            <li><span>Number of teams : </span><span class="league-detail">{{leagueDetail.numberOfTeams}} teams</span></li>
-                                            <li><span>Players : </span><span class="league-detail">{{leagueDetail.players}}</span></li>
-                                            <li><span>Foreigners : </span><span class="league-detail blue-detail">{{leagueDetail.foreigners}} Players </span><span>{{leagueForeigners | percent}}</span></li>
+                                            <li><span>Number of teams : </span><span
+                                                    class="league-detail">{{leagueDetail.numberOfTeams}} teams</span>
+                                            </li>
+                                            <li><span>Players : </span><span
+                                                    class="league-detail">{{leagueDetail.players}}</span></li>
+                                            <li><span>Foreigners : </span><span
+                                                    class="league-detail blue-detail">{{leagueDetail.foreigners}}
+                                                    Players </span><span>{{leagueForeigners | percent}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="col-12 col-md-7">
                                         <ul class="description">
-                                            <li><span>Age : </span><span class="league-detail">{{averageAge / leagueDetail.players}}</span></li>
-                                            <li><span>Most valuable player : </span><span class="league-detail blue-detail">{{leagueDetail.mostValuablePlayer.name}} </span><span>{{leagueDetail.mostValuablePlayer.footballerValue | customcurrency}}</span></li>
+                                            <li><span>Age : </span><span class="league-detail">{{averageAge /
+                                                    leagueDetail.players}}</span></li>
+                                            <li><span>Most valuable player : </span><span
+                                                    class="league-detail blue-detail">{{leagueDetail.mostValuablePlayer.name}}
+                                                </span><span>{{leagueDetail.mostValuablePlayer.footballerValue |
+                                                    customcurrency}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -55,6 +69,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="price">
                 {{leagueTotalValue |customcurrency}}
             </div>
@@ -62,7 +77,7 @@
     </div>
 </div>
 
-
+<!-- -----------------  -->
 
 <div class="row p-0 m-0 mt-3">
     <div class="col-12 col-md-8 p-2 m-0">

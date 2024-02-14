@@ -26,7 +26,7 @@ export class FootballerComponent implements OnInit{
       this.activatedRoute.params.subscribe(params =>{
         this.ıd = params["ıd"]
         this.getFootballerDetailByFootballerId();
-        this.getTransferHistoryByFootballerId();
+        //this.getTransferHistoryByFootballerId();
       })
   }
 
@@ -55,11 +55,11 @@ export class FootballerComponent implements OnInit{
     })
   }
 
-  getTransferHistoryByFootballerId(){
-    this.transferHistoryService.getTransferHistoryDetailByFootballerId(this.ıd).subscribe(response => {
-      this.transferHistoryDetail = response.data;
-    })
-  }
+  // getTransferHistoryByFootballerId(){
+  //   this.transferHistoryService.getTransferHistoryDetailByFootballerId(this.ıd).subscribe(response => {
+  //     this.transferHistoryDetail = response.data;
+  //   })
+  // }
   
 
 
