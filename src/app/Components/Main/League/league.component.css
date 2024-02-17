@@ -4,14 +4,15 @@
 
 .content-box {
     position: relative;
-    max-height: 200px;
-    min-height: 200px;
+    max-height: 240px;
+    min-height: 240px;
     height: 100%;
+    margin: 0;
 }
 
 .content {
-    max-height: 200px;
-    min-height: 200px;
+    max-height: 240px;
+    min-height: 240px;
     height: 100%;
     background-color: #fff;
 }
@@ -32,8 +33,8 @@
 }
 
 .row-box {
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 240px;
+    max-height: 240px;
 }
 
 .price {
@@ -41,7 +42,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
     right: 10px;
     width: 180px;
     height: 70px;

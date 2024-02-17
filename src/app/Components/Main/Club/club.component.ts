@@ -13,51 +13,52 @@ import { LeagueService } from 'src/app/Service/league.service';
   templateUrl: './club.component.html',
   styleUrls: ['./club.component.css']
 })
-export class ClubComponent implements OnInit{
+export class ClubComponent implements OnInit {
 
-  constructor(private activatedRoute : ActivatedRoute,
-              private footballerService : FootballerService,
-              private clubService : ClubService,
-              ){}
+  constructor(private activatedRoute: ActivatedRoute,
+    private footballerService: FootballerService,
+    private clubService: ClubService,
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.clubId = params["id"]
       this.getFootballersDetailByClubId();
       this.getClubDetailByClubId();
+
+
     })
   }
 
-  footballersDetail : FootballerDetail[] = [];
-  clubDetail : ClubDetail;
-  leagueDetail : LeagueDetail;
-  clubId : number;
+  footballersDetail: FootballerDetail[] = [];
+  clubDetail: ClubDetail;
+  leagueDetail: LeagueDetail;
+  clubId: number;
   imageUrl = "https://localhost:44319/"
   noClubPhoto = "Images/noImage.jpg"
-  squadSize : number = 0;
-  averageAge : number = 0;
-  clubForeigners : number = 0;
+  squadSize: number = 0;
+  averageAge: number = 0;
+  clubForeigners: number = 0;
 
 
-  getFootballersDetailByClubId(){
+  getFootballersDetailByClubId() {
     this.footballerService.getFootballersDetailByClubId(this.clubId).subscribe(response => {
       this.footballersDetail = response.data;
       console.log(response.data);
       this.squadSize = response.data.length;
       response.data.forEach((item) => this.averageAge += item.age);
-      
     })
-  } 
+  }
 
-  getClubDetailByClubId(){
+  getClubDetailByClubId() {
     this.clubService.getClubDetailByClubId(this.clubId).subscribe(response => {
       this.clubDetail = response.data;
       console.log(response.data);
     })
   }
 
-  deleteFootballer(footballerDetail : Footballer){
-    if(window.confirm("Silmek istediğine emin misin?")){
+  deleteFootballer(footballerDetail: Footballer) {
+    if (window.confirm("Silmek istediğine emin misin?")) {
       this.footballerService.deleteFootballer(footballerDetail).subscribe(response => {
         window.location.reload();
       })
@@ -65,5 +66,5 @@ export class ClubComponent implements OnInit{
   }
 
 
-  
+
 }

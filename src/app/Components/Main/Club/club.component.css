@@ -1,36 +1,42 @@
-*{
+* {
     color: #333333;
 }
 
-.content-box{
+.content-box {
     position: relative;
-    max-height: 200px;
-    min-height: 200px;
+    max-height: 240px;
+    min-height: 240px;
     height: 100%;
+    margin: 0;
 }
 
-.content{
+.content {
     height: 100%;
     background-color: #fff;
 
 }
 
-.top-content{
+.top-content {
     position: relative;
     height: 65%;
     background: linear-gradient(to top, #dddddd, #fefefe);
 }
 
-.bottom-content{
+.bottom-content {
     height: 35%;
 }
- 
+
 .content-description,
-.content-null{
+.content-null {
     height: 100%;
 }
 
-.price{
+.row-box {
+    min-height: 240px;
+    max-height: 240px;
+}
+
+.price {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,13 +45,13 @@
     right: 10px;
     width: 180px;
     height: 70px;
-    background:radial-gradient(#02a8e7, #118dc4);
+    background: radial-gradient(#02a8e7, #118dc4);
     color: #fff;
     font-size: 28px;
     font-weight: 500;
 }
 
-.small-price{
+.small-price {
     display: flex;
     align-items: center;
     justify-content: end;
@@ -57,7 +63,7 @@
     font-weight: 500;
 }
 
-.league-text{
+.league-text {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,94 +73,97 @@
     height: 20%;
 }
 
-.img{
+.img {
     display: flex;
     height: 80%;
 }
 
-.top-box{
+.top-box {
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 220px;
-    height: 80px;
+    width: 260px;
+    height: 100px;
     background-color: #fff;
-    border:2px solid #dddddd;
+    border: 2px solid #dddddd;
 }
 
-.imgs{
+.imgs {
     width: 100%;
     height: 100%;
     object-fit: cover;
- 
+
 }
 
-.img-country{
-    padding: 0;
-    width: 70px;
-    height: 70px;
-    margin: 0;
-    background-color: #fff;
-    border: 1px solid rgb(103, 103, 103);
+.league-image {
+    min-width: 100%;
 }
 
-.description{
+.country-image{
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+}
+
+.description {
     padding-left: 5px;
     margin: 0;
     list-style: none;
-
 }
 
-.league-name{
+.league-name {
     font-size: 20px;
     font-weight: 700;
     color: #1d75a3;
 }
 
-.league-detail{
+.league-detail {
     font-weight: 600;
 }
 
-.blue-detail{
+.blue-detail {
     color: #1d75b8;
 }
 
-.top-description{
+.top-description {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
     padding: 0;
+    border-radius: 50%;
 }
 
-@media only screen and (max-width:768px){
-    .top-content{
+@media only screen and (max-width:768px) {
+    .top-content {
         height: 50%;
     }
 
-    .bottom-content{
+    .bottom-content {
         height: 50%;
     }
 
-    .content-null{
+    .content-null {
         display: none;
     }
-    .content-description{
+
+    .content-description {
         width: 100%;
     }
 
-    .price{
+    .price {
         display: none;
     }
 
-    .img{
+    .img {
         height: 65%;
     }
 
-    .small-price{
-       height: 15%;
+    .small-price {
+        height: 15%;
     }
 
-    .top-box{
+    .top-box {
         position: absolute;
         top: 0;
         left: 0;
@@ -163,20 +172,20 @@
     }
 }
 
-@media only screen and (max-width:992px){
-    .img{
+@media only screen and (max-width:992px) {
+    .img {
         padding: 2px;
     }
 }
 
-@media only screen and (min-width:769px){
-    .small-price{
+@media only screen and (min-width:769px) {
+    .small-price {
         display: none;
     }
 }
 
 /* ------------------------  */
-.league-wrapper{
+.league-wrapper {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -184,7 +193,7 @@
     background-color: #fff;
 }
 
-.title-box{
+.title-box {
     display: flex;
     align-items: center;
     position: relative;
@@ -196,7 +205,7 @@
     font-weight: 500;
 }
 
-.title-box .icon{
+.title-box .icon {
     position: absolute;
     right: 2px;
     padding: 4px;
@@ -209,25 +218,26 @@
     transition: all 0.2s linear;
 }
 
-.title-box .icon:hover{
+.title-box .icon:hover {
     color: #fff;
     background-color: #ef233c;
 }
 
-.national-wrapper{
+.national-wrapper {
     width: 100%;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 
-td,th{
+td,
+th {
     border: 1px solid #dddddd;
     padding: 5px;
     text-align: center;
     vertical-align: middle;
 }
 
-#img-td{
+#img-td {
     display: flex;
     align-items: center;
     column-gap: 8px;
@@ -235,12 +245,12 @@ td,th{
     text-indent: 4px;
 }
 
-#img-td span:hover{
+#img-td span:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-#img-td img{
+#img-td img {
     width: 30px;
     height: 30px;
     padding: 0;
@@ -248,13 +258,13 @@ td,th{
     object-fit: cover;
 }
 
-#competition{
+#competition {
     text-indent: 4px;
     text-align: start;
 }
 
 
-.edit-box .icon{
+.edit-box .icon {
     padding: 4px;
     border: 1px solid black;
     font-weight: 500;
@@ -265,73 +275,114 @@ td,th{
     margin-left: 4px;
 }
 
-.edit-box .icon:hover{
+.edit-box .icon:hover {
     color: #fff;
     background-color: #ef233c;
 }
 
-.model{
+.model {
     min-height: 500px;
 }
 
-.chat{
-    color: #a8a8a8;
-    cursor: pointer;
-}
-
-.chat:hover{
-    transform: scale(1.2);
-} 
-
-@media only screen and (min-width:1200px){
-    *{
+@media only screen and (min-width:1200px) {
+    * {
         font-size: 14px;
     }
 
 }
 
-@media only screen and (max-width:1199px){
-    *{
+@media only screen and (max-width:1199px) {
+    * {
         font-size: 13px;
     }
 
-    
-    .league-text{
-        font-size: 30px;   
+
+    .league-text {
+        font-size: 30px;
     }
 }
 
-@media only screen and (max-width:992px){
-    *{
+@media only screen and (max-width:992px) {
+    * {
         font-size: 12px;
     }
 
-    .edit-box .icon{
+    .edit-box .icon {
         margin-right: 2px;
         margin-left: 2px;
         padding: 2px;
     }
 
-    .league-text{
-        font-size: 25px;   
+    .league-text {
+        font-size: 25px;
     }
 }
 
-@media only screen and (max-width:768px){
-    *{
+@media only screen and (max-width:768px) {
+    * {
         font-size: 11px;
     }
 
-    .top-box{
-        border: none;;
+    .top-box {
+        border: none;
     }
+
 }
 
-@media only screen and (max-width:576px){
-    *{
+@media only screen and (max-width:576px) {
+    * {
         font-size: 10px;
     }
 }
 
+.footballer-info{
+    display: flex;
+    align-items: center;
+}
 
+.footballer-info .footballer-image-box{
+    width: 40px;
+    height: 40px;
+}
 
+.footballer-image-box .footballer-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footballer-info .footballer-name-position{
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.footballer-name,
+.footballer-positon{
+    display: flex;
+    justify-content: start;
+}
+
+.footballer-name{
+    color:#0f6194;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nationality-image-box{
+    width: 30px;
+    height: 20px;
+}
+
+.nationality-image{
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+}
+
+.market-value{
+    text-align: end;
+    font-weight: 600;
+    color:#1d75a3;
+    padding-right: 10px;
+}

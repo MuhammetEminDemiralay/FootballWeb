@@ -1,133 +1,172 @@
 <div class="row p-0  m-0" *ngIf="clubDetail">
-     <div class="col-12 p-2 m-0">
-         <div class="row league-wrapper content-box">
-             <div class="col-4 col-sm-3 col-lg-2">
-                 <div class="row content">
-                     <div class="col-12 league-text">{{clubDetail.clubName}}</div>
-                     <div class="col-12 img">
-                         <img class="imgs" [src]="clubDetail.clubImagePath.length > 0 ? imageUrl + clubDetail.clubImagePath : imageUrl + noClubPhoto" alt="">
-                     </div>
-                     <div class="col-12 small-price">
-                     </div>
-                 </div>
-             </div>
-             <div class="col-8 col-sm-9 col-lg-10">
-                 <div class="row content">
-                     <div class="col-12 top-content">
-                         <div class="row content p-0 m-0 top-box">
-                             <div class="col-5 col-sm-3 top-description">
-                                 <img class="imgs img-country" [src]="clubDetail.clubImagePath.length > 0 ? imageUrl  + clubDetail.leagueImagePath : imageUrl + noClubPhoto"/>
-                             </div>
-                             <div class="col-7 col-sm-9">
-                                 <ul class="description">
-                                     <li class="league-name">{{clubDetail.leagueName}}</li>
-                                     <li>League level : <img [src]="clubDetail.countryImagePath.length > 0 ? imageUrl + clubDetail.countryImagePath : imageUrl + noClubPhoto"/><span class="league-detail">{{clubDetail.leagueLevel | leaguelevel}}</span></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-12 bottom-content ">
-                         <div class="row content">
-                             <div class="col-9 content-description">
-                                 <div class="row">
-                                     <div class="col-12 col-md-5">
-                                         <ul class="description">
-                                             <li><span>Squad size : </span><span class="league-detail">{{squadSize}}</span></li>
-                                             <li><span>Average age : </span><span class="league-detail">{{averageAge / squadSize}}</span></li>
-                                             <li><span>Foreigners : </span><span class="league-detail blue-detail"></span><span>{{clubDetail.foreigners}} </span><span>{{clubDetail.foreigners / squadSize | percent}}</span></li>
-                                         </ul>
-                                     </div>
-                                     <div class="col-12 col-md-7">
-                                         <ul class="description">
-                                             <li><span>National team players: </span><span class="league-detail">{{clubDetail.nationalTeamPlayers}}</span></li>
-                                             <li><span>Staium : </span><span class="league-detail blue-detail">{{clubDetail.stadiumName}} </span><span>{{clubDetail.stadiumCapacity}} Seats</span><span></span></li>
-                                         </ul>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="col-3 content-null"></div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="price">
-                 {{clubDetail.clubMarketValue | customcurrency}}
-             </div>
-         </div>
-     </div>
- </div>
- 
- 
- 
- <div class="row p-0 m-0 mt-3">
-     <div class="col-12 col-md-8 p-2 m-0">
-         <div class="league-wrapper">
-             <div class="title-box">
-                 CLUBS -  - LIG 23/24
-                 <i class='bx bx-plus plus icon'></i>
-             </div>
-             <table class="table" style="width: 100%;">
-                 <thead>
-                     <tr>
-                         <th id="competition">Club</th>
-                         <th>Squad</th>
-                         <th>Age</th>
-                         <th>Foreigners</th>
-                         <th>Forum</th>
-                         <th>Market Value</th>
-                         <th class="edit-th">Edit</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                         <td id="img-td">
-                             <img/>
-                             <span></span>
-                         </td>
-                         <td></td>
-                         <td></td>
-                         <td></td>
-                         <td><i class='bx bxs-message chat'></i></td>
-                         <td class="value"></td>
-                         <td class="edit-box">
-                             <i  class='bx bxs-pencil pen icon'></i>
-                             <i  class="bx bx-minus delete icon"></i>
-                         </td>
-                     </tr>
-                 </tbody>
-             </table>
-         </div>
-     </div>
- 
-     <div class="col-12 col-md-4  p-2  m-0">
-         <div class="national-wrapper">
-             <div class="title-box">
-                 NATIONAL TEAMS
-             </div>
-             <table class="table">
-                 <thead>
-                     <tr>
-                         <th>a</th>
-                         <th>b</th>
-                         <th>c</th>
-                         <th>d</th>
-                         <th>e</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                         <td>a</td>
-                         <td>b</td>
-                         <td>c</td>
-                         <td>d</td>
-                         <td>e</td>
-                     </tr>
-                 </tbody>
-             </table>
-         </div>
-     </div>
- </div>
- 
+    <div class="col-12 p-2 m-0">
+        <div class="row content-box">
+
+            <div class="col-4 col-sm-3 col-lg-2 row-box">
+                <div class="row content">
+                    <div class="col-12 league-text">{{clubDetail.clubName}}</div>
+                    <div class="col-12 img">
+                        <img class="imgs"
+                            [src]="clubDetail.clubImagePath.length > 0 ? imageUrl + clubDetail.clubImagePath : imageUrl + noClubPhoto"
+                            alt="">
+                    </div>
+                    <div class="col-12 small-price">
+                        {{clubDetail.clubMarketValue | customcurrency}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8 col-sm-9 col-lg-10 row-box">
+                <div class="row content">
+                    <div class="col-12 top-content">
+
+
+                        <div class="row content p-0 m-0 top-box">
+
+                            <div class="col-5 col-sm-4 top-description">
+                                <img class="imgs league-image"
+                                    [src]="clubDetail.clubImagePath.length > 0 ? imageUrl  + clubDetail.leagueImagePath : imageUrl + noClubPhoto" />
+                            </div>
+
+                            <div class="col-7 col-sm-8 p-0">
+                                <ul class="description">
+                                    <li class="league-name">{{clubDetail.leagueName}}</li>
+                                    <li>League level :
+                                        <img class="country-image"
+                                            [src]="clubDetail.countryImagePath.length > 0 ? imageUrl + clubDetail.countryImagePath : imageUrl + noClubPhoto" />
+                                        <span class="league-detail">{{clubDetail.leagueLevel | leaguelevel}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-12 bottom-content ">
+                        <div class="row content">
+                            <div class="col-9 content-description">
+                                <div class="row">
+                                    <div class="col-12 col-md-5">
+                                        <ul class="description">
+                                            <li><span>Squad size : </span><span
+                                                    class="league-detail">{{squadSize}}</span></li>
+                                            <li><span>Average age : </span><span class="league-detail">{{averageAge /
+                                                    squadSize}}</span></li>
+                                            <li><span>Foreigners : </span><span
+                                                    class="league-detail blue-detail"></span><span>{{clubDetail.foreigners}}
+                                                </span><span>{{clubDetail.foreigners / squadSize | percent}}</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-7">
+                                        <ul class="description">
+                                            <li><span>National team players: </span><span
+                                                    class="league-detail">{{clubDetail.nationalTeamPlayers}}</span></li>
+                                            <li><span>Staium : </span><span
+                                                    class="league-detail blue-detail">{{clubDetail.stadiumName}}
+                                                </span><span>{{clubDetail.stadiumCapacity}} Seats</span><span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 content-null"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price">
+                {{clubDetail.clubMarketValue | customcurrency}}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row p-0 m-0 mt-3" *ngIf="clubDetail">
+    <div class="col-12 col-md-8 p-2 m-0">
+        <div class="league-wrapper">
+            <div class="title-box">
+                CLUBS {{clubDetail.clubName| uppercase}} LIG 23/24
+                <i class='bx bx-plus plus icon'></i>
+            </div>
+            <table class="table" style="width: 100%;">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Date of birth/Age</th>
+                        <th>Nat.</th>
+                        <th>Market Value</th>
+                        <th class="edit-th">Edit</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="footballer-row" *ngFor="let footballer of footballersDetail">
+                        <td>1</td>
+                        <td class="footballer-info">
+                            <div class="footballer-image-box">
+                                <img class="footballer-image"
+                                    [src]="footballer.footballerImagePath ? imageUrl + footballer.footballerImagePath : imageUrl + noClubPhoto" />
+                            </div>
+                            <div class="footballer-name-position">
+                                <div class="footballer-name">{{footballer.name}}</div>
+                                <div class="footballer-positon">{{footballer.positionName}}</div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td class="nationality-image-box">
+                            <img class="nationality-image"
+                                [src]="footballer.footballerCountryImagePath ? imageUrl + footballer.footballerCountryImagePath : imageUrl + noClubPhoto" />
+                        </td>
+                        <td class="market-value">
+                            {{footballer.footballerValue | customcurrency}}
+                        </td>
+                        <td class="edit-box">
+                            <i class='bx bxs-pencil pen icon'></i>
+                            <i class="bx bx-minus delete icon"></i>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-4  p-2  m-0">
+        <div class="national-wrapper">
+            <div class="title-box">
+                NATIONAL TEAMS
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>a</th>
+                        <th>b</th>
+                        <th>c</th>
+                        <th>d</th>
+                        <th>e</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>b</td>
+                        <td>c</td>
+                        <td>d</td>
+                        <td>e</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <!--  
  
  <div class="modal" tabindex="-1" id="clubAdd">
