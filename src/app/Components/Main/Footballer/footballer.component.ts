@@ -24,27 +24,20 @@ export class FootballerComponent implements OnInit{
 
   ngOnInit(): void {
       this.activatedRoute.params.subscribe(params =>{
-        this.ıd = params["ıd"]
+        this.footballerId= params["id"]        
         this.getFootballerDetailByFootballerId();
-        //this.getTransferHistoryByFootballerId();
       })
   }
 
-  ıd : number;
+  footballerId : number;
   footballerDetail : FootballerDetail;
   clubDetail : ClubDetail;
   imageUrl = "https://localhost:44319/";
   noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
-  saha = "Images/b45e40a275244e0fabba7775b19a0fe7.png"
-  transferHistoryDetail : TransferHistoryDetail[] = []; 
 
-
-  
   getFootballerDetailByFootballerId(){
-    this.footballerService.getFootballerDetailByFootballerId(this.ıd).subscribe(response => {
+    this.footballerService.getFootballerDetailByFootballerId(this.footballerId).subscribe(response => {
       this.footballerDetail = response.data;
-      console.log(response.data);
-      
       this.getClubDetailByClubId();
     })
   }
@@ -52,14 +45,11 @@ export class FootballerComponent implements OnInit{
   getClubDetailByClubId(){
     this.clubService.getClubDetailByClubId(this.footballerDetail.clubId).subscribe(response => {
       this.clubDetail = response.data;
+      console.log(response.data);
+      
     })
   }
 
-  // getTransferHistoryByFootballerId(){
-  //   this.transferHistoryService.getTransferHistoryDetailByFootballerId(this.ıd).subscribe(response => {
-  //     this.transferHistoryDetail = response.data;
-  //   })
-  // }
   
 
 

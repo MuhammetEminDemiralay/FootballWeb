@@ -1,164 +1,219 @@
-
-
-
-
-
 <div class="container-md p-0">
 
-    <!-- OYUNCU ÜST BİLGİSİ -->
-   <div class="row mt-2" id="alan" *ngIf="footballerDetail">
-         <div class="col-8">
-              <div class="row">
-                    <div class="col-12">
-                         <h1>#{{footballerDetail.playerNumber}} {{footballerDetail.name}}</h1>
-                    </div>
-              </div>
-              <div class="row">
-                    <div class="col-3" style="padding: 0px;">
-                         <img style="width: 172px;" [src]=" footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
-                    </div>
-                   <div class="col-9" style="height: 198px; padding: 0px;">
-                        <div class="col" style="height: 110px;"></div>
-                        <div class="col" style="height: 88px; background-color: white;">
-                              <div class="satir">
-                                   <p>Doğum tarihi/Yaş <b>: {{footballerDetail.dateOfBirth | date:'dd/MM/yyyy' }}({{footballerDetail.age}})</b></p>
-                                   <p>Doğum yeri <b>: <img class="countryImage" [src]="imageUrl + footballerDetail.footballerCountryImagePath" alt="">{{footballerDetail.cityName}}</b></p>
-                                   <p>Uyruk <b>: <img class="countryImage" [src]="imageUrl + footballerDetail.footballerCountryImagePath" alt=""> {{footballerDetail.footballerCountryName}}</b></p>
+     <!-- OYUNCU ÜST BİLGİSİ -->
+     <div class="row p-0  m-0" *ngIf="footballerDetail">
+          <div class="col-12 p-2 m-0">
+               <div class="row content-box">
+                    <div class="col-4 col-sm-3 col-lg-2 row-box">
+                         <div class="row content">
+                              <div class="col-12 league-text">{{footballerDetail.name}}</div>
+                              <div class="col-12 img">
+                                   <img class="imgs"
+                                        [src]="footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto"
+                                        alt="">
                               </div>
-                              <div  class="satir">
-                                   <p>Boy : <b>{{footballerDetail.height}}</b></p>
-                                   <p>Mevki : <b>{{footballerDetail.age}}</b></p>
+                              <div class="col-12 small-price">
+                                   {{footballerDetail.footballerValue | customcurrency}}
                               </div>
-                              <div class="satir">
-                                   <p>
-                                        {{footballerDetail.nationalTeamPlayerActive ? "Güncel Milli Oyuncu" : "Eski Milli Oyuncu"}}
-                                        <b>: <img class="countryImage" [src]="imageUrl + footballerDetail.footballerCountryImagePath " alt=""> {{footballerDetail.footballerCountryName}}</b>
-                                   </p>
+                         </div>
+                    </div>
+
+                    <div class="col-8 col-sm-9 col-lg-10 row-box">
+                         <div class="row content">
+
+                              <div class="col-12 top-content">
+
+                                   <div class="row content p-0 m-0 top-box">
+                                        <div class="col-5 col-sm-4 top-description">
+                                             <img class="img club-image"
+                                                  [src]="clubDetail.clubImagePath ? imageUrl + clubDetail.clubImagePath : imageUrl + noFootballerPhoto ">
+                                        </div>
+                                        <div class="col-7 col-sm-8 p-0">
+                                             <ul class="description">
+                                                  <li class="club-name">{{footballerDetail.clubName}}</li>
+                                                  <div>
+                                                       <img class="league-image"
+                                                            [src]="clubDetail.leagueImagePath ? imageUrl + clubDetail.leagueImagePath : imageUrl + noFootballerPhoto">
+                                                       <span class="league-name">{{clubDetail.leagueName}}</span>
+                                                  </div>
+                                                  <li>
+                                                       <span class="text">League level : </span>
+                                                       <img class="country-small-image"
+                                                            [src]="clubDetail.countryImagePath ? imageUrl + clubDetail.countryImagePath : imageUrl + noFootballerPhoto "
+                                                            alt="">
+                                                       <span class="text level">{{clubDetail.leagueLevel |
+                                                            leaguelevel}}</span>
+                                                  </li>
+                                                  <li class="text">
+                                                       Joined :
+                                                  </li>
+                                                  <li class="text">
+                                                       Contract expires :
+                                                  </li>
+                                             </ul>
+                                        </div>
+                                   </div>
+
                               </div>
-                        </div>
-                   </div>
-              </div>
-         </div>
-         <div class="col-4" style="height: 254px;" *ngIf="clubDetail">
-              <div class="row">
-                    <div  class="col-12" style="height: 166px;">
-                         a
+
+                              <div class="col-12 bottom-content ">
+                                   <div class="row content">
+                                        <div class="col-8 content-description">
+                                             <div class="row">
+                                                  <div class="col-12 col-md-3">
+                                                       <ul class="description">
+                                                            <li><span>Squad size : </span><span
+                                                                      class="league-detail"></span></li>
+                                                            <li><span>Average age : </span><span
+                                                                      class="league-detail"></span></li>
+                                                            <li><span>Foreigners : </span><span
+                                                                      class="league-detail blue-detail"></span><span>
+                                                                 </span><span></span></li>
+                                                       </ul>
+                                                  </div>
+                                                  <div class="col-12 col-md-3">
+                                                       <ul class="description">
+                                                            <li><span>National team players: </span><span
+                                                                      class="league-detail"></span>
+                                                            </li>
+                                                            <li><span>Staium : </span><span
+                                                                      class="league-detail blue-detail">
+                                                                 </span><span>
+                                                                      Seats</span><span></span>
+                                                            </li>
+                                                       </ul>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-3 content-null"></div>
+                                   </div>
+                              </div>
+                         </div>
                     </div>
-                    <div class="col-12" style="height: 88px; background-color: white;">
-                         <span id="footballerValue">                
-                              {{footballerDetail.footballerValue | number:'1.2-2'}}
-                         </span>
+
+                    <div class="price">
+                         {{footballerDetail.footballerValue| customcurrency}}
                     </div>
-              </div>
-         </div>
-   </div>
+
+               </div>
+          </div>
+     </div>
 
 
 
-   <div class="row mt-2" style="border-style: solid; height: 110px;">
-     
-   </div>
+
+     <!---------------->
+     <div class="row mt-2" style="border-style: solid; height: 110px;">
+
+     </div>
 
 
-   <div class="row mt-2" style="border-style: solid; height: 70px;">
-           
-   </div>
+     <div class="row mt-2" style="border-style: solid; height: 70px;">
+
+     </div>
 
 
-   <div class="row mt-2 gx-2">
-       <div class="col-8">
-          <div  class="col-12 mb-2" class="playerInfo" *ngIf="clubDetail">
-               <div class="row mx-0">
-                    <div  class="title">Oyuncu Bilgileri</div>
-                    <div class="col-6 px-0" style="text-indent: 10px;">
-                         <div></div>
-                         <p></p>
-                         <p>Anavatandaki isim : <b>{{footballerDetail.name}}</b></p>
-                         <p>Doğum tarihi : <b>{{footballerDetail.dateOfBirth | date}}</b></p>
-                         <p>Doğum yeri : <b>{{footballerDetail.cityName}} <img style="width: 30px; border: thin solid black;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"></b></p>
-                         <p>Yaş : <b>{{footballerDetail.age}}</b></p>
-                         <p>Boy : <b>{{footballerDetail.height}}</b></p>
-                         <p>Uyruk : <b><img  style="width: 30px; border: thin solid black;" [src]="imageUrl + footballerDetail.footballerCountryImagePath"> {{footballerDetail.footballerCountryName}}</b></p>
-                         <p>Mevki : <b>{{footballerDetail.positionName}}</b></p>
-                         <p>Ayak : <b>{{footballerDetail.footName}}</b></p>
-                         <p>Güncel klüp : <b><img style="width: 30px;" [src]="imageUrl + clubDetail.clubImagePath"> {{clubDetail.clubName}}</b></p>
-                    </div>
-                    <div class="col-6 px-0">
-                         <div class="row" style="margin: 0px">
-                              <div class="saha">
-                                   <div class="positions oneplayer">1</div>
-                                   <div class="positions twoplayer">2</div>
-                                   <div class="positions three">3</div>
-                                   <div class="positions four">4</div>
-                                   <div class="positions five">5</div>
-                                   <div class="positions">6</div>
-                                   <div class="positions">7</div>
-                                   <div class="positions">8</div>
-                                   <div class="positions">9</div>
-                                   <div class="positions">10</div>
-                                   <div class="positions">11</div>
-                                   <div class="positions">12</div>
+     <div class="row mt-2 gx-2">
+          <div class="col-8">
+               <div class="col-12 mb-2" class="playerInfo" *ngIf="clubDetail">
+                    <div class="row mx-0">
+                         <div class="title">Oyuncu Bilgileri</div>
+                         <div class="col-6 px-0" style="text-indent: 10px;">
+                              <div></div>
+                              <p></p>
+                              <p>Anavatandaki isim : <b>{{footballerDetail.name}}</b></p>
+                              <p>Doğum tarihi : <b>{{footballerDetail.dateOfBirth | date}}</b></p>
+                              <p>Doğum yeri : <b>{{footballerDetail.cityName}} <img
+                                             style="width: 30px; border: thin solid black;"
+                                             [src]="imageUrl + footballerDetail.footballerCountryImagePath"></b></p>
+                              <p>Yaş : <b>{{footballerDetail.age}}</b></p>
+                              <p>Boy : <b>{{footballerDetail.height}}</b></p>
+                              <p>Uyruk : <b><img style="width: 30px; border: thin solid black;"
+                                             [src]="imageUrl + footballerDetail.footballerCountryImagePath">
+                                        {{footballerDetail.footballerCountryName}}</b></p>
+                              <p>Mevki : <b>{{footballerDetail.positionName}}</b></p>
+                              <p>Ayak : <b>{{footballerDetail.footName}}</b></p>
+                              <p>Güncel klüp : <b><img style="width: 30px;" [src]="imageUrl + clubDetail.clubImagePath">
+                                        {{clubDetail.clubName}}</b></p>
+                         </div>
+                         <div class="col-6 px-0">
+                              <div class="row" style="margin: 0px">
+                                   <div class="saha">
+                                        <div class="positions oneplayer">1</div>
+                                        <div class="positions twoplayer">2</div>
+                                        <div class="positions three">3</div>
+                                        <div class="positions four">4</div>
+                                        <div class="positions five">5</div>
+                                        <div class="positions">6</div>
+                                        <div class="positions">7</div>
+                                        <div class="positions">8</div>
+                                        <div class="positions">9</div>
+                                        <div class="positions">10</div>
+                                        <div class="positions">11</div>
+                                        <div class="positions">12</div>
+                                   </div>
                               </div>
                          </div>
                     </div>
                </div>
+               <div class="col-12 mb-2 " style="border-style: solid; height: 83px;">
+                    DİĞER VERİLER
+               </div>
+               <div class="col-12 mb-2" style="border-style: solid; height: 233px;">
+                    <!-- <table>
+                         <thead>
+                              <tr>
+                                   <th>Season</th>
+                                   <th>Date</th>
+                                   <th>Before Club</th>
+                                   <th>Last Club</th>
+                                   <th>Market Value</th>
+                                   <th>Fee</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr *ngFor="let transferHistory of transferHistoryDetail">
+                                   <td>{{transferHistory.season}}</td>
+                                   <td>{{transferHistory.joined}}</td>
+                                   <td>
+                                        <img style="width: 25px;"
+                                             [src]="imageUrl + transferHistory.beforeClubImagePath">
+                                        <img style="width: 20px;"
+                                             [src]="imageUrl + transferHistory.beforeClubCountryImagePath">
+                                        {{transferHistory.beforeClubName}}
+                                   </td>
+                                   <td>
+                                        <img style="width: 25px;" [src]="imageUrl + transferHistory.lastClubImagePath">
+                                        <img style="width: 20px;"
+                                             [src]="imageUrl + transferHistory.lastClubCountryImagePath">
+                                        {{transferHistory.lastClubName}}
+                                   </td>
+                                   <td>{{transferHistory.marketValue}}</td>
+                                   <td>{{transferHistory.fee}}</td>
+                              </tr>
+                         </tbody>
+                    </table> -->
+               </div>
+               <div class="col-12 mb-2" style="border-style: solid; height: 66px;">
+                    GENÇLİK KULÜPLERİ
+               </div>
+               <div class="col-12" style="border-style: solid; height: 157px;">
+                    PERFORMANS BİLGİLERİ
+               </div>
           </div>
-          <div class="col-12 mb-2 " style="border-style: solid; height: 83px;">
-               DİĞER VERİLER
+          <div class="col-4">
+               <div class="col-12 mb-2" style="border-style: solid; height: 175px;">
+                    SONRAKİ KARŞILAŞMALAR
+               </div>
+               <div class="col-12 mb-2" style="border-style: solid; height: 175px;">
+                    MİLLİ MAÇ KARİYERİ
+               </div>
+               <div class="col-12 mb-2" style="border-style: solid; height: 137px;">
+                    OYUNCU ÜZERİNE TARTIŞMALAR
+               </div>
+               <div class="col-12" style="border-style: solid; height: 216px;">
+                    FAVORİN KİM?
+               </div>
           </div>
-          <div class="col-12 mb-2" style="border-style: solid; height: 233px;">
-               <table>
-                    <thead>
-                         <tr>
-                              <th>Season</th>
-                              <th>Date</th>
-                              <th>Before Club</th>
-                              <th>Last Club</th>
-                              <th>Market Value</th>
-                              <th>Fee</th>
-                         </tr>
-                    </thead>
-                    <tbody>
-                         <tr *ngFor="let transferHistory of transferHistoryDetail">
-                              <td>{{transferHistory.season}}</td>
-                              <td>{{transferHistory.joined}}</td>
-                              <td>
-                                   <img style="width: 25px;" [src]="imageUrl + transferHistory.beforeClubImagePath">
-                                   <img style="width: 20px;" [src]="imageUrl + transferHistory.beforeClubCountryImagePath">
-                                   {{transferHistory.beforeClubName}}
-                              </td>
-                              <td>
-                                   <img style="width: 25px;" [src]="imageUrl + transferHistory.lastClubImagePath">
-                                   <img style="width: 20px;" [src]="imageUrl + transferHistory.lastClubCountryImagePath">
-                                   {{transferHistory.lastClubName}}
-                              </td>
-                              <td>{{transferHistory.marketValue}}</td>
-                              <td>{{transferHistory.fee}}</td>
-                         </tr>     
-                    </tbody>
-               </table>
-          </div>
-          <div class="col-12 mb-2" style="border-style: solid; height: 66px;">
-               GENÇLİK KULÜPLERİ
-          </div>
-          <div class="col-12" style="border-style: solid; height: 157px;">
-               PERFORMANS BİLGİLERİ
-          </div>
-       </div>
-       <div class="col-4">
-           <div class="col-12 mb-2" style="border-style: solid; height: 175px;">
-               SONRAKİ KARŞILAŞMALAR
-          </div>
-          <div class="col-12 mb-2" style="border-style: solid; height: 175px;">
-               MİLLİ MAÇ KARİYERİ
-          </div>
-          <div class="col-12 mb-2" style="border-style: solid; height: 137px;">
-               OYUNCU ÜZERİNE TARTIŞMALAR
-         </div>
-         <div class="col-12" style="border-style: solid; height: 216px;">
-               FAVORİN KİM?
-         </div>
-       </div>
-   </div>
+     </div>
 </div>
-

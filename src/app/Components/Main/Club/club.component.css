@@ -41,13 +41,13 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     right: 10px;
-    width: 180px;
-    height: 70px;
+    width: 250px;
+    height: 80px;
     background: radial-gradient(#02a8e7, #118dc4);
     color: #fff;
-    font-size: 28px;
+    font-size: 45px;
     font-weight: 500;
 }
 
@@ -82,8 +82,8 @@
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 260px;
-    height: 100px;
+    width: 300px;
+    height: 110px;
     background-color: #fff;
     border: 2px solid #dddddd;
 }
