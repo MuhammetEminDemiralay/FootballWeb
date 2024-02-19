@@ -1,6 +1,4 @@
-<div class="container-md p-0">
-
-     <!-- OYUNCU ÜST BİLGİSİ -->
+<div class="container p-0" *ngIf="clubDetail">
      <div class="row p-0  m-0" *ngIf="footballerDetail">
           <div class="col-12 p-2 m-0">
                <div class="row content-box">
@@ -17,12 +15,9 @@
                               </div>
                          </div>
                     </div>
-
                     <div class="col-8 col-sm-9 col-lg-10 row-box">
                          <div class="row content">
-
                               <div class="col-12 top-content">
-
                                    <div class="row content p-0 m-0 top-box">
                                         <div class="col-5 col-sm-4 top-description">
                                              <img class="img club-image"
@@ -53,91 +48,142 @@
                                              </ul>
                                         </div>
                                    </div>
-
                               </div>
-
                               <div class="col-12 bottom-content ">
                                    <div class="row content">
-                                        <div class="col-8 content-description">
+                                        <div class="col-md-8 col-lg-9 content-description">
                                              <div class="row">
-                                                  <div class="col-12 col-md-3">
+                                                  <div class="col-12 col-md-4">
                                                        <ul class="description">
-                                                            <li><span>Squad size : </span><span
-                                                                      class="league-detail"></span></li>
-                                                            <li><span>Average age : </span><span
-                                                                      class="league-detail"></span></li>
-                                                            <li><span>Foreigners : </span><span
-                                                                      class="league-detail blue-detail"></span><span>
-                                                                 </span><span></span></li>
+                                                            <li><span>Date of birth/Age: </span>
+                                                                 <span>{{footballerDetail.dateOfBirth | date}}</span>
+                                                            </li>
+                                                            <li><span>Place of birth : </span>
+                                                                 <span></span>
+                                                            </li>
+                                                            <li>
+                                                                 <span>Citizenship: </span>
+                                                                 <span></span>
+                                                            </li>
                                                        </ul>
                                                   </div>
-                                                  <div class="col-12 col-md-3">
+                                                  <div class="col-12 col-md-4">
                                                        <ul class="description">
-                                                            <li><span>National team players: </span><span
-                                                                      class="league-detail"></span>
+                                                            <li>
+                                                                 <span>Height : </span>
+                                                                 <span>{{footballerDetail.height}}</span>
                                                             </li>
-                                                            <li><span>Staium : </span><span
-                                                                      class="league-detail blue-detail">
-                                                                 </span><span>
-                                                                      Seats</span><span></span>
+                                                            <li>
+                                                                 <span>Position : </span>
+                                                                 <span>{{footballerDetail.positionName}}</span>
+                                                            </li>
+                                                       </ul>
+                                                  </div>
+                                                  <div class="col-12 col-md-4">
+                                                       <ul class="description">
+                                                            <li>
+                                                                 <span>Former International : </span>
+                                                                 <span></span>
+                                                            </li>
+                                                            <li>
+                                                                 <span>Caps/Goals : </span>
+                                                                 <span></span>
                                                             </li>
                                                        </ul>
                                                   </div>
                                              </div>
                                         </div>
-                                        <div class="col-3 content-null"></div>
+                                        <div class="col-md-4 col-lg-3 content-null">
+                                             <div class="price">
+                                                  {{footballerDetail.footballerValue| customcurrency}}
+                                             </div>
+                                        </div>
                                    </div>
                               </div>
                          </div>
                     </div>
-
-                    <div class="price">
-                         {{footballerDetail.footballerValue| customcurrency}}
-                    </div>
-
                </div>
           </div>
      </div>
-
-
-
-
      <!---------------->
-     <div class="row mt-2" style="border-style: solid; height: 110px;">
+     <!-- <div class="row mt-2" style="border-style: solid; height: 110px;">
 
      </div>
 
 
      <div class="row mt-2" style="border-style: solid; height: 70px;">
 
-     </div>
+     </div> -->
 
+     <div class="row p-2 mt-2 gx-2">
 
-     <div class="row mt-2 gx-2">
           <div class="col-8">
-               <div class="col-12 mb-2" class="playerInfo" *ngIf="clubDetail">
-                    <div class="row mx-0">
-                         <div class="title">Oyuncu Bilgileri</div>
-                         <div class="col-6 px-0" style="text-indent: 10px;">
-                              <div></div>
-                              <p></p>
-                              <p>Anavatandaki isim : <b>{{footballerDetail.name}}</b></p>
-                              <p>Doğum tarihi : <b>{{footballerDetail.dateOfBirth | date}}</b></p>
-                              <p>Doğum yeri : <b>{{footballerDetail.cityName}} <img
-                                             style="width: 30px; border: thin solid black;"
-                                             [src]="imageUrl + footballerDetail.footballerCountryImagePath"></b></p>
-                              <p>Yaş : <b>{{footballerDetail.age}}</b></p>
-                              <p>Boy : <b>{{footballerDetail.height}}</b></p>
-                              <p>Uyruk : <b><img style="width: 30px; border: thin solid black;"
-                                             [src]="imageUrl + footballerDetail.footballerCountryImagePath">
-                                        {{footballerDetail.footballerCountryName}}</b></p>
-                              <p>Mevki : <b>{{footballerDetail.positionName}}</b></p>
-                              <p>Ayak : <b>{{footballerDetail.footName}}</b></p>
-                              <p>Güncel klüp : <b><img style="width: 30px;" [src]="imageUrl + clubDetail.clubImagePath">
-                                        {{clubDetail.clubName}}</b></p>
+               <div class="col-12 player-text">
+                    PLAYER DATA
+               </div>
+               <div class="col-12" class="player">
+                    <div class="row m-0">
+                         <div class="col-6 player-info">
+                              <div>
+                                   <span class="left-box">Name in home country :</span>
+                                   <span class="right-box">{{footballerDetail.nameInHomeCountry}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Date of birth/Age :</span>
+                                   <span class="right-box">{{footballerDetail.dateOfBirth | date}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Place of birth :</span>
+                                   <span class="right-box">{{footballerDetail.placeOfBirth}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Height :</span>
+                                   <span class="right-box">{{footballerDetail.height}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Citizenship :</span>
+                                   <span class="right-box">{{footballerDetail.footballerCountryName}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Position :</span>
+                                   <span class="right-box">{{footballerDetail.positionName}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Foot :</span>
+                                   <span class="right-box">{{footballerDetail.footName}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Player agent :</span>
+                                   <span class="right-box">{{footballerDetail.playerAgent}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Current club :</span>
+                                   <span class="right-box">{{footballerDetail.clubName}}</span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Joined :</span>
+                                   <span class="right-box"></span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Contract expires:</span>
+                                   <span class="right-box"></span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Contract expires :</span>
+                                   <span class="right-box"></span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Outfitter :</span>
+                                   <span class="right-box"></span>
+                              </div>
+                              <div>
+                                   <span class="left-box">Social-Media :</span>
+                                   <span class="right-box"></span>
+                              </div>
                          </div>
-                         <div class="col-6 px-0">
-                              <div class="row" style="margin: 0px">
+
+                         <div class="col-6">
+                              <div class="row">
                                    <div class="saha">
                                         <div class="positions oneplayer">1</div>
                                         <div class="positions twoplayer">2</div>
@@ -156,7 +202,14 @@
                          </div>
                     </div>
                </div>
-               <div class="col-12 mb-2 " style="border-style: solid; height: 83px;">
+
+
+               <!------------------------------------->
+
+
+
+
+               <div class="col-12 mt-2 mb-2 " style="border-style: solid; height: 83px;">
                     DİĞER VERİLER
                </div>
                <div class="col-12 mb-2" style="border-style: solid; height: 233px;">
@@ -194,13 +247,17 @@
                          </tbody>
                     </table> -->
                </div>
+
                <div class="col-12 mb-2" style="border-style: solid; height: 66px;">
                     GENÇLİK KULÜPLERİ
                </div>
+
                <div class="col-12" style="border-style: solid; height: 157px;">
                     PERFORMANS BİLGİLERİ
                </div>
+
           </div>
+
           <div class="col-4">
                <div class="col-12 mb-2" style="border-style: solid; height: 175px;">
                     SONRAKİ KARŞILAŞMALAR
@@ -215,5 +272,6 @@
                     FAVORİN KİM?
                </div>
           </div>
+
      </div>
 </div>

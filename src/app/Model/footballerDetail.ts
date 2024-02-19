@@ -21,5 +21,8 @@ export interface FootballerDetail{
     nationalTeamPlayerActive : boolean,
     nationalTeamLevel : number,
     clubName : string,
-    footballerClubImagePath : string
+    footballerClubImagePath : string,
+    nameInHomeCountry : string,
+    placeOfBirth : string,
+    playerAgent : string
 }

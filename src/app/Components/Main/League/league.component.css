@@ -37,14 +37,18 @@
     max-height: 240px;
 }
 
-.price {
+.content-null{
+    position: relative;
+}
+
+.content-null .price {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 20px;
-    right: 10px;
-    width: 250px;
+    top: -15px;
+    left: 0;
+    width: 90%;
     height: 80px;
     background: radial-gradient(#02a8e7, #118dc4);
     color: #fff;

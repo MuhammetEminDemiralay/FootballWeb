@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-12 bottom-content ">
                         <div class="row">
-                            <div class="col-9 content-description">
+                            <div class="col-md-4 col-lg-9 content-description">
                                 <div class="row">
                                     <div class="col-12 col-md-5">
                                         <ul class="description">
@@ -64,14 +64,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 content-null"></div>
+                            <div class="col-md-4 col-lg-3 content-null">
+                                <div class="price">
+                                    {{leagueTotalValue |customcurrency}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="price">
-                {{leagueTotalValue |customcurrency}}
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
     <div class="col-12 col-md-8 p-2 m-0">
         <div class="league-wrapper">
             <div class="title-box" *ngIf="leagueDetail">
-                CLUBS - {{leagueDetail.leagueName| uppercase}} - LIG 23/24
+                LEAGUES - {{leagueDetail.leagueName| uppercase}} - LIG 23/24
                 <i data-bs-toggle="modal" data-bs-target="#clubAdd" class='bx bx-plus plus icon'></i>
             </div>
             <table class="table" style="width: 100%;">
