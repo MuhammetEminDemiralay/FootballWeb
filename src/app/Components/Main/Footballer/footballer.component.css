@@ -36,8 +36,8 @@
     max-height: 240px;
 }
 
-.content-null{
-   
+.content-null {
+
     position: relative;
 }
 
@@ -104,13 +104,13 @@
     min-width: 100%;
 }
 
-.country-image{
+.country-image {
     width: 30px;
     height: 20px;
     object-fit: cover;
 }
 
-.country-small-image{
+.country-small-image {
     width: 16px;
     height: 12px;
     border: 1px solid black;
@@ -123,23 +123,23 @@
     list-style: none;
 }
 
-.text{
+.text {
     font-size: 13px;
     font-weight: 400;
 }
 
-.level{
+.level {
     margin-left: 5px;
     font-weight: 700;
 }
 
-.description .league-image{
+.description .league-image {
     width: 25px;
     height: 25px;
     object-fit: cover;
 }
 
-.league-name{
+.league-name {
     color: #1d75a3;
     font-weight: 600;
 }
@@ -329,7 +329,7 @@ th {
         font-size: 13px;
     }
 
-    .content-null .price{
+    .content-null .price {
         font-size: 40px;
     }
 
@@ -343,8 +343,8 @@ th {
         font-size: 12px;
     }
 
-    
-    .content-null .price{
+
+    .content-null .price {
         font-size: 35px;
     }
 
@@ -376,88 +376,97 @@ th {
     }
 }
 
-.footballer-info{
+.footballer-info {
     display: flex;
     align-items: center;
 }
 
-.footballer-info .footballer-image-box{
+.footballer-info .footballer-image-box {
     width: 40px;
     height: 40px;
 }
 
-.footballer-image-box .footballer-image{
+.footballer-image-box .footballer-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.footballer-info .footballer-name-position{
+.footballer-info .footballer-name-position {
     height: 40px;
     width: 100%;
     padding-left: 10px;
 }
 
 .footballer-name,
-.footballer-positon{
+.footballer-positon {
     display: flex;
     justify-content: start;
 }
 
-.footballer-name{
-    color:#0f6194;
+.footballer-name {
+    color: #0f6194;
     font-weight: 600;
     font-size: 15px;
 }
 
-.nationality-image-box{
+.nationality-image-box {
     width: 30px;
     height: 20px;
 }
 
-.nationality-image{
+.nationality-image {
     width: 30px;
     height: 20px;
     object-fit: cover;
 }
 
-.market-value{
+.market-value {
     text-align: end;
     font-weight: 600;
-    color:#1d75a3;
+    color: #1d75a3;
     padding-right: 10px;
 }
 
-.player{
-    border: 1px solid black;
-    margin:0;
+.player {
+    margin: 0;
     padding: 0;
 }
 
-.player .player-info{
-    border: 1px solid black;
+.player .player-info,
+.player .field-box {
+    border: 0.5px solid rgb(201, 201, 201);
     background-color: #fff;
+    min-height: 510px;
+    max-height: 510px;
 }
 
-.player-info div{
+.player-info div {
     display: flex;
     width: 100%;
     margin: 12px 0 12px 0;
 }
 
-.player-info div span{
-    font-size: 12px;
+.player-info div span {
+    font-size: 13px;
 }
-.left-box{
+
+.left-box {
     width: 40%;
 }
 
-.right-box{
-    width: 40%;
-    font-weight: 500;
+.right-box {
+    width: 60%;
+    font-weight: 700;
 }
 
-.player-text{
+.text-blue {
+    color: #2184b9;
+    display: flex;
+    align-items: center;
+}
+
+.player-text {
     display: flex;
     align-items: center;
     background-color: #1a3151;
@@ -467,4 +476,154 @@ th {
     height: 30px;
     padding-left: 12px;
 }
+
+.current-club-image {
+    width: 25px;
+    object-fit: cover;
+}
+
+.footballer-country-image {
+    width: 20px;
+    object-fit: cover;
+    border: 0.5px solid black;
+    margin-right: 8px;
+}
+
+.field-box .field {
+    padding: 0;
+    margin: 0;
+  
+}
+
+.field .bar {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    background-color: #d2e3ed;
+    height: 30px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.field .position-box {
+    width: 100%;
+    height: calc(100% - 30px);
+    display: flex;
+}
+
+.position-box .position-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+}
+
+.position-box .position-value {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position-value .floor,
+.position-value .floor-field{
+    position: absolute;
+    width: 80%;
+    height: 85%;
+}
+
+.position-value .floor-field{
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.floor-field .one,
+.floor-field .two{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.floor-field .one{
+    height: 18%;
+}
+
+.floor-field .two{
+    height: 16%;
+}
+
+.position-point{
+    content: '';
+    border-radius: 50%;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position-point .point{
+    content: '';
+    min-width: 20px;
+    min-height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+    border: 2px solid #314f77;
+}
+
+.floor-field .atacking,
+.floor-field .backs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backs .back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+
+.atacking .atack-left,
+.atacking .atack-right,
+.atacking .atack-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atacking .atack-left,
+.atacking .atack-right{
+    width: 30%;
+}
+
+.atacking .atack-center{
+    width: 40%;
+}
+
+.one .goalkeeper,
+.one .forward,
+.two .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
 

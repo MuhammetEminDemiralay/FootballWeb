@@ -34,10 +34,15 @@ export class FootballerComponent implements OnInit{
   clubDetail : ClubDetail;
   imageUrl = "https://localhost:44319/";
   noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
+  meter : string;
+  centimeter : string;
 
   getFootballerDetailByFootballerId(){
     this.footballerService.getFootballerDetailByFootballerId(this.footballerId).subscribe(response => {
       this.footballerDetail = response.data;
+      this.heightEdit(response.data.height)
+      console.log(response.data);
+      
       this.getClubDetailByClubId();
     })
   }
@@ -46,8 +51,13 @@ export class FootballerComponent implements OnInit{
     this.clubService.getClubDetailByClubId(this.footballerDetail.clubId).subscribe(response => {
       this.clubDetail = response.data;
       console.log(response.data);
-      
     })
+  }
+  
+  heightEdit(height : number){
+    const heig = height.toString().split("");
+    this.centimeter = heig[1] + heig[2];
+    this.meter = heig[0]; 
   }
 
   

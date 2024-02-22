@@ -24,5 +24,8 @@ export interface FootballerDetail{
     footballerClubImagePath : string,
     nameInHomeCountry : string,
     placeOfBirth : string,
-    playerAgent : string
+    playerAgent : string,
+    contractExpires : Date,
+    joined : Date,
+    dateOfLastContract : Date
 }

@@ -130,7 +130,7 @@
                               </div>
                               <div>
                                    <span class="left-box">Date of birth/Age :</span>
-                                   <span class="right-box">{{footballerDetail.dateOfBirth | date}}</span>
+                                   <span class="right-box text-blue">{{footballerDetail.dateOfBirth | date}}</span>
                               </div>
                               <div>
                                    <span class="left-box">Place of birth :</span>
@@ -138,11 +138,14 @@
                               </div>
                               <div>
                                    <span class="left-box">Height :</span>
-                                   <span class="right-box">{{footballerDetail.height}}</span>
+                                   <span class="right-box"><span>{{meter}},</span>{{centimeter}}m</span>
                               </div>
                               <div>
                                    <span class="left-box">Citizenship :</span>
-                                   <span class="right-box">{{footballerDetail.footballerCountryName}}</span>
+                                   <span class="right-box text-blue">
+                                        <img class="footballer-country-image"
+                                             [src]="footballerDetail.footballerCountryImagePath ? imageUrl + footballerDetail.footballerCountryImagePath : imageUrl + noFootballerPhoto">
+                                        {{footballerDetail.footballerCountryName}}</span>
                               </div>
                               <div>
                                    <span class="left-box">Position :</span>
@@ -154,23 +157,27 @@
                               </div>
                               <div>
                                    <span class="left-box">Player agent :</span>
-                                   <span class="right-box">{{footballerDetail.playerAgent}}</span>
+                                   <span class="right-box text-blue">{{footballerDetail.playerAgent}}</span>
                               </div>
                               <div>
                                    <span class="left-box">Current club :</span>
-                                   <span class="right-box">{{footballerDetail.clubName}}</span>
+                                   <span class="right-box text-blue">
+                                        <img class="current-club-image"
+                                             [src]="footballerDetail.footballerClubImagePath ? imageUrl + footballerDetail.footballerClubImagePath : imageUrl + noFootballerPhoto">
+                                        {{footballerDetail.clubName}}
+                                   </span>
                               </div>
                               <div>
                                    <span class="left-box">Joined :</span>
-                                   <span class="right-box"></span>
+                                   <span class="right-box">{{footballerDetail.joined | date}}</span>
                               </div>
                               <div>
                                    <span class="left-box">Contract expires:</span>
-                                   <span class="right-box"></span>
+                                   <span class="right-box">{{footballerDetail.contractExpires | date}}</span>
                               </div>
                               <div>
-                                   <span class="left-box">Contract expires :</span>
-                                   <span class="right-box"></span>
+                                   <span class="left-box">Date of last contract :</span>
+                                   <span class="right-box">{{footballerDetail.dateOfLastContract | date}}</span>
                               </div>
                               <div>
                                    <span class="left-box">Outfitter :</span>
@@ -183,20 +190,111 @@
                          </div>
 
                          <div class="col-6">
-                              <div class="row">
-                                   <div class="saha">
-                                        <div class="positions oneplayer">1</div>
-                                        <div class="positions twoplayer">2</div>
-                                        <div class="positions three">3</div>
-                                        <div class="positions four">4</div>
-                                        <div class="positions five">5</div>
-                                        <div class="positions">6</div>
-                                        <div class="positions">7</div>
-                                        <div class="positions">8</div>
-                                        <div class="positions">9</div>
-                                        <div class="positions">10</div>
-                                        <div class="positions">11</div>
-                                        <div class="positions">12</div>
+                              <div class="row field-box">
+                                   <div class="col-12 field">
+                                        <div class="bar">
+                                             Main position
+                                        </div>
+                                        <div class="position-box">
+                                             <div class="position-text">
+                                                  <div style="font-weight: 400;">Main position</div>
+                                                  <span style="font-weight: 600;">{{footballerDetail.positionName}}</span>
+                                             </div>
+                                             <div class="position-value">
+                                                  <img class="floor" src="../../../../assets/image/Field.png" alt="">
+                                                  <div class="floor-field">
+                                                       <div class="one center-forward">
+                                                            <div class="forward">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Centre-Forward'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="two atacking">
+                                                            <div class="atack-left">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Left-Winger'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                            <div class="atack-center">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Attacking-Midfield'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                            <div class="atack-right">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Right-Winger'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="two midfield">
+                                                            <div class="middle">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Central-Midfield'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="two midfield">
+                                                            <div class="middle">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Defensive-Midfielder'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="two backs">
+                                                            <div class="back">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Left-Back'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                            <div class="back">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Centre-Back'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                            <div class="back">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Centre-Back'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                            <div class="back">
+                                                                 <span *ngIf="footballerDetail.positionName == 'Right-Back'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="one">
+                                                            <div class="goalkeeper">
+                                                                 <span *ngIf="footballerDetail.positionName == 'GoalKeeper'"
+                                                                      class="position-point">
+                                                                      <span class="point"></span>
+                                                                 </span>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-12 field">
+                                        <div class="bar">
+                                             Market value
+                                        </div>
+
                                    </div>
                               </div>
                          </div>
