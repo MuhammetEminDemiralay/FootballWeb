@@ -8,8 +8,9 @@ export interface TransferHistoryDetail{
     beforeClubCountryImagePath : string,
     beforeClubImagePath :string,
     beforeClubName : string,
+    beforeClubId : number,
     lastClubCountryImagePath : string,
     lastClubImagePath :string,
     lastClubName : string
-  
+    lastClubId : number
 }

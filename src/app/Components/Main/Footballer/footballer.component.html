@@ -198,7 +198,8 @@
                                         <div class="position-box">
                                              <div class="position-text">
                                                   <div style="font-weight: 400;">Main position</div>
-                                                  <span style="font-weight: 600;">{{footballerDetail.positionName}}</span>
+                                                  <span
+                                                       style="font-weight: 600;">{{footballerDetail.positionName}}</span>
                                              </div>
                                              <div class="position-value">
                                                   <img class="floor" src="../../../../assets/image/Field.png" alt="">
@@ -304,46 +305,46 @@
 
                <!------------------------------------->
 
-
-
-
-               <div class="col-12 mt-2 mb-2 " style="border-style: solid; height: 83px;">
-                    DİĞER VERİLER
-               </div>
-               <div class="col-12 mb-2" style="border-style: solid; height: 233px;">
-                    <!-- <table>
+               <div class="col-12 mb-2 mt-2">
+                    <div class="player-text">TRANSFER HISTORY</div>
+                    <table class="table">
                          <thead>
                               <tr>
                                    <th>Season</th>
                                    <th>Date</th>
-                                   <th>Before Club</th>
-                                   <th>Last Club</th>
-                                   <th>Market Value</th>
+                                   <th>Left</th>
+                                   <th>Joined</th>
+                                   <th>MV</th>
                                    <th>Fee</th>
                               </tr>
                          </thead>
                          <tbody>
-                              <tr *ngFor="let transferHistory of transferHistoryDetail">
+                              <tr class="transfer-row" *ngFor="let transferHistory of transferHistoryDetail">
                                    <td>{{transferHistory.season}}</td>
-                                   <td>{{transferHistory.joined}}</td>
-                                   <td>
-                                        <img style="width: 25px;"
+                                   <td>{{transferHistory.joined | date}}</td>
+                                   <td class="transfer-td">
+                                        <img class="transfer-club-image"
                                              [src]="imageUrl + transferHistory.beforeClubImagePath">
-                                        <img style="width: 20px;"
+                                        <img class="transfer-country-image"
                                              [src]="imageUrl + transferHistory.beforeClubCountryImagePath">
-                                        {{transferHistory.beforeClubName}}
+                                        <span style="cursor: pointer;" routerLink="/club/{{transferHistory.beforeClubId}}">{{transferHistory.beforeClubName}}</span>
                                    </td>
-                                   <td>
-                                        <img style="width: 25px;" [src]="imageUrl + transferHistory.lastClubImagePath">
-                                        <img style="width: 20px;"
+                                   <td class="transfer-td">
+                                        <img class="transfer-club-image"
+                                             [src]="imageUrl + transferHistory.lastClubImagePath">
+                                        <img class="transfer-country-image"
                                              [src]="imageUrl + transferHistory.lastClubCountryImagePath">
-                                        {{transferHistory.lastClubName}}
+                                        <span style="cursor: pointer;" routerLink="/club/{{transferHistory.lastClubId}}">{{transferHistory.lastClubName}}</span>
                                    </td>
-                                   <td>{{transferHistory.marketValue}}</td>
-                                   <td>{{transferHistory.fee}}</td>
+                                   <td class="value">
+                                        {{transferHistory.marketValue | customcurrency}}
+                                   </td>
+                                   <td class="value">
+                                        {{transferHistory.fee | customcurrency}}
+                                   </td>
                               </tr>
                          </tbody>
-                    </table> -->
+                    </table>
                </div>
 
                <div class="col-12 mb-2" style="border-style: solid; height: 66px;">

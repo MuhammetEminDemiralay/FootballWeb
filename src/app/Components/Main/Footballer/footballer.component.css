@@ -262,14 +262,6 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 
-td,
-th {
-    border: 1px solid #dddddd;
-    padding: 5px;
-    text-align: center;
-    vertical-align: middle;
-}
-
 #img-td {
     display: flex;
     align-items: center;
@@ -492,7 +484,7 @@ th {
 .field-box .field {
     padding: 0;
     margin: 0;
-  
+
 }
 
 .field .bar {
@@ -531,13 +523,13 @@ th {
 }
 
 .position-value .floor,
-.position-value .floor-field{
+.position-value .floor-field {
     position: absolute;
     width: 80%;
     height: 85%;
 }
 
-.position-value .floor-field{
+.position-value .floor-field {
     border: 1px solid #fff;
     display: flex;
     align-items: center;
@@ -546,21 +538,21 @@ th {
 }
 
 .floor-field .one,
-.floor-field .two{
+.floor-field .two {
     padding: 0;
     margin: 0;
     width: 100%;
 }
 
-.floor-field .one{
+.floor-field .one {
     height: 18%;
 }
 
-.floor-field .two{
+.floor-field .two {
     height: 16%;
 }
 
-.position-point{
+.position-point {
     content: '';
     border-radius: 50%;
     position: relative;
@@ -573,7 +565,7 @@ th {
     justify-content: center;
 }
 
-.position-point .point{
+.position-point .point {
     content: '';
     min-width: 20px;
     min-height: 20px;
@@ -584,13 +576,13 @@ th {
 }
 
 .floor-field .atacking,
-.floor-field .backs{
+.floor-field .backs {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.backs .back{
+.backs .back {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,31 +591,73 @@ th {
 
 .atacking .atack-left,
 .atacking .atack-right,
-.atacking .atack-center{
+.atacking .atack-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .atacking .atack-left,
-.atacking .atack-right{
+.atacking .atack-right {
     width: 30%;
 }
 
-.atacking .atack-center{
+.atacking .atack-center {
     width: 40%;
 }
 
 .one .goalkeeper,
 .one .forward,
-.two .middle{
+.two .middle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    
 }
 
+.transfer-club-image {
+    object-fit: cover;
+    width: 20px;
+    height: 20px;
+}
 
+.transfer-country-image {
+    object-fit: cover;
+    width: 18px;
+    height: 14px;
+    border: 0.3px solid black;
+}
 
+td,
+th {
+    border: 1px solid #cfcfcf;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+    font-size: 12;
+}
+
+.transfer-td {
+    text-align: start;
+    font-weight: 500;
+    font-size: 12;
+}
+
+.transfer-td span {
+    color: #1d75a3;
+}
+
+.transfer-td img {
+    margin-right: 8px;
+}
+
+.value {
+    text-align: end;
+    margin-right: 5px;
+}
