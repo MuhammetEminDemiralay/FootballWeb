@@ -1,5 +1,4 @@
-
-.wrapper{
+.wrapper {
     display: flex;
     flex-wrap: wrap;
     column-gap: 20px;
@@ -9,23 +8,23 @@
     padding: 7px;
 }
 
-.wrapper .icon{
+.wrapper .icon {
     color: #fff;
     font-size: 25px;
 }
 
-.wrapper .arrow{
+.wrapper .arrow {
     font-size: 32px;
     color: #00bbf9;
 }
 
-.wrapper .box{
+.wrapper .box {
     display: flex;
     align-items: center;
     padding: 3px;
 }
 
-.box .icon-box{
+.box .icon-box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,15 +33,15 @@
     background-color: #16425b;
 }
 
-.icon-box .flag{
+.icon-box .flag {
     transform: rotate(-10deg);
 }
 
-.icon-box .home{
+.icon-box .home {
     cursor: pointer;
 }
 
-.box .select{
+.box .select {
     height: 45px;
     width: 100px;
     text-indent: 5px;
@@ -56,7 +55,7 @@
     cursor: pointer;
 }
 
-.wrapper .btn-box{
+.wrapper .btn-box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,13 +67,13 @@
     cursor: pointer;
 }
 
-.wrapper .home-box{
+.wrapper .home-box {
     width: 45px;
     height: 45px;
     border: 1px solid black;
 }
 
-.btn-box button{
+.btn-box button {
     position: absolute;
     border: none;
     outline: none;
@@ -83,6 +82,43 @@
     height: 100%;
 }
 
-.disabled-selected{
+.disabled-selected {
     opacity: 0.5;
+}
+
+
+@media only screen and (min-width : 993px) {
+    .wrapper-search {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 992px) and (min-width : 768px) {
+    .box .select {
+        width: 70px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .box .icon-box {
+        width: 35px;
+        height: 35px;
+    }
+
+    .wrapper .btn-box {
+        width: 25px;
+        height: 35px;
+    }
+
+    .wrapper .arrow {
+        font-size: 25px;
+    }
+
+    .wrapper .icon {
+        font-size: 20px;
+    }
+
+    .wrapper-search {
+        display: none;
+    }
 }

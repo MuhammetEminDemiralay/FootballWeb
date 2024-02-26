@@ -24,15 +24,15 @@
 
 .row .header{
     width: 100%;
-    height: 50px;
-    background-color: orange;    
+    height: 80px;
+    margin-top: 8px;
 }
 
 
 .row .navi{
     width: 100%;
-    height: 50px;
-    background-color: red;
+    height: 70px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .row .main{
     padding: 0;
@@ -44,3 +44,8 @@
 }
 
 
+@media only screen and (max-width : 768px){
+    .select-box{
+        display: none;
+    }
+}

@@ -24,9 +24,6 @@ const routes: Routes = [
   {path : "clubUpdate/:id", component: ClubupdateComponent},
   {path : "footballerUpdate/:id", component : FootballerupdateComponent},
   {path : "admin", component : AdminComponent}
-
-
-
 ];
 
 @NgModule({

@@ -15,7 +15,7 @@ import { CountryaddComponent } from './Components/Main/Country/LeagueAdd/leaguea
 import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/leagueupdate.component';
 import { LeagueComponent } from './Components/Main/League/league.component';
 import { ClubComponent } from './Components/Main/Club/club.component';
-import { FooterComponent } from './Components/footer/footer.component';
+import { FooterComponent } from './Components/Footer/footer.component';
 import { HomeComponent } from './Components/Main/Home/home.component';
 import { NationalteamComponent } from './Components/Main/NationalTeam/nationalteam.component';
 import { AdminComponent } from './Components/Header/admin/admin/admin.component';
