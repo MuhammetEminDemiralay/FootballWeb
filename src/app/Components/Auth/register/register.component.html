@@ -1,0 +1,26 @@
+<form class="wrapper" [formGroup]="registerForm">
+    <div class="input-wrapper">
+        <span class="title">REGİSTER</span>
+        <div class="input-box">
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" formControlName="firstName">
+        </div>
+        <div class="input-box">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" formControlName="lastName">
+        </div>
+        <div class="input-box">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email">
+        </div>
+        <div class="input-box">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password">
+        </div>
+        <div class="input-box">
+            <button type="submit" (click)="register()">
+                Login
+            </button>
+        </div>
+    </div>
+</form>

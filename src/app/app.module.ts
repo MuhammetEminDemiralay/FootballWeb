@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 
@@ -18,7 +18,7 @@ import { ClubComponent } from './Components/Main/Club/club.component';
 import { FooterComponent } from './Components/Footer/footer.component';
 import { HomeComponent } from './Components/Main/Home/home.component';
 import { NationalteamComponent } from './Components/Main/NationalTeam/nationalteam.component';
-import { AdminComponent } from './Components/Header/admin/admin/admin.component';
+
 import { NationalteamupdateComponent } from './Components/Main/Country/NationalTeamUpdate/nationalteamupdate.component';
 import { NationalteamaddComponent } from './Components/Main/Country/NationalTeamAdd/nationalteamadd.component';
 import { ClubaddComponent } from './Components/Main/League/clubadd/clubadd.component';
@@ -31,8 +31,14 @@ import { NationalteamplayerupdateComponent } from './Components/Main/NationalTea
 import { ImagemanagerComponent } from './Components/Main/İmageManager/imagemanagaer/imagemanager.component';
 import { CustomcurrencyPipe } from './Pipe/customcurrency.pipe';
 import { LeaguelevelPipe } from './Pipe/leaguelevel.pipe';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { RegisterComponent } from './Components/Auth/register/register.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -53,21 +59,28 @@ import { LeaguelevelPipe } from './Pipe/leaguelevel.pipe';
     FooterComponent,
     HomeComponent,
     NationalteamComponent,
-    AdminComponent,
     NationalteamupdateComponent,
     NationalteamaddComponent,
     NationalteamplayeraddComponent,
     NationalteamplayerupdateComponent,
     ImagemanagerComponent,
     CustomcurrencyPipe,
-    LeaguelevelPipe
+    LeaguelevelPipe,
+    LoginComponent,
+    RegisterComponent,
+
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config : {
+        tokenGetter: tokenGetter,
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,8 @@ import { CountryupdateComponent } from './Components/Main/Country/LeagueUpdate/l
 import { ClubaddComponent } from './Components/Main/League/clubadd/clubadd.component';
 import { ClubupdateComponent } from './Components/Main/League/clubupdate/clubupdate.component';
 import { FootballerupdateComponent } from './Components/Main/Club/FootballerUpdate/footballerupdate.component';
-import { AdminComponent } from './Components/Header/admin/admin/admin.component';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { RegisterComponent } from './Components/Auth/register/register.component';
 
 const routes: Routes = [
   {path : "", redirectTo:"/home", pathMatch:"full"},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path : "leagueUpdate/:id", component : CountryupdateComponent},
   {path : "clubUpdate/:id", component: ClubupdateComponent},
   {path : "footballerUpdate/:id", component : FootballerupdateComponent},
-  {path : "admin", component : AdminComponent}
+  {path : "login", component : LoginComponent},
+  {path : "register", component : RegisterComponent}
 ];
 
 @NgModule({

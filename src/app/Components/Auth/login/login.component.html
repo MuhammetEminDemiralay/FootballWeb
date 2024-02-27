@@ -1,0 +1,18 @@
+<form class="wrapper" [formGroup]="loginForm">
+    <div class="input-wrapper">
+        <span class="title">LOGİN</span>
+        <div class="input-box">
+            <label for="email">Email</label>
+            <input placeholder="muhammet@gmail.com" type="email" id="email" formControlName="email">
+        </div>
+        <div class="input-box">
+            <label for="password">Password</label>
+            <input placeholder="123456" type="password" id="password" formControlName="password">
+        </div>
+        <div class="input-box">
+            <button type="submit" (click)="login()">
+                Login
+            </button>
+        </div>
+    </div>
+</form>
