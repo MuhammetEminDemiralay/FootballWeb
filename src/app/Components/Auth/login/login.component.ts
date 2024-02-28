@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
-    private localStorageService : LocalstorageService
+    private localStorageService: LocalstorageService
   ) { }
 
   ngOnInit(): void {
@@ -22,15 +22,20 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   createLoginForm() {
+    console.log(this.loginForm);
+    
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.required],
       password: ["", Validators.required]
     })
+
+    console.log(this.loginForm);
+    
   }
 
   login() {
     if (this.loginForm.valid) {
-      let loginModel = Object.assign({}, this.loginForm.value)
+      let loginModel = Object.assign({}, this.loginForm.value)    
       this.authService.login(loginModel).subscribe(response => {
         this.localStorageService.setToken(response.data.token);
         
@@ -38,7 +43,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-
+  formReload() {
+    window.location.reload();
+  }
 
 }

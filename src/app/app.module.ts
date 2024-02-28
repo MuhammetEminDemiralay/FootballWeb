@@ -34,6 +34,7 @@ import { LeaguelevelPipe } from './Pipe/leaguelevel.pipe';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ProfileComponent } from './Components/Auth/profile/profile.component';
 
 
 export function tokenGetter() {
@@ -68,6 +69,7 @@ export function tokenGetter() {
     LeaguelevelPipe,
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
 
   ],
   imports: [

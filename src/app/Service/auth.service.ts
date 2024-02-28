@@ -17,8 +17,6 @@ export class AuthService {
 
   constructor(private jwtHelper: JwtHelperService, private localStorageService: LocalstorageService, private httpClient: HttpClient) { }
 
-
-
   apiUrl = "https://localhost:44319/api/"
 
 
@@ -35,13 +33,10 @@ export class AuthService {
   token: string | null = ""
   decodedTokenKey: any;
 
-
-
   decodedToken(token: any) {
     return this.jwtHelper.decodeToken(token);
 
   }
-
 
   getUser() {
     let decodedToken = this.decodedToken(localStorage.getItem("_token"));
@@ -79,8 +74,6 @@ export class AuthService {
       return false;
     }
   }
-
-
 
   isAdmin() {
     let isAdmin = false
