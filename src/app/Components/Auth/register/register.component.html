@@ -1,24 +1,59 @@
 <form class="wrapper" [formGroup]="registerForm">
     <div class="input-wrapper">
-        <span (click)="formReload()" class="title">REGİSTER</span>
+        <span class="title">REGİSTER</span>
+        <i class='bx bx-reset reset' (click)="registerForm.reset()"></i>
         <div class="input-box">
             <label for="firstname">First name</label>
             <input placeholder="Muhammet..." type="text" id="firstname" formControlName="firstName">
+            <span class="error"
+                *ngIf="registerForm.get('firstName').errors?.['required'] && registerForm.get('firstName').touched">
+                *First name is required...
+            </span>
         </div>
+
         <div class="input-box">
             <label for="lastName">Last name</label>
             <input placeholder="Demiralay..." type="text" id="lastName" formControlName="lastName">
+            <span class="error"
+                *ngIf="registerForm.get('lastName').errors?.['required'] && registerForm.get('lastName').touched">
+                *Last name is required...
+            </span>
         </div>
+
         <div class="input-box">
             <label for="email">Email</label>
             <input placeholder="pepmuhammet.42@gmail.com..." type="email" id="email" formControlName="email">
+            <span class="error"
+                *ngIf="registerForm.get('email').errors?.['required'] && registerForm.get('email').touched">
+                *Email is required...
+            </span>
+            <span class="error"
+                *ngIf="registerForm.get('email').errors?.['email'] && registerForm.get('email').touched">
+                *Email format is not suitable...
+            </span>
         </div>
+
         <div class="input-box">
             <label for="password">Password</label>
-            <input placeholder="123456" type="password" id="password" formControlName="password">
+            <input [ngClass]="password()" placeholder="**********" type="password" id="password"
+                formControlName="password">
+            <span class="error"
+                *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+                <!-- errors or hasError-->
+                *Password is required...
+            </span>
+            <span class="error"
+                *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+                *Minimum 6 characters
+            </span>
+            <span class="error"
+                *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+                *Maximum 15 characters
+            </span>
         </div>
+
         <div class="input-box">
-            <button type="submit" (click)="register()">
+            <button type="submit" (click)="register()" [disabled]="!registerForm.valid">
                 Register
             </button>
         </div>

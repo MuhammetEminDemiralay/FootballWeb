@@ -1,16 +1,32 @@
 <form class="wrapper" [formGroup]="loginForm">
     <div class="input-wrapper">
-        <span (click)="formReload()" class="title">LOGİN</span>
+        <span (click)="loginForm.reset()" class="title">LOGİN</span>
         <div class="input-box">
             <label for="email">Email</label>
             <input placeholder="muhammet@gmail.com..." type="email" id="email" formControlName="email">
+            <small class="small" *ngIf="loginForm.get('email').errors?.['required'] && loginForm.get('email').touched">
+                *Please enter your email...
+            </small>
+            <small class="small" *ngIf="loginForm.get('email').errors?.['email'] && loginForm.get('email').touched">
+                *Email format is not suitable...
+            </small>
         </div>
         <div class="input-box">
             <label for="password">Password</label>
             <input placeholder="123456..." type="password" id="password" formControlName="password">
+            <small class="small"
+                *ngIf="loginForm.get('password').errors?.['required'] && loginForm.get('password').touched">
+                *Please enter your password...
+            </small>
+            <small class="small" *ngIf="loginForm.get('password').errors?.['minlength']">
+                *Minimum 6 characters
+            </small>
+            <small class="small" *ngIf="loginForm.get('password').errors?.['maxlength']">
+                *Maximum 15 characters
+            </small>
         </div>
         <div class="input-box">
-            <button type="submit" (click)="login()">
+            <button type="submit" (click)="login()" [disabled]="!loginForm.valid">
                 Login
             </button>
         </div>
