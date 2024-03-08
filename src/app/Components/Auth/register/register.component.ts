@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerForm: FormGroup;
-  passwordSelector: any;
+  passwordSelector: string;
 
   createRegisterForm() {
     this.registerForm = this.formBuilder.group({
@@ -42,29 +42,12 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  password(): any {
+  password() {
     this.registerForm.get('password').valueChanges.subscribe(res => {
-
-      // (res.length >= 6 && res.length <= 9) ? this.passwordSelector = "easy" :
-      //   (res.length > 9 && res.length <= 12) ? this.passwordSelector = "medium" :
-      //     (res.length > 12 && res.length <= 15) ? this.passwordSelector = "hard" :
-      //       "except";
-
-      // return this.passwordSelector
-
-      if (res.length >= 6 && res.length <= 9) {
-        this.passwordSelector = "easy"
-      } else if (res.length > 9 && res.length <= 12) {
-        this.passwordSelector = "medium"
-      } else if (res.length > 12 && res.length <= 15) {
-        this.passwordSelector = "hard"
-      }
-      else {
-        this.passwordSelector = "except";
-      }
-      
-      return this.passwordSelector
-      
+      (res.length > 5 && res.length <= 9) ? this.passwordSelector = "easy" :
+        (res.length > 9 && res.length <= 12) ? this.passwordSelector = "medium" :
+          (res.length > 12 && res.length <= 15) ? this.passwordSelector = "strong" :
+            this.passwordSelector = "outside";
     })
   }
 

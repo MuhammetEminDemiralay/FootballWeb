@@ -24,12 +24,13 @@
     padding-top: 40px;
 }
 
-.input-wrapper .reset{
+.input-wrapper .reset {
     position: absolute;
     right: 35px;
-    bottom: 30px;
-    font-size: 18px;
+    top: 35px;
+    font-size: 20px;
     cursor: pointer;
+    color: gray;
 }
 
 .input-wrapper .input-box {
@@ -38,6 +39,7 @@
     justify-content: center;
     flex-direction: column;
     row-gap: 3px;
+    position: relative;
 }
 
 .input-box input::placeholder {
@@ -54,7 +56,6 @@
     transition: all 0.2s linear;
     color: #fff;
     margin-top: 6px;
-
 }
 
 .input-box button:hover {
@@ -65,10 +66,11 @@
     width: 100%;
     height: 38px;
     border-radius: 5px;
-    border: 2px solid #cdcab9;
     text-indent: 10px;
     transition: all 0.2s linear;
     font-weight: 500;
+    border: 2px solid rgb(213, 212, 212);
+    outline: none;
 }
 
 
@@ -76,6 +78,7 @@
     font-weight: 500;
     font-size: 15px;
     padding-left: 5px;
+    color: #464545;
 }
 
 .input-wrapper .title {
@@ -116,3 +119,38 @@
     cursor: auto;
 }
 
+.input-box input[type='password'] {
+    font-size: 28px;
+    transition: all 0.3s linear;
+}
+
+.input-box input::placeholder {
+    vertical-align: middle;
+}
+
+.easy {
+    color: red;
+}
+
+.medium {
+    color: #fa8201;
+}
+
+.strong {
+    color: rgb(4, 177, 4);
+}
+
+.outside {
+    color: rgb(157, 156, 156);
+}
+
+.difficult {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+}
+
+.difficult span {
+    font-size: 15px;
+    font-weight: 500;
+}

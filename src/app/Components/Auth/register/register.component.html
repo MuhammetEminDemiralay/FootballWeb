@@ -35,8 +35,13 @@
 
         <div class="input-box">
             <label for="password">Password</label>
-            <input [ngClass]="password()" placeholder="**********" type="password" id="password"
+            <input [class]="passwordSelector" placeholder="**********" type="password" id="password"
                 formControlName="password">
+            <div class="difficult">
+                <span *ngIf="passwordSelector == 'easy'">easy</span>
+                <span *ngIf="passwordSelector == 'medium'">medium</span>
+                <span *ngIf="passwordSelector == 'strong'">strong</span>
+            </div>
             <span class="error"
                 *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
                 <!-- errors or hasError-->
