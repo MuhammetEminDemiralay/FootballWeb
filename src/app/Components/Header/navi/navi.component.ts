@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Model/user';
 import { AuthService } from 'src/app/Service/auth.service';
+import { LocalstorageService } from 'src/app/Service/localstorage.service';
 
 @Component({
   selector: 'app-navi',
@@ -9,9 +10,12 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class NaviComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private localStorageService: LocalstorageService
+  ) { }
 
-  userName : string;
+  userName: string;
 
   ngOnInit(): void {
     this.loggedIn()
@@ -22,9 +26,9 @@ export class NaviComponent implements OnInit {
     return this.authService.loggedIn();
   }
 
-  getUser(){
-    let userModel= this.authService.getUser().userName.split(" ");
-    this.userName= userModel[0];
+  getUser() {
+    let userModel = this.authService.getUser().userName.split(" ");
+    this.userName = userModel[0];
   }
 
 }

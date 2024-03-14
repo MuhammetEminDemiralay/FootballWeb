@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Service/auth.service';
 import { LocalstorageService } from 'src/app/Service/localstorage.service';
 import { CustomValidator } from 'src/app/Validators/password.validator';
@@ -14,7 +16,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private localStorageService: LocalstorageService
+    private router: Router,
+    private toastreService: ToastrService
   ) {
 
   }
@@ -39,6 +42,11 @@ export class RegisterComponent implements OnInit {
   register() {
     let registerModel = Object.assign({}, this.registerForm.value);
     this.authService.register(registerModel).subscribe(response => {
+      this.toastreService.success(response.message)
+      this.toastreService.info("Please log in")
+      this.router.navigate(["login"])
+    }, (error) => {
+      this.toastreService.error(error.error)
     })
   }
 
