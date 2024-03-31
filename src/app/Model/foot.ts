@@ -1,4 +1,4 @@
-export interface Foot{
-    id : number,
-    footName : string
+export interface Foot {
+    id: number,
+    footName: string
 }

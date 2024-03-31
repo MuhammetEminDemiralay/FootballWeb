@@ -1,4 +1,4 @@
-export interface Position{
-    id : number,
-    positionName : string
+export interface Position {
+    id: number,
+    positionName: string
 }

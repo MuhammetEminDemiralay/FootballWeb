@@ -11,53 +11,55 @@ import { NationalteamService } from 'src/app/Service/nationalteam.service';
   templateUrl: './nationalteam.component.html',
   styleUrls: ['./nationalteam.component.css']
 })
-export class NationalteamComponent implements OnInit{
-  
-  constructor(private activatedRoute : ActivatedRoute,
-              private footballerService : FootballerService,
-              private nationalTeamService : NationalteamService
-              ){}
-  
+export class NationalteamComponent implements OnInit {
+
+  constructor(private activatedRoute: ActivatedRoute,
+    private footballerService: FootballerService,
+    private nationalTeamService: NationalteamService
+  ) { }
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.nationalTeamId = params["id"];     
-      this.getNationalTeamDetailByNationalTeamId();   
+      this.nationalTeamId = params["id"];
+      this.getNationalTeamDetailByNationalTeamId();
     })
   }
 
-  nationalTeamId : number;
-  countryId : number;
-  nationalTeamLevel : number;
-  nationalTeamDetail : NationalTeamDetail;
-  footballerDetails : FootballerDetail[] = []
+  nationalTeamId: number;
+  countryId: number;
+  nationalTeamLevel: number;
+  nationalTeamDetail: NationalTeamDetail;
+  footballerDetails: FootballerDetail[] = []
   imageUrl = "https://localhost:44319/"
   noFootballerPhoto = "Images/783c32fcf6fd45bcb5bf8c25c4719636.jpg"
 
 
-  getNationalTeamDetailByNationalTeamId(){
+  getNationalTeamDetailByNationalTeamId() {
     this.nationalTeamService.getNationalTeamDetailByNationalTeamId(this.nationalTeamId).subscribe(response => {
       this.nationalTeamDetail = response.data;
       this.nationalTeamLevel = response.data.nationalTeamLevel;
       this.countryId = response.data.countryId;
       this.getFootballerDetailByNationalTeam();
+      
     })
   }
 
-  getFootballerDetailByNationalTeam(){
+  getFootballerDetailByNationalTeam() {
     this.footballerService.getFootballerDetailByNationalTeam(this.countryId, true, this.nationalTeamLevel).subscribe(response => {
       this.footballerDetails = response.data;
+      console.log(response.data);
     })
   }
 
-  playerActiveAndPassive(footballerDetail : FootballerDetail){
+  playerActiveAndPassive(footballerDetail: FootballerDetail) {
     footballerDetail.nationalTeamPlayerActive = false;
     this.footballerService.updateFootballer(footballerDetail).subscribe(response => {
       window.location.reload();
     })
   }
 
-  playerChangeLeagueLevel(){
-    
+  playerChangeLeagueLevel() {
+
   }
 
 }

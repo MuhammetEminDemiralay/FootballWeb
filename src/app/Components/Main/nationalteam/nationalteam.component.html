@@ -1,41 +1,52 @@
-<div class="container mt-2"  style="padding-left: 0px;">
-    <div class="row mt-2">
-        <div class="col-8" *ngIf="footballerDetails">
-            <div class="title"  *ngIf="nationalTeamDetail">
-                <b>Kadro {{nationalTeamDetail.nationalTeamName}}</b>
+<div class="row p-0 m-0" *ngIf="nationalTeamDetail">
+    <div class="col-12 col-md-8 p-2 m-0">
+        <div class="league-wrapper">
+            <div class="title-box">
+                SQUAD {{nationalTeamDetail.nationalTeamName}}
+                <i data-bs-toggle="modal" data-bs-target="#leagueAdd" class='bx bx-plus plus icon'></i>
             </div>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Numara</th>
-                        <th>Oyuncu</th>
-                        <th>Yaş</th>
-                        <th>Klüp</th>
-                        <th>Piyasa Değeri</th>
-                        <th>Editör</th>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Date of birth/Age</th>
+                        <th>Club</th>
+                        <th>Market value</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let footballerDetail of footballerDetails">
-                        <td>Numara</td>
-                        <td>
-                           <img style="width: 30px;" [src]="footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto">
-                           <b>{{footballerDetail.name}}</b> 
+                        <td>{{footballerDetail.nationalTeamNumber}}</td>
+                        <td class="footballer-info">
+                            <div class="footballer-image-box">
+                                <img class="footballer-image"
+                                    [src]="footballerDetail.footballerImagePath ? imageUrl + footballerDetail.footballerImagePath : imageUrl + noFootballerPhoto" />
+                            </div>
+                            <div class="footballer-name-position">
+                                <div class="footballer-name">{{footballerDetail.name}}</div>
+                                <div class="footballer-positon">{{footballerDetail.positionName}}</div>
+                            </div>
                         </td>
-                        <td>{{footballerDetail.age}}</td>
-                        <td>
-                            <img style="width: 30px;"  [src]="imageUrl + footballerDetail.footballerClubImagePath">
-                        </td>
-                        <td>{{footballerDetail.footballerValue}}</td>
-                        <td>
-                            <button (click)="playerActiveAndPassive(footballerDetail)">-</button>
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
-        <div class="col-4">
-            b
+    </div>
+
+    <div class="col-12 col-md-4  p-2  m-0">
+        <div class="national-wrapper">
+            <div class="title-box">
+                NATIONAL TEAMS
+                <i data-bs-toggle="modal" data-bs-target="#nationalTeamAdd" class='bx bx-plus plus icon'></i>
+            </div>
+
         </div>
-  </div>
+    </div>
 </div>

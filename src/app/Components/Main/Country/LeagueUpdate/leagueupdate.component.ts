@@ -1,6 +1,6 @@
 import { getLocaleFirstDayOfWeek } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { League } from 'src/app/Model/league';
 import { LeagueDetail } from 'src/app/Model/leagueDetail';
@@ -12,9 +12,9 @@ import { LeagueService } from 'src/app/Service/league.service';
   templateUrl: './leagueupdate.component.html',
   styleUrls: ['./leagueupdate.component.css']
 })
-export class CountryupdateComponent implements OnInit, OnChanges{
+export class CountryupdateComponent implements OnInit, OnChanges {
 
-  constructor(private countryService : CountryService, private activatedRoute : ActivatedRoute ,private leagueService : LeagueService, private formBuilder : FormBuilder){}
+  constructor(private countryService: CountryService, private activatedRoute: ActivatedRoute, private leagueService: LeagueService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -24,55 +24,53 @@ export class CountryupdateComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(this.leagueId){
+    if (this.leagueId) {
       this.getLeagueDetailByLeagueId();
     }
   }
-  
-  @Input() leagueId : number;
-  leagueUpdateForm : FormGroup;
-  countryId : number;
-  leagueDetail : LeagueDetail;
 
-  createLeagueUpdate(){
+  @Input() leagueId: number;
+  leagueUpdateForm: FormGroup;
+  countryId: number;
+  leagueDetail: LeagueDetail;
+
+  createLeagueUpdate() {
     this.leagueUpdateForm = this.formBuilder.group({
-      leagueName : ["", Validators.required],
-      numberOfTeams : ["", Validators.required],
-      totalMarketValue  : ["", Validators.required],
-      players : ["", Validators.required],
-      leagueLevel : ["", Validators.required],
-      reigningChampion : ["", Validators.required]
+      leagueName: ["", Validators.required],
+      totalMarketValue: ["", Validators.required],
+      players: ["", Validators.required],
+      leagueLevel: ["", Validators.required],
+      reigningChampion: ["", Validators.required]
     })
   }
 
-  getLeagueDetailByLeagueId(){        
-    
+  getLeagueDetailByLeagueId() {
+
     this.leagueService.getLeagueDetailByLeagueId(this.leagueId).subscribe(response => {
-        this.leagueDetail = response.data;     
-           
-        this.leagueUpdateForm.setValue({
-          leagueName : response.data.leagueName,
-          leagueLevel : response.data.leagueLevel,
-          numberOfTeams : response.data.numberOfTeams,
-          players : response.data.players,
-          reigningChampion : response.data.reigningChampion,
-          totalMarketValue : response.data.totalMarketValue,
-        })   
+      this.leagueDetail = response.data;
+
+      this.leagueUpdateForm.setValue({
+        leagueName: response.data.leagueName,
+        leagueLevel: response.data.leagueLevel,
+        players: response.data.players,
+        reigningChampion: response.data.reigningChampion,
+        totalMarketValue: response.data.totalMarketValue,
+      })
 
     })
   }
 
-  leagueUpdate(){
+  leagueUpdate() {
     let model = Object.assign({}, this.leagueUpdateForm.value);
     let leagueModel = <League>{
-      id : this.leagueId,
-      countryId : this.countryId,
-      leagueName : model.leagueName,
-      leagueLevel : model.leagueLevel,
-      numberOfTeams : model.numberOfTeams,
-      players : model.players,
-      reigningChampion : model.reigningChampion,
-      totalMarketValue : model.totalMarketValue
+      id: this.leagueId,
+      countryId: this.countryId,
+      leagueName: model.leagueName,
+      leagueLevel: model.leagueLevel,
+      numberOfTeams: model.numberOfTeams,
+      players: model.players,
+      reigningChampion: model.reigningChampion,
+      totalMarketValue: model.totalMarketValue
     }
 
     this.leagueService.leagueUpdate(leagueModel).subscribe(response => {

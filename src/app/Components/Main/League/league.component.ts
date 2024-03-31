@@ -35,9 +35,9 @@ export class LeagueComponent implements OnInit {
   leagueDetail: LeagueDetail;
   imageUrl = "https://localhost:44319/"
   noLeaguePhoto = "Images/noImage.jpg"
-  leagueTotalValue : number = 0;
-  leagueForeigners : number = 0;
-  averageAge : number = 0;
+  leagueTotalValue: number = 0;
+  leagueForeigners: number = 0;
+  averageAge: number = 0;
 
 
   getClubsDetailByLeagueId() {

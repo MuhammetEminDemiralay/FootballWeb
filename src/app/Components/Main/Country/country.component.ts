@@ -14,13 +14,13 @@ import { NationalteamService } from 'src/app/Service/nationalteam.service';
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.css']
 })
-export class CountryComponent implements OnInit{
+export class CountryComponent implements OnInit {
 
-  constructor(private activatedRoute : ActivatedRoute,
-              private leagueService : LeagueService,
-              private nationalTeamService: NationalteamService,
-              private router : Router
-              ){}
+  constructor(private activatedRoute: ActivatedRoute,
+    private leagueService: LeagueService,
+    private nationalTeamService: NationalteamService,
+    private router: Router
+  ) { }
 
 
   ngOnInit(): void {
@@ -31,61 +31,60 @@ export class CountryComponent implements OnInit{
     })
   }
 
-  countryId : number;
-  leagueId : number;
-  leagueDetails : LeagueDetail[] = [];
+  countryId: number;
+  leagueId: number;
+  leagueDetails: LeagueDetail[] = [];
   imageUrl = "https://localhost:44319/"
   noLeaguePhoto = "Images/noImage.jpg"
-  nationalTeams : NationalTeamDetail[] = [];
-  nationalTeamId : number;
-  leagueFirst : LeagueDetail[] = [];
-  leagueSecond : LeagueDetail[] = [];
-  leagueThird : LeagueDetail[] = [];
-  leagueFourth : LeagueDetail[] = [];
-  leagueFifth : LeagueDetail[] = [];
-  leagueSixth : LeagueDetail[] = [];
-  getLeaguesByCountryId(){
+  nationalTeams: NationalTeamDetail[] = [];
+  nationalTeamId: number;
+  leagueFirst: LeagueDetail[] = [];
+  leagueSecond: LeagueDetail[] = [];
+  leagueThird: LeagueDetail[] = [];
+  leagueFourth: LeagueDetail[] = [];
+  leagueFifth: LeagueDetail[] = [];
+  leagueSixth: LeagueDetail[] = [];
+  getLeaguesByCountryId() {
     this.leagueService.getLeaguesDetailByCountryId(this.countryId).subscribe(response => {
       this.leagueDetails = response.data;
-
       this.leagueFirst = response.data.filter(data => data.leagueLevel == 1);
       this.leagueSecond = response.data.filter(data => data.leagueLevel == 2);
       this.leagueThird = response.data.filter(data => data.leagueLevel == 3);
       this.leagueFourth = response.data.filter(data => data.leagueLevel == 4);
       this.leagueFifth = response.data.filter(data => data.leagueLevel == 5);
-      this.leagueSixth = response.data.filter(data => data.leagueLevel == 6);      
+      this.leagueSixth = response.data.filter(data => data.leagueLevel == 6);
     })
   }
 
-  getNationalTeamsByCountryId(){
+  getNationalTeamsByCountryId() {
     this.nationalTeamService.getNationalTeamDetailByCountryId(this.countryId).subscribe(response => {
       this.nationalTeams = response.data;
     })
   }
 
-  leagueDelete(league : League){
-    if(window.confirm("Are you sure you want to delete")){
+  leagueDelete(league: League) {
+    if (window.confirm("Are you sure you want to delete")) {
       this.leagueService.deleteLeague(league).subscribe(response => {
         window.location.reload();
       })
     }
   }
 
-  getLeagueId(leagueId : number){
-    this.leagueId = leagueId     
-  }
-  
-  getNationalTeamId(nationalTeamId : number){
-    this.nationalTeamId = nationalTeamId;  
+  getLeagueId(leagueId: number) {
+    this.leagueId = leagueId
   }
 
-  nationalTeamDelete(nationalTeam : NationalTeamDetail){
-    if(window.confirm("Are you sure you want to delete"))
-     this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
-      window.location.reload();
-     })
-   }
+  getNationalTeamId(nationalTeamId: number) {
+    this.nationalTeamId = nationalTeamId;
+  }
+
+  nationalTeamDelete(nationalTeam: NationalTeamDetail) {
+    if (window.confirm("Are you sure you want to delete"))
+      this.nationalTeamService.deleteNationalTeam(nationalTeam).subscribe(response => {
+        window.location.reload();
+      })
+  }
 
 
-  
+
 }

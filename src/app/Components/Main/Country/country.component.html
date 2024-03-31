@@ -1,11 +1,11 @@
 <div class="row p-0 m-0">
     <div class="col-12 col-md-8 p-2 m-0">
         <div class="league-wrapper">
-           <div class="title-box">
+            <div class="title-box">
                 DOMESTIC LEAGUES & CUPS
-                <i  data-bs-toggle="modal" data-bs-target="#leagueAdd" class='bx bx-plus plus icon'></i>
-           </div>
-           <table class="table">
+                <i data-bs-toggle="modal" data-bs-target="#leagueAdd" class='bx bx-plus plus icon'></i>
+            </div>
+            <table class="table">
                 <thead>
                     <tr>
                         <th id="competition">Competition</th>
@@ -18,98 +18,116 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngIf="leagueFirst.length > 0"><td  class="league-level" colspan="6">First Tier</td></tr>
+                    <tr *ngIf="leagueFirst.length > 0">
+                        <td class="league-level" colspan="6">First Tier</td>
+                    </tr>
                     <tr *ngFor="let first of leagueFirst" (click)="getLeagueId(first.id)">
                         <td id="img-td">
-                            <img routerLink="/league/{{first.id}}" [src]="first.leagueImagePath ? imageUrl + first.leagueImagePath : imageUrl + noLeaguePhoto">
+                            <img routerLink="/league/{{first.id}}"
+                                [src]="first.leagueImagePath ? imageUrl + first.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span routerLink="/league/{{first.id}}">{{first.leagueName}}</span>
                         </td>
                         <td>{{first.numberOfTeams}}</td>
                         <td>{{first.players}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{first.totalMarketValue}}</td>
+                        <td><i class='bx bxs-message chat'></i></td>
+                        <td>{{first.totalMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(first)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
-                    <tr *ngIf="leagueSecond.length > 0"><td class="league-level"  colspan="6">Second Tier</td></tr>
-                    <tr *ngFor="let second of leagueSecond"  (click)="getLeagueId(second.id)">
-                        <td  id="img-td">
-                            <img [src]="second.leagueImagePath ? imageUrl + second.leagueImagePath : imageUrl + noLeaguePhoto">
+                    <tr *ngIf="leagueSecond.length > 0">
+                        <td class="league-level" colspan="6">Second Tier</td>
+                    </tr>
+                    <tr *ngFor="let second of leagueSecond" (click)="getLeagueId(second.id)">
+                        <td id="img-td">
+                            <img
+                                [src]="second.leagueImagePath ? imageUrl + second.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span>{{second.leagueName}}</span>
                         </td>
                         <td>{{second.numberOfTeams}}</td>
                         <td>{{second.players}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{second.totalMarketValue  | currency : 'EUR'}}</td>
+                        <td><i class='bx bxs-message chat'></i></td>
+                        <td>{{second.totalMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(second)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
-                    <tr *ngIf="leagueThird.length > 0"><td class="league-level"  colspan="6">Third Tier</td></tr>
+                    <tr *ngIf="leagueThird.length > 0">
+                        <td class="league-level" colspan="6">Third Tier</td>
+                    </tr>
                     <tr *ngFor="let third of leagueThird" (click)="getLeagueId(third.id)">
-                        <td  id="img-td">
-                            <img [src]="third.leagueImagePath ? imageUrl + third.leagueImagePath : imageUrl + noLeaguePhoto">
+                        <td id="img-td">
+                            <img
+                                [src]="third.leagueImagePath ? imageUrl + third.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span>{{third.leagueName}}</span>
                         </td>
                         <td>{{third.numberOfTeams}}</td>
                         <td>{{third.players}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{third.totalMarketValue  | currency : 'EUR'}}</td>
+                        <td><i class='bx bxs-message chat'></i></td>
+                        <td>{{third.totalMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(third)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
-                    <tr *ngIf="leagueFourth.length > 0"><td class="league-level"  colspan="6">Fourth Tier</td></tr>
+                    <tr *ngIf="leagueFourth.length > 0">
+                        <td class="league-level" colspan="6">Fourth Tier</td>
+                    </tr>
                     <tr *ngFor="let fourth of leagueFourth" (click)="getLeagueId(fourth.id)">
-                        <td  id="img-td">
-                            <img [src]="fourth.leagueImagePath ? imageUrl + fourth.leagueImagePath : imageUrl + noLeaguePhoto">
+                        <td id="img-td">
+                            <img
+                                [src]="fourth.leagueImagePath ? imageUrl + fourth.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span>{{fourth.leagueName}}</span>
                         </td>
                         <td>{{fourth.numberOfTeams}}</td>
                         <td>{{fourth.players}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{fourth.totalMarketValue  | currency : 'EUR'}}</td>
+                        <td><i class='bx bxs-message chat'></i></td>
+                        <td>{{fourth.totalMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(fourth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
-                    <tr *ngIf="leagueFifth.length > 0"><td class="league-level"  colspan="6">Fifth Tier</td></tr>
+                    <tr *ngIf="leagueFifth.length > 0">
+                        <td class="league-level" colspan="6">Fifth Tier</td>
+                    </tr>
                     <tr *ngFor="let fifth of leagueFifth" (click)="getLeagueId(fifth.id)">
-                        <td  id="img-td">
-                            <img [src]="fifth.leagueImagePath ? imageUrl + fifth.leagueImagePath : imageUrl + noLeaguePhoto">
+                        <td id="img-td">
+                            <img
+                                [src]="fifth.leagueImagePath ? imageUrl + fifth.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span>{{fifth.leagueName}}</span>
                         </td>
                         <td>{{fifth.numberOfTeams}}</td>
                         <td>{{fifth.players}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{fifth.totalMarketValue  | currency : 'EUR'}}</td>
+                        <td><i class='bx bxs-message chat'></i></td>
+                        <td>{{fifth.totalMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(fifth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
-                    <tr *ngIf="leagueSixth.length > 0"><td class="league-level"  colspan="6">Sixth Tier</td></tr>
-                    <tr class="value-box" *ngFor="let sixth of leagueSixth"  (click)="getLeagueId(sixth.id)">
-                        <td  id="img-td">
-                            <img [src]="sixth.leagueImagePath ? imageUrl + sixth.leagueImagePath : imageUrl + noLeaguePhoto">
+                    <tr *ngIf="leagueSixth.length > 0">
+                        <td class="league-level" colspan="6">Sixth Tier</td>
+                    </tr>
+                    <tr class="value-box" *ngFor="let sixth of leagueSixth" (click)="getLeagueId(sixth.id)">
+                        <td id="img-td">
+                            <img
+                                [src]="sixth.leagueImagePath ? imageUrl + sixth.leagueImagePath : imageUrl + noLeaguePhoto">
                             <span>{{sixth.leagueName}}</span>
                         </td>
                         <td>{{sixth.numberOfTeams}}</td>
                         <td>{{sixth.players}}</td>
-                        <td><i class='bx bxs-message chat' ></i></td>
-                        <td>{{sixth.totalMarketValue | currency : 'EUR'}}</td>
+                        <td><i class='bx bxs-message chat'></i></td>
+                        <td>{{sixth.totalMarketValue | customcurrency}}</td>
                         <td class="edit-box">
-                            <i data-bs-toggle="modal"  data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
+                            <i data-bs-toggle="modal" data-bs-target="#leagueUpdate" class='bx bxs-pencil pen icon'></i>
                             <i (click)="leagueDelete(sixth)" class="bx bx-minus delete icon"></i>
                         </td>
                     </tr>
                 </tbody>
-           </table>
+            </table>
         </div>
     </div>
 
@@ -121,20 +139,22 @@
             </div>
             <ul class="national-team" *ngFor="let nationalTeam of nationalTeams">
                 <li class="name-img">
-                    <img  routerLink="/nationalTeam/{{nationalTeam.id}}" [src]=" nationalTeam.nationalTeamImagePath ? imageUrl + nationalTeam.nationalTeamImagePath :  imageUrl + noLeaguePhoto">
+                    <img routerLink="/nationalTeam/{{nationalTeam.id}}"
+                        [src]=" nationalTeam.nationalTeamImagePath ? imageUrl + nationalTeam.nationalTeamImagePath :  imageUrl + noLeaguePhoto">
                     <span routerLink="/nationalTeam/{{nationalTeam.id}}">{{nationalTeam.nationalTeamName}}</span>
                 </li>
                 <li>
                     <i *ngIf="false" routerLink="/nationalTeam/{{nationalTeam.id}}" class='bx bx-chevron-right'></i>
                     <div class="national-icon" *ngIf="true">
-                        <i (click)="getNationalTeamId(nationalTeam.id)" data-bs-toggle="modal" data-bs-target="#nationalTeamUpdate" class='bx bxs-pencil icon'></i>
+                        <i (click)="getNationalTeamId(nationalTeam.id)" data-bs-toggle="modal"
+                            data-bs-target="#nationalTeamUpdate" class='bx bxs-pencil icon'></i>
                         <i (click)="nationalTeamDelete(nationalTeam)" class="bx bx-minus icon"></i>
                     </div>
                 </li>
             </ul>
         </div>
     </div>
-</div>    
+</div>
 
 
 
@@ -142,56 +162,55 @@
 <div class="modal" tabindex="-1" id="leagueAdd">
     <div class="modal-dialog modal-lg ">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">League Add</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-2 model">
-            <app-leagueadd [countryId]="countryId"></app-leagueadd>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title">League Add</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2 model">
+                <app-leagueadd [countryId]="countryId"></app-leagueadd>
+            </div>
         </div>
     </div>
-</div>    
+</div>
 
 <div class="modal" tabindex="-1" id="leagueUpdate">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">League Update</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-2">
-            <app-leagueupdate [leagueId]="leagueId"></app-leagueupdate>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title">League Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <app-leagueupdate [leagueId]="leagueId"></app-leagueupdate>
+            </div>
         </div>
     </div>
-</div>  
-    
+</div>
+
 <div class="modal" tabindex="-1" id="nationalTeamAdd">
-     <div class="modal-dialog modal-lg">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title">National Team Add</h5>
-           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body p-2">
-            <app-nationalteamadd [countryId]="countryId"></app-nationalteamadd>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">National Team Add</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <app-nationalteamadd [countryId]="countryId"></app-nationalteamadd>
+            </div>
         </div>
-       </div>
-     </div>
+    </div>
 </div>
 
 <div class="modal " tabindex="-1" id="nationalTeamUpdate">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">League Update</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-2" >
-            <app-nationalteamupdate [nationalTeamId]="nationalTeamId"></app-nationalteamupdate>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title">League Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <app-nationalteamupdate [nationalTeamId]="nationalTeamId"></app-nationalteamupdate>
+            </div>
         </div>
     </div>
-</div>  
- 
+</div>

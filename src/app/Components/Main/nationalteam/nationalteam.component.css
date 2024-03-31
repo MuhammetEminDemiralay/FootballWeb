@@ -1,16 +1,224 @@
-th, td{
-    border: thin solid black;
-    padding: 10px;
-    background-color: white;
 
+
+.league-wrapper{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+
+.title-box{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 10px;
+    width: 100%;
+    height: 34px;
+    background-color: #1a3151;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.title-box .icon{
+    position: absolute;
+    right: 2px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: #fff;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.title-box .icon:hover{
+    color: #fff;
+    background-color: #ef233c;
+}
+
+.league-level{
+    width: 100%;
+    background-color: #d2e3ed;
+    font-weight: 500;
+    text-align: start;
+    text-indent: 4px;
+}
+
+td,th{
+    border: 1px solid #dddddd;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#competition{
+    text-indent: 4px;
+    text-align: start;
+}
+
+#img-td{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    text-align: start;
+    text-indent: 4px;
+}
+
+#img-td span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#img-td img{
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+#img-td span{
+    color: #22577a;
+}
+
+#img-td img:hover{
+    transform: scale(1.4);
+}
+
+.chat{
+    color: #a8a8a8;
+    cursor: pointer;
+}
+
+.chat:hover{
+    transform: scale(1.2);
+} 
+
+.national-wrapper{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.edit-box .icon{
+    padding: 4px;
+    font-size: 20px;
+    border: 1px solid black;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.edit-box .icon:hover{
+    color: #fff;
+    background-color: #ef233c;
 }
 
 
-.title{
-    background-color:#1a3151;
-    text-indent: 6px; 
-    font-size: larger;
-    font-weight: bold; 
-    color: white;
+.national-team{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #d5dbe4;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.national-team:hover{
+    background-color: #ebebeb;
+}
+
+
+.national-icon .icon{
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: all 0.1s linear;
+    margin-left: 3px;
+    margin-right: 3px;
+    transition: all 0.2s linear;
+}
+
+.national-icon .icon:hover{
+    color: #fff;
+    background-color: #ef233c;
+}
+
+.national-team .name-img{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.national-team li{
+    list-style: none;
+}
+
+.national-team li i{
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer;
     margin-right: 5px;
+}
+
+
+.national-team li span{
+    font-size: 18px;
+    font-weight: 500;
+    color: #666666;
+    cursor: pointer;
+}
+
+.name-img img{
+    width: 45px;
+    height: 25px;
+    object-fit: cover;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.model{
+    min-height: 500px;
+}
+
+.footballer-info{
+    display: flex;
+    align-items: center;
+}
+
+.footballer-info .footballer-image-box{
+    width: 40px;
+    height: 40px;
+}
+
+.footballer-image-box .footballer-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footballer-info .footballer-name-position{
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.footballer-name,
+.footballer-positon{
+    display: flex;
+    justify-content: start;
+}
+
+.footballer-name{
+    color:#0f6194;
+    font-weight: 600;
+    font-size: 15px;
 }
